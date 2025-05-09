@@ -14,18 +14,19 @@ const LogrosCallToAction = () => {
             Sé parte de nuestro club y contribuye a seguir construyendo una historia de logros y reconocimientos en el mundo de la programación.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild className="inline-flex items-center justify-center px-6 py-3 rounded-full text-primary-foreground font-medium transition-all hover:scale-105 hover:shadow-neon-blue">
-              <Link to="/contact">
-                Contáctanos
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button variant="outline" asChild className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-primary bg-transparent text-primary font-medium transition-all hover:scale-105 hover:bg-primary/10 hover:shadow-neon-blue">
-              <Link to="/events">
-                Ver eventos próximos
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium transition-all hover:scale-105 hover:shadow-neon-blue"
+            >
+              Contáctanos
+            </Link>
+            <Link
+              to="/events"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-full border border-primary bg-transparent text-primary font-medium transition-all hover:scale-105 hover:bg-primary/10 hover:shadow-neon-blue group"
+            >
+              Ver eventos próximos
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
       </div>

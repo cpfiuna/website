@@ -10,13 +10,13 @@ const TeamMembers = () => {
       
       <div className="container mx-auto max-w-6xl">
         <TeamSection 
-          title={<>Nuestra <span className="gradient-text">Comisión Directiva</span></>}
+          title={<>Comisión <span className="gradient-text">Directiva</span></>}
           members={teamMembers}
         />
 
         <div className="mt-20">
           <TeamSection 
-            title={<>Nuestras <span className="gradient-text">Secretarías</span></>}
+            title={<>Nuestros <span className="gradient-text">Secretarios</span></>}
             members={secretariaMembers}
           />
         </div>

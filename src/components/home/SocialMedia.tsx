@@ -140,11 +140,12 @@ const SocialMedia = () => {
         </div>
 
         <div className="text-center">
-          <Button asChild>
-            <Link to="/community">
-              Ver más en nuestra comunidad
-            </Link>
-          </Button>
+          <Link
+            to="/community"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium transition-all hover:scale-105 hover:shadow-neon-blue"
+          >
+            Ver más en nuestra comunidad
+          </Link>
         </div>
       </div>
     </section>

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { parseMarkdown, EventFrontMatter } from '@/utils/markdownUtils';
 
@@ -20,19 +19,30 @@ export function useEvents() {
           // Parse the markdown content
           const { frontMatter } = parseMarkdown(content as string);
           
+          // Calculate isUpcoming based on date comparison
+          const today = new Date();
+          const eventDate = new Date(frontMatter.date);
+          const isUpcoming = eventDate > today;
+
           // Ensure frontMatter has all required fields
           const eventData: EventFrontMatter = {
             id: frontMatter.id || slug,
             title: frontMatter.title || "Untitled Event",
             date: frontMatter.date || new Date().toISOString(),
-            time: frontMatter.time || "TBD",
             location: frontMatter.location || "TBD",
             description: frontMatter.description || "",
             image: frontMatter.image || "/placeholder.svg",
             type: frontMatter.type || "meetup",
-            registrationLink: frontMatter.registrationLink || "#",
-            isUpcoming: frontMatter.isUpcoming ?? false,
-            slug
+            isUpcoming: isUpcoming,
+            slug,
+            time: frontMatter.time || "TBD",
+            organizer: frontMatter.organizer,
+            registrationLink: frontMatter.registrationUrl,
+            speakers: frontMatter.speakers,
+            topics: frontMatter.topics,
+            prerequisites: frontMatter.prerequisites,
+            resources: frontMatter.resources,
+            sponsors: frontMatter.sponsors
           };
           
           return eventData;
@@ -43,12 +53,10 @@ export function useEvents() {
             id: slug,
             title: `Event ${slug}`,
             date: new Date().toISOString(),
-            time: "TBD",
             location: "TBD",
             description: "Event description unavailable",
             image: "/placeholder.svg",
             type: "meetup",
-            registrationLink: "#",
             isUpcoming: false,
             slug
           } as EventFrontMatter;
@@ -61,9 +69,9 @@ export function useEvents() {
       });
       
       setEvents(parsedEvents);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error parsing event files:", error);
-      setError(error);
+      setError(error instanceof Error ? error : new Error(String(error)));
       // Fallback to empty array
       setEvents([]);
     } finally {

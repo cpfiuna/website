@@ -81,11 +81,11 @@
 /* Fix for gradient text in light mode */
 .gradient-text {
   @apply bg-clip-text text-transparent bg-gradient-to-r;
-  background-image: linear-gradient(to right, #3b82f6, #2563eb);
+  background-image: linear-gradient(to right, #00befe, #3984f6); /*#3b82f6, #2563eb*/
 }
 
 .dark .gradient-text {
-  background-image: linear-gradient(to right, #60a5fa, #3b82f6);
+  background-image: linear-gradient(to right, #00befe, #3984f6);
 }
 
 /* Fix for background gradients in light mode */

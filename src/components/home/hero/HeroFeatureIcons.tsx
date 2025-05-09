@@ -31,21 +31,21 @@ const HeroFeatureIcons = ({ onMount }: HeroFeatureIconsProps) => {
       title: "Comunidad",
       description: "Aprendizaje compartido",
       link: "/community",
-      delay: 0.1
+      delay: 0
     },
     {
       icon: <Calendar className="h-6 w-6 md:h-8 md:w-8 text-primary mb-2 md:mb-4 animate-pulse-slow" style={{ animationDelay: "1s" }} />,
       title: "Eventos",
       description: "Hackathons y workshops",
       link: "/events",
-      delay: 0.2
+      delay: 0
     },
     {
       icon: <BookOpen className="h-6 w-6 md:h-8 md:w-8 text-primary mb-2 md:mb-4 animate-pulse-slow" style={{ animationDelay: "1.5s" }} />,
       title: "Recursos",
       description: "Tutoriales y herramientas",
       link: "/resources",
-      delay: 0.3
+      delay: 0
     }
   ];
 

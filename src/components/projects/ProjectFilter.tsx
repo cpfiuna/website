@@ -1,6 +1,6 @@
-
 import React from "react";
 import { Filter, Search } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export type ProjectCategory = {
   value: string;
@@ -47,31 +47,23 @@ const ProjectFilter = ({
         
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => (
-            <button
+            <Button
               key={category.value}
+              variant={filter === category.value ? "default" : "outline"}
+              className="rounded-full"
               onClick={() => setFilter(category.value)}
-              className={`px-4 py-2 rounded-full text-sm transition-all
-                ${
-                  filter === category.value
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                }`}
             >
               {category.label}
-            </button>
+            </Button>
           ))}
           
-          <button
+          <Button
+            variant={showFeaturedOnly ? "default" : "outline"}
+            className="rounded-full"
             onClick={() => setShowFeaturedOnly(!showFeaturedOnly)}
-            className={`px-4 py-2 rounded-full text-sm transition-all ml-2
-              ${
-                showFeaturedOnly
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-              }`}
           >
             {showFeaturedOnly ? "Todos" : "Destacados"}
-          </button>
+          </Button>
         </div>
       </div>
     </div>

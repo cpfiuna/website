@@ -13,7 +13,7 @@ const EventsCallToAction = () => {
           </p>
           <a
             href="/contact"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-primary text-primary-foreground font-medium transition-all hover:scale-105 hover:shadow-neon-blue"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium transition-all hover:scale-105 hover:shadow-neon-blue"
           >
             Contáctanos
           </a>

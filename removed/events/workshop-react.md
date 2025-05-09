@@ -1,4 +1,3 @@
-
 ---
 id: 2
 title: "Workshop: Introducción a React"

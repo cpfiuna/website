@@ -1,4 +1,3 @@
-
 ---
 id: 101
 title: "NASA International Space Apps Challenge"
@@ -6,7 +5,7 @@ date: "2024-10-05"
 time: "09:00 - 21:00"
 location: "Campus FIUNA, Laboratorio Central"
 description: "Un hackathon global de 48 horas donde equipos resuelven desafíos utilizando datos abiertos de la NASA."
-image: "https://images.unsplash.com/photo-1501862700950-18382cd41497?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+image: "/eventos/nasa-space-apps.jpg"
 type: "hackathon"
 registrationLink: "https://www.spaceappschallenge.org/"
 isUpcoming: true

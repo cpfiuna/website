@@ -1,4 +1,3 @@
-
 ---
 id: "1"
 title: "Hackathon FIUNA 2024"
