@@ -40,42 +40,42 @@ const timelineEvents = [
     title: "Adaptación Virtual",
     description: "Ante la pandemia global, transformamos todas nuestras actividades a formato virtual, alcanzando a más estudiantes que nunca con webinars y hackatones en línea.",
     icon: BookOpen,
-    image: "/images/timeline/virtual.jpg"
+    image: "/images/timeline/cpf-2020.jpg"
   },
   {
     year: "2021",
     title: "Primeros Proyectos Open Source",
     description: "Lanzamos nuestras primeras contribuciones a proyectos de código abierto, estableciendo la cultura de colaboración en el desarrollo de software.",
     icon: Star,
-    image: "/images/timeline/opensource.jpg"
+    image: "/images/timeline/cpf-2021.png"
   },
   {
     year: "2022",
     title: "Renovación y Expansión",
     description: "Bajo la presidencia de Mathias Barrios, el CPF vive una etapa de transformación. Se moderniza su identidad con un nuevo logo y una presencia digital más fuerte a través de redes sociales. Se forma un equipo de marketing y se amplían las oportunidades para los miembros con cursos como Git y GitHub, el mantenimiento de las salas R de FIUNA y la participación en eventos clave como el TIGO Campus Party y el IEEExtreme. Además, el club fortalece su rol en la comunidad IEEE, coorganizando el IEEExtreme junto a IEEE RAS y IEEE CS de la UNA.",
     icon: Award,
-    image: "/images/timeline/expansion.jpg"
+    image: "/images/timeline/cpf-2022.jpg"
   },
   {
     year: "2023",
     title: "Consolidación y Representación",
     description: "El CPF continúa siendo un referente en la facultad, manteniendo su participación en el Campus Party y en la hackathon del año. Aunque la organización interna atraviesa una fase de transición, el impacto de los esfuerzos realizados sigue presente. La comunidad formada sigue creciendo y los conocimientos compartidos en la gestión anterior continúan beneficiando a los miembros.",
     icon: Users,
-    image: "/images/timeline/consolidation.jpg"
+    image: "/images/timeline/cpf-2023.jpg"
   },
   {
     year: "2024",
     title: "Una Pausa para el Futuro",
     description: "El club entra en un período de pausa estratégica, permitiendo que la comunidad reflexione sobre nuevos caminos a seguir. El legado de la modernización y las experiencias acumuladas servirán como base para futuras generaciones que deseen revitalizar el CPF con nuevos proyectos y desafíos.",
     icon: Lightbulb,
-    image: "/images/timeline/future.jpg"
+    image: "/images/timeline/cpf-2024.jpg"
   },
   {
     year: "2025",
     title: "Visión de Futuro",
     description: "Planeamos expandir nuestra influencia más allá de la universidad, creando un ecosistema tecnológico que beneficie a toda la comunidad paraguaya.",
     icon: Star,
-    image: "/images/timeline/future.jpg"
+    image: "/images/timeline/cpf-2025.jpg"
   }
 ];
 
@@ -271,8 +271,16 @@ const Timeline = () => {
           
           <div className="order-1 md:order-2">
             <div className="glass-card overflow-hidden">
-              <div className="bg-muted/20 dark:bg-black/30 aspect-video flex items-center justify-center">
-                <Code className="h-16 w-16 text-muted-foreground/50" />
+              <div className="bg-muted/20 dark:bg-black/30 aspect-video relative">
+                {timelineEvents[activeIndex].image ? (
+                  <img
+                    src={timelineEvents[activeIndex].image}
+                    alt={timelineEvents[activeIndex].title}
+                    className="object-cover w-full h-full"
+                  />
+                ) : (
+                  <Code className="h-16 w-16 text-muted-foreground/50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+                )}
               </div>
             </div>
           </div>

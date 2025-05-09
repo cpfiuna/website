@@ -4,7 +4,7 @@ export const teamMembers = [
     name: "David Giménez",
     role: "Presidente",
     image: "/miembros/davidgimenez.png",
-    bio: "Estudiante de Ingeniería Mecatrónica con especialización en Inteligencia Artificial.",
+    bio: "Desarrollador Full-Stack y colaborador en investigación de Inteligencia Artificial.",
     social: {
       github: "https://github.com/davidgimenezs",
       linkedin: "https://linkedin.com/in/davidgimenezs",
@@ -16,7 +16,7 @@ export const teamMembers = [
     name: "Oscar Alderete",
     role: "Vicepresidente",
     image: "/miembros/oscaralderete.png",
-    bio: "Especialista en desarrollo web y gestión de proyectos de software.",
+    bio: "Especialista en Inteligencia Artificial y gestión de proyectos de software.",
     social: {
       github: "https://github.com/Osukaru17",
       linkedin: "https://linkedin.com/in/",
@@ -28,7 +28,7 @@ export const teamMembers = [
     name: "Daniel Villalba",
     role: "Secretario",
     image: "/miembros/danielvillalba.png",
-    bio: "Apasionado por la educación en tecnología y el desarrollo de habilidades de programación.",
+    bio: "Encargado de la organización de eventos y gestión de la comunicación del club.",
     social: {
       github: "https://github.com/DaniVillalba03",
       linkedin: "https://linkedin.com/in/",
@@ -40,7 +40,7 @@ export const teamMembers = [
     name: "Iván Jara",
     role: "Tesorero",
     image: "/miembros/ivanjara.png",
-    bio: "Encargado de la organización de eventos y gestión de la comunicación del club.",
+    bio: "Apasionado por la educación en tecnología mediante habilidades de programación.",
     social: {
       github: "https://github.com/",
       linkedin: "https://linkedin.com/in/",
