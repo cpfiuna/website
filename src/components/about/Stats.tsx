@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Award, Code, Users, Calendar, Star, Briefcase } from "lucide-react";
-import AnimatedCounter from "./AnimatedCounter";
+import AnimatedCounter from "../home/AnimatedCounter";
 
 const Stats = () => {
   const stats = [
@@ -38,9 +38,9 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-16 px-6 bg-muted/40 dark:bg-black/20 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-background to-transparent"></div>
-      <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-background to-transparent"></div>
+    <section className="py-16 px-6 bg-#030509 dark:bg-#030509 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-20 bg-#030509"></div>
+      <div className="absolute bottom-0 left-0 w-full h-20 bg-#030509"></div>
       
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-3xl font-bold mb-12 text-center">
