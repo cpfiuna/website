@@ -1,4 +1,3 @@
-
 import React from "react";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
@@ -7,30 +6,24 @@ import { Shield, ArrowLeft, Mail, MapPin } from "lucide-react";
 const Privacy = () => {
   return (
     <Layout>
-      <div className="container px-6 pt-24 pb-16 mx-auto">
-        {/* Back button */}
-        <div className="mb-6">
-          <Link
-            to="/"
-            className="inline-flex items-center text-sm text-muted-foreground hover:text-primary transition-colors"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Volver al inicio
-          </Link>
-        </div>
-
+      <div className="container mx-auto py-12 lg:py-24 px-4">
         <div className="max-w-4xl mx-auto">
+          <div className="mb-8">
+            <Link to="/" className="text-sm text-primary flex items-center hover:underline">
+              <ArrowLeft className="h-4 w-4 mr-1" />
+              Volver al inicio
+            </Link>
+          </div>
+
           <div className="text-center mb-10">
             <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
-            <h1 className="text-4xl font-bold mb-2">
-              Política de Privacidad
-            </h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">Política de <span className="gradient-text">Privacidad</span></h1>
             <p className="text-lg text-muted-foreground">
               Cómo recopilamos, utilizamos y protegemos tu información
             </p>
-            <p className="text-sm text-muted-foreground mt-4">
-              Última actualización: 1 de Mayo de 2023
-            </p>
+            <div className="mt-4 text-sm">
+              <span className="text-muted-foreground">Última actualización:</span> 10 de Mayo de 2025
+            </div>
           </div>
 
           <div className="space-y-8">

@@ -1,4 +1,3 @@
-
 import Layout from "@/components/layout/Layout";
 import { ArrowLeft, Shield, Users, Heart, Gavel, Megaphone, FileCheck } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -17,12 +16,12 @@ const CodeOfConduct = () => {
           
           <div className="mb-12 text-center">
             <Shield className="h-12 w-12 mx-auto mb-4 text-primary" />
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">Código de <span className="text-gradient">Conducta</span></h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">Código de <span className="gradient-text">Conducta</span></h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Guía para mantener un ambiente inclusivo, respetuoso y colaborativo en nuestra comunidad
+              Guía para mantener un ambiente, respetuoso y colaborativo en nuestra comunidad
             </p>
             <div className="mt-4 text-sm">
-              <span className="text-muted-foreground">Última actualización:</span> 1 de Mayo de 2023
+              <span className="text-muted-foreground">Última actualización:</span> 10 de Mayo de 2025
             </div>
           </div>
           
@@ -32,7 +31,7 @@ const CodeOfConduct = () => {
                 <Users className="h-5 w-5 text-primary flex-shrink-0" />
                 <h2 className="text-2xl font-semibold m-0">Propósito</h2>
               </div>
-              <p>
+              <p className="text-muted-foreground">
                 El propósito de este Código de Conducta es establecer un ambiente inclusivo, 
                 respetuoso y colaborativo para todos los miembros y participantes del Club de 
                 Programación FIUNA. Queremos que todas las actividades, eventos, y espacios 
@@ -47,7 +46,7 @@ const CodeOfConduct = () => {
                 <FileCheck className="h-5 w-5 text-primary flex-shrink-0" />
                 <h2 className="text-2xl font-semibold m-0">Alcance</h2>
               </div>
-              <p>
+              <p className="text-muted-foreground">
                 Este Código de Conducta aplica a todos los miembros, colaboradores, mentores, 
                 directivos y participantes en cualquier actividad organizada por el Club de 
                 Programación FIUNA, incluyendo:
@@ -72,7 +71,7 @@ const CodeOfConduct = () => {
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
                     <span className="h-5 w-5 text-green-500 flex-shrink-0">✓</span>
-                    <span>Uso de lenguaje acogedor e inclusivo</span>
+                    <span>Uso de lenguaje correcto y respetuoso</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="h-5 w-5 text-green-500 flex-shrink-0">✓</span>
@@ -137,12 +136,12 @@ const CodeOfConduct = () => {
                 <Gavel className="h-5 w-5 text-primary flex-shrink-0" />
                 <h2 className="text-2xl font-semibold m-0">Responsabilidades y Aplicación</h2>
               </div>
-              <p>
+              <p className="text-muted-foreground">
                 Los administradores del proyecto son responsables de aclarar los estándares de 
                 comportamiento aceptable y se espera que tomen medidas correctivas apropiadas y 
                 justas en respuesta a cualquier caso de comportamiento inaceptable.
               </p>
-              <p>
+              <p className="text-muted-foreground">
                 Los administradores del proyecto tienen el derecho y la responsabilidad de 
                 eliminar, editar o rechazar comentarios, commits, código, ediciones de wiki, 
                 issues y otras contribuciones que no estén alineadas con este Código de Conducta, 
@@ -150,7 +149,7 @@ const CodeOfConduct = () => {
                 comportamientos que consideren inapropiados, amenazantes, ofensivos o dañinos.
               </p>
               <div className="mt-6 bg-primary/10 p-4 rounded-lg border border-primary/20">
-                <p className="font-medium mb-2">
+                <p className="font-medium mb-2 text-muted-foreground">
                   Los casos de comportamiento abusivo, acosador o inaceptable pueden ser 
                   informados contactando al equipo del proyecto:
                 </p>
@@ -211,7 +210,7 @@ const CodeOfConduct = () => {
             
             <div className="text-sm text-muted-foreground mb-8 border-t border-border pt-6">
               <h3 className="font-semibold mb-2">Atribución</h3>
-              <p>
+              <p className="text-muted-foreground">
                 Este Código de Conducta está adaptado del 
                 <a href="https://www.contributor-covenant.org/" className="text-primary hover:underline"> Contributor Covenant</a>, 
                 versión 2.0, disponible en 
