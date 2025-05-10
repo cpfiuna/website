@@ -19,7 +19,7 @@ export const teamMembers = [
     bio: "Especialista en Inteligencia Artificial y gestión de proyectos de software.",
     social: {
       github: "https://github.com/Osukaru17",
-      linkedin: "https://linkedin.com/in/",
+      linkedin: "https://www.linkedin.com/in/oscaralderete/",
       instagram: "https://instagram.com/oscar_alderete99",
       email: "mailto:osualderete@fiuna.edu.py",
     },
