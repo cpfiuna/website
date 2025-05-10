@@ -8,7 +8,7 @@ const ContactHero = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
-          <span className="gradient-text">Contacto</span></h1>
+          <span className="gradient-text">Contacto</span> del Club</h1>
           <p className="text-xl text-muted-foreground">
             ¿Tienes preguntas, sugerencias o simplemente quieres conectar con nosotros?
             Estamos aquí para ayudarte.
