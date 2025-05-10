@@ -16,7 +16,7 @@ const AboutClub = () => {
             </h2>
             
             <p className="text-lg mb-6">
-              El <strong>Club de Programación FIUNA</strong> nació en 2015 con el objetivo de crear
+              El <strong>Club de Programación FIUNA</strong> nació en 2017 con el objetivo de crear
               un espacio de aprendizaje colaborativo para estudiantes interesados en el desarrollo de software
               y las tecnologías de la información.
             </p>
@@ -28,7 +28,7 @@ const AboutClub = () => {
               en el mundo profesional.
             </p>
             
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            {/*<div className="grid grid-cols-2 gap-4 mb-8">
               <div className="flex items-start gap-3">
                 <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                   <Code className="h-5 w-5" />
@@ -76,35 +76,35 @@ const AboutClub = () => {
             >
               Conoce nuestra historia
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            </Link>*/}
           </div>
           
           <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
             <div className="aspect-square overflow-hidden rounded-lg transform translate-y-4">
               <img 
-                src="/placeholder.svg" 
-                alt="Miembros del club trabajando en proyectos" 
+                src="/images/home/home-3.jpg"
+                alt="Miembros del club en el Tigo Campus Party 2022" 
                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="aspect-square overflow-hidden rounded-lg transform -translate-y-4">
               <img 
-                src="/placeholder.svg" 
+                src="/images/home/home-.jpg"
                 alt="Evento de programación del club" 
                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="aspect-square overflow-hidden rounded-lg transform -translate-y-6">
               <img 
-                src="/placeholder.svg" 
+                src="/images/home/home-.jpg"
                 alt="Taller de programación" 
                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="aspect-square overflow-hidden rounded-lg transform translate-y-6">
               <img 
-                src="/placeholder.svg" 
-                alt="Miembros del club en una competencia" 
+                src="/images/home/home-2.jpg"
+                alt="Miembros del club en el NASA Space Apps Challenge 2022" 
                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
               />
             </div>

@@ -1,4 +1,3 @@
-
 ---
 id: 2
 title: "Moonquake Visualizer: Terremotos Lunares en 3D"

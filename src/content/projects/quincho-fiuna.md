@@ -1,4 +1,3 @@
-
 ---
 id: 4
 title: "Sistema de Reservas del Quincho FIUNA"

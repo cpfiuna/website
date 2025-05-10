@@ -1,4 +1,3 @@
-
 ---
 id: 1
 title: "Web del Club de Programación FIUNA"

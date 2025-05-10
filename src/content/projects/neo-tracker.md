@@ -1,4 +1,3 @@
-
 ---
 id: 3
 title: "NEO Tracker: Visualización 3D de Objetos Cercanos a la Tierra"

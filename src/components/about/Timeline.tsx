@@ -8,72 +8,65 @@ import {
 
 const timelineEvents = [
   {
-    year: "2016",
-    title: "Preparación del Club",
-    description: "Un grupo de estudiantes apasionados comienza a planificar la creación de un club para fomentar la cultura de programación en la facultad, estableciendo las bases de lo que se convertiría en el Club de Programación FIUNA.",
-    icon: Users,
-    image: "/images/timeline/preparation.jpg"
-  },
-  {
     year: "2017",
     title: "Fundación del Club",
-    description: "El Club de Programación FIUNA es oficialmente fundado, comenzando su misión de fomentar la cultura de desarrollo de software en la facultad.",
+    description: "Un grupo de estudiantes apasionados inicia la planificación para crear un club que fomente la programación en la facultad. El 9 de abril se funda oficialmente el Club de Programación y el 11 de abril se realiza la primera reunión de miembros, marcando el comienzo de su misión de promover la cultura de la programación y desarrollo.",
     icon: Users,
-    image: "/images/timeline/foundation.jpg"
+    image: "/images/timeline/cpf-2017.jpg"
   },
   {
     year: "2018",
     title: "Primer Hackathon FIUNA",
-    description: "Organizamos nuestro primer hackathon con más de 50 participantes, estableciendo las bases para una tradición anual que continúa hasta hoy.",
+    description: "Organizamos nuestro primer hackathon con más de 50 participantes, estableciendo una tradición anual que perdura hasta hoy.",
     icon: Code,
-    image: "/images/timeline/hackathon.jpg"
+    image: "/images/timeline/cpf-2018.jpg"
   },
   {
     year: "2019",
     title: "Expansión y Crecimiento",
-    description: "El club creció significativamente, alcanzando más de 100 miembros activos y estableciendo alianzas con empresas tecnológicas locales.",
+    description: "El club experimenta un crecimiento significativo, alcanzando más de 100 miembros activos y formando alianzas con empresas tecnológicas locales.",
     icon: GraduationCap,
-    image: "/images/timeline/growth.jpg"
+    image: "/images/timeline/cpf-2019.jpg"
   },
   {
     year: "2020",
     title: "Adaptación Virtual",
-    description: "Ante la pandemia global, transformamos todas nuestras actividades a formato virtual, alcanzando a más estudiantes que nunca con webinars y hackatones en línea.",
+    description: "En respuesta a la pandemia global, migramos todas nuestras actividades al formato virtual, logrando llegar a más estudiantes con webinars y hackatones en línea.",
     icon: BookOpen,
-    image: "/images/timeline/cpf-2020.jpg"
+    image: "/images/timeline/cpf-2020.png"
   },
   {
     year: "2021",
     title: "Primeros Proyectos Open Source",
-    description: "Lanzamos nuestras primeras contribuciones a proyectos de código abierto, estableciendo la cultura de colaboración en el desarrollo de software.",
+    description: "Iniciamos nuestras primeras contribuciones a proyectos de código abierto, fomentando la colaboración en el desarrollo de software.",
     icon: Star,
-    image: "/images/timeline/cpf-2021.png"
+    image: "/images/timeline/cpf-2021.jpg"
   },
   {
     year: "2022",
     title: "Renovación y Expansión",
-    description: "Bajo la presidencia de Mathias Barrios, el CPF vive una etapa de transformación. Se moderniza su identidad con un nuevo logo y una presencia digital más fuerte a través de redes sociales. Se forma un equipo de marketing y se amplían las oportunidades para los miembros con cursos como Git y GitHub, el mantenimiento de las salas R de FIUNA y la participación en eventos clave como el TIGO Campus Party y el IEEExtreme. Además, el club fortalece su rol en la comunidad IEEE, coorganizando el IEEExtreme junto a IEEE RAS y IEEE CS de la UNA.",
+    description: "Bajo la presidencia de Mathias Barrios, el club se transforma con un nuevo logo, una presencia digital más fuerte y un equipo de marketing. Se ofrecen cursos como Git y GitHub, se mantienen las salas R de FIUNA y se participa en eventos clave como el TIGO Campus Party y el IEEExtreme, fortaleciendo la colaboración con IEEE.",
     icon: Award,
     image: "/images/timeline/cpf-2022.jpg"
   },
   {
     year: "2023",
     title: "Consolidación y Representación",
-    description: "El CPF continúa siendo un referente en la facultad, manteniendo su participación en el Campus Party y en la hackathon del año. Aunque la organización interna atraviesa una fase de transición, el impacto de los esfuerzos realizados sigue presente. La comunidad formada sigue creciendo y los conocimientos compartidos en la gestión anterior continúan beneficiando a los miembros.",
+    description: "El CPF se consolida como referente en la facultad, participando en eventos como el Campus Party y la hackathon anual. Aunque atraviesa una fase de transición interna, el impacto de los esfuerzos previos sigue beneficiando a la comunidad.",
     icon: Users,
     image: "/images/timeline/cpf-2023.jpg"
   },
   {
     year: "2024",
     title: "Una Pausa para el Futuro",
-    description: "El club entra en un período de pausa estratégica, permitiendo que la comunidad reflexione sobre nuevos caminos a seguir. El legado de la modernización y las experiencias acumuladas servirán como base para futuras generaciones que deseen revitalizar el CPF con nuevos proyectos y desafíos.",
+    description: "El club entra en una pausa estratégica para reflexionar sobre nuevos caminos. El legado de modernización y las experiencias acumuladas servirán como base para futuras generaciones.",
     icon: Lightbulb,
-    image: "/images/timeline/cpf-2024.jpg"
+    image: "/images/timeline/cpf-2025.png"
   },
   {
     year: "2025",
     title: "Visión de Futuro",
-    description: "Planeamos expandir nuestra influencia más allá de la universidad, creando un ecosistema tecnológico que beneficie a toda la comunidad paraguaya.",
+    description: "Se proyecta expandir la influencia del club más allá de la universidad, creando un ecosistema tecnológico que beneficie a toda la comunidad paraguaya.",
     icon: Star,
     image: "/images/timeline/cpf-2025.jpg"
   }
