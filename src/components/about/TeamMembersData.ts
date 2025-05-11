@@ -19,7 +19,7 @@ export const teamMembers = [
     bio: "Especialista en Inteligencia Artificial y gestión de proyectos de software.",
     social: {
       github: "https://github.com/Osukaru17",
-      linkedin: "https://www.linkedin.com/in/oscaralderete/",
+      linkedin: "https://linkedin.com/in/oscaralderete/",
       instagram: "https://instagram.com/oscar_alderete99",
       email: "mailto:osualderete@fiuna.edu.py",
     },
@@ -31,7 +31,7 @@ export const teamMembers = [
     bio: "Encargado de la organización de eventos y gestión de la comunicación del club.",
     social: {
       github: "https://github.com/DaniVillalba03",
-      linkedin: "https://linkedin.com/in/",
+      linkedin: "https://linkedin.com/in/danivillalba03",
       instagram: "https://instagram.com/danivillalba03",
       email: "mailto:daniel.villalba@fiuna.edu.py",
     },
