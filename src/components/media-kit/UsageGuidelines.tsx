@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link2 } from "lucide-react";
 import { contactInfo } from "@/config/site";
@@ -69,8 +68,11 @@ const UsageGuidelines = () => {
               <p className="font-mono">© {new Date().getFullYear()} Club de Programación FIUNA. Todos los derechos reservados.</p>
             </div>
             <p className="text-sm text-muted-foreground">
-              Para uso comercial o preguntas específicas, contactá con: {contactInfo.email}
+              Para uso comercial o preguntas específicas, contactá con:
             </p>
+            <a href="mailto:clubdeprogramacion@ing.una.py" className="hover:underline text-primary">
+              clubdeprogramacion@ing.una.py
+            </a>
           </div>
         </div>
 
@@ -82,9 +84,8 @@ const UsageGuidelines = () => {
           </p>
           <a 
             href="/contact" 
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-muted/50 hover:bg-muted text-foreground rounded-full font-medium transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-muted/50 hover:bg-muted text-foreground rounded-full font-medium transition-all hover:scale-105"
           >
-            <Link2 className="h-5 w-5" />
             <span>Contactar al equipo</span>
           </a>
         </div>

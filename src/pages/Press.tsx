@@ -8,21 +8,22 @@ const Press = () => {
   const pressAppearances = [
     {
       id: 1,
+      title: "Entrevista a los Finalistas Globales del NASA Space Apps Challenge",
+      media: "Paraguay TV",
+      date: "4 de marzo de 2025",
+      type: "Televisión",
+      image: "/images/timeline/cpf-2025.png",
+      link: "https://drive.google.com/file/d/17exUlQ8sSDfiFUB8S9I9lUVhOfxE6jtR/view?usp=sharing",
+    },
+  ];
+  {/*{
+      id: 2,
       title: "El Club de Programación FIUNA organiza hackathon nacional",
       media: "Diario ABC",
       date: "24 de mayo de 2023",
       type: "Prensa escrita",
       image: "/placeholder.svg",
       link: "https://example.com/press1",
-    },
-    {
-      id: 2,
-      title: "Entrevista sobre educación tecnológica en Paraguay",
-      media: "Paraguay TV",
-      date: "12 de julio de 2023",
-      type: "Televisión",
-      image: "/placeholder.svg",
-      link: "https://example.com/press2",
     },
     {
       id: 3,
@@ -59,8 +60,7 @@ const Press = () => {
       type: "Digital",
       image: "/placeholder.svg",
       link: "https://example.com/press6",
-    },
-  ];
+    },*/}
 
   return (
     <Layout>

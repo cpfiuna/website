@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Package } from "lucide-react";
 
@@ -12,9 +11,8 @@ const DownloadPackage = () => {
       </p>
       <a 
         href="/media-kit/cpfiuna-media-kit.zip" 
-        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full font-medium transition-all hover:shadow-neon-blue"
+        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full font-medium transition-all hover:shadow-neon-blue hover:scale-105"
       >
-        <Package className="h-5 w-5" />
         <span>Descargar Media Kit completo</span>
       </a>
     </div>

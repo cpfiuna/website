@@ -1,14 +1,14 @@
-
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import CookieConsent from "@/components/ui/CookieConsent";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
   
   // Scroll to top on route change
@@ -56,6 +56,7 @@ const Layout = ({ children }: LayoutProps) => {
         {children}
       </main>
       <Footer />
+      <CookieConsent />
     </div>
   );
 };

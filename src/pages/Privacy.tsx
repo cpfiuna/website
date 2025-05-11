@@ -50,37 +50,30 @@ const Privacy = () => {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <div className="bg-muted/30 rounded-xl p-4">
-                  <h3 className="text-md font-medium mb-2 text-primary">Información de contacto</h3>
+                <div className="bg-primary/10 p-4 rounded-lg border border-primary/20">
+                  <h3 className="text-md font-medium mb-2 text-muted-foreground">Información de contacto</h3>
                   <p className="text-sm text-muted-foreground">
-                    Nombre, dirección de correo electrónico, número de teléfono, dirección postal.
+                    Nombre, dirección de correo electrónico.
                   </p>
                 </div>
-                <div className="bg-muted/30 rounded-xl p-4">
-                  <h3 className="text-md font-medium mb-2 text-primary">Información académica</h3>
+                <div className="bg-primary/10 p-4 rounded-lg border border-primary/20">
+                  <h3 className="text-md font-medium mb-2 text-muted-foreground">Información académica</h3>
                   <p className="text-sm text-muted-foreground">
-                    Carrera, semestre, número de matrícula (cuando sea relevante).
+                    Carrera, semestre, casa de estudios y unidad académica (cuando sea relevante).
                   </p>
                 </div>
-                <div className="bg-muted/30 rounded-xl p-4">
-                  <h3 className="text-md font-medium mb-2 text-primary">Información de perfil</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Fotografía, biografía, intereses, habilidades.
-                  </p>
-                </div>
-                <div className="bg-muted/30 rounded-xl p-4">
-                  <h3 className="text-md font-medium mb-2 text-primary">Información de uso</h3>
+                <div className="bg-primary/10 p-4 rounded-lg border border-primary/20">
+                  <h3 className="text-md font-medium mb-2 text-muted-foreground">Información de uso</h3>
                   <p className="text-sm text-muted-foreground">
                     Datos sobre cómo utiliza nuestro sitio web, como páginas visitadas y tiempo de permanencia.
                   </p>
                 </div>
-              </div>
-
-              <div className="bg-muted/30 rounded-xl p-4">
-                <h3 className="text-md font-medium mb-2 text-primary">Comunicaciones</h3>
-                <p className="text-sm text-muted-foreground">
-                  Mensajes que nos envía a través de formularios de contacto o correo electrónico.
-                </p>
+                <div className="bg-primary/10 p-4 rounded-lg border border-primary/20">
+                  <h3 className="text-md font-medium mb-2 text-muted-foreground">Comunicaciones</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Mensajes que nos envía a través de formularios de contacto o correo electrónico.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -126,31 +119,8 @@ const Privacy = () => {
                 <span className="text-primary mr-2">4.</span> Compartición de información
               </h2>
               <p className="text-muted-foreground mb-4">
-                No vendemos ni alquilamos su información personal a terceros. Podemos compartir información con:
+                No vendemos ni alquilamos su información personal a terceros.
               </p>
-              
-              <div className="space-y-4">
-                <div className="bg-muted/30 rounded-xl p-4">
-                  <h3 className="text-md font-medium mb-2">Proveedores de servicios</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Terceros que nos ayudan a operar nuestro sitio web, gestionar eventos o proporcionar otros servicios.
-                  </p>
-                </div>
-                
-                <div className="bg-muted/30 rounded-xl p-4">
-                  <h3 className="text-md font-medium mb-2">Patrocinadores</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Con su consentimiento explícito, podemos compartir información básica con los patrocinadores de eventos.
-                  </p>
-                </div>
-                
-                <div className="bg-muted/30 rounded-xl p-4">
-                  <h3 className="text-md font-medium mb-2">Autoridades</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Cuando sea requerido por ley o para proteger nuestros derechos legales.
-                  </p>
-                </div>
-              </div>
             </div>
 
             {/* Two-column layout for Security and Rights */}
@@ -220,20 +190,20 @@ const Privacy = () => {
             {/* Contact section */}
             <div className="glass-card p-6">
               <h2 className="text-xl font-semibold mb-4 flex items-center">
-                <span className="text-primary mr-2">9.</span> Contacto
+              <span className="text-primary mr-2">9.</span> Contacto
               </h2>
               <p className="text-muted-foreground mb-4">
-                Si tiene preguntas o inquietudes sobre esta Política de Privacidad, puede contactarnos en:
+              Si tiene preguntas o inquietudes sobre esta Política de Privacidad, puede contactarnos en:
               </p>
               
-              <div className="bg-muted/30 rounded-xl p-4">
-                <h3 className="text-md font-medium mb-2">Club de Programación FIUNA</h3>
-                <p className="flex items-center text-sm text-muted-foreground mb-2">
-                  <Mail className="h-4 w-4 mr-2 text-primary" />
-                  <a href="mailto:privacidad@cpf.com.py" className="hover:text-primary transition-colors">
-                    privacidad@cpf.com.py
-                  </a>
-                </p>
+              <div className="mt-6 bg-primary/10 p-4 rounded-lg border border-primary/20">
+              <h3 className="text-md font-medium mb-2 text-muted-foreground">Club de Programación FIUNA</h3>
+              <p className="flex items-center text-sm text-muted-foreground mb-2">
+                <Mail className="h-4 w-4 mr-2 text-primary" />
+                <a href="mailto:clubdeprogramacion@ing.una.py" className="hover:underline text-primary">
+                clubdeprogramacion@ing.una.py
+                </a>
+              </p>
                 <p className="flex items-center text-sm text-muted-foreground">
                   <MapPin className="h-4 w-4 mr-2 text-primary" />
                   Dirección: Campus Universitario UNA, San Lorenzo, Paraguay

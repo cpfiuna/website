@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import { ArrowLeft, Shield, Users, Heart, Gavel, Megaphone, FileCheck } from "lucide-react";
+import { ArrowLeft, Shield, Handshake, Users, Heart, Gavel, Mail, MapPin, FileCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const CodeOfConduct = () => {
@@ -15,7 +15,7 @@ const CodeOfConduct = () => {
           </div>
           
           <div className="mb-12 text-center">
-            <Shield className="h-12 w-12 mx-auto mb-4 text-primary" />
+            <Handshake className="h-12 w-12 mx-auto mb-4 text-primary" />
             <h1 className="text-3xl md:text-5xl font-bold mb-4">Código de <span className="gradient-text">Conducta</span></h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Guía para mantener un ambiente, respetuoso y colaborativo en nuestra comunidad
@@ -137,12 +137,12 @@ const CodeOfConduct = () => {
                 <h2 className="text-2xl font-semibold m-0">Responsabilidades y Aplicación</h2>
               </div>
               <p className="text-muted-foreground">
-                Los administradores del proyecto son responsables de aclarar los estándares de 
+                Los directivos del Club son responsables de aclarar los estándares de 
                 comportamiento aceptable y se espera que tomen medidas correctivas apropiadas y 
                 justas en respuesta a cualquier caso de comportamiento inaceptable.
               </p>
               <p className="text-muted-foreground">
-                Los administradores del proyecto tienen el derecho y la responsabilidad de 
+                Los directivos del Club tienen el derecho y la responsabilidad de 
                 eliminar, editar o rechazar comentarios, commits, código, ediciones de wiki, 
                 issues y otras contribuciones que no estén alineadas con este Código de Conducta, 
                 o de prohibir temporal o permanentemente a cualquier colaborador por otros 
@@ -153,13 +153,17 @@ const CodeOfConduct = () => {
                   Los casos de comportamiento abusivo, acosador o inaceptable pueden ser 
                   informados contactando al equipo del proyecto:
                 </p>
-                <a 
-                  href="mailto:conducta@cpf.com.py" 
-                  className="inline-flex items-center text-primary hover:underline"
-                >
-                  <Megaphone className="h-4 w-4 mr-1" />
-                  conducta@cpf.com.py
+               <p className="flex items-center text-sm text-muted-foreground mb-2">
+                <Mail className="h-4 w-4 mr-2 text-primary" />
+                <a href="mailto:clubdeprogramacion@ing.una.py" className="hover:underline text-primary">
+                clubdeprogramacion@ing.una.py
                 </a>
+              </p>
+              <p className="flex items-center text-sm text-muted-foreground">
+                <MapPin className="h-4 w-4 mr-2 text-primary" />
+                Dirección: Campus Universitario UNA, San Lorenzo, Paraguay
+              </p>
+
               </div>
             </div>
             
@@ -178,7 +182,7 @@ const CodeOfConduct = () => {
                   <div className="bg-primary/15 text-primary h-8 w-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
                   <div>
                     <h3 className="font-semibold mb-1">Evaluación</h3>
-                    <p className="text-muted-foreground">Los organizadores evaluarán el caso y recopilarán información necesaria.</p>
+                    <p className="text-muted-foreground">Los directivos evaluarán el caso y recopilarán información necesaria.</p>
                   </div>
                 </div>
                 
@@ -208,13 +212,13 @@ const CodeOfConduct = () => {
               </div>
             </div>
             
-            <div className="text-sm text-muted-foreground mb-8 border-t border-border pt-6">
-              <h3 className="font-semibold mb-2">Atribución</h3>
+            <div className="border-t border-border pt-6">
+              <h2 className="text-xl font-semibold mb-4">Atribución</h2>
               <p className="text-muted-foreground">
-                Este Código de Conducta está adaptado del 
-                <a href="https://www.contributor-covenant.org/" className="text-primary hover:underline"> Contributor Covenant</a>, 
-                versión 2.0, disponible en 
-                <a href="https://www.contributor-covenant.org/version/2/0/code_of_conduct.html" className="text-primary hover:underline"> contributor-covenant.org/version/2/0/code_of_conduct.html</a>.
+              Este Código de Conducta está adaptado del&nbsp;
+              <a href="https://www.contributor-covenant.org/" className="text-primary hover:underline">Contributor Covenant</a>,&nbsp;
+              versión 2.0, disponible en&nbsp;
+              <a href="https://www.contributor-covenant.org/version/2/0/code_of_conduct.html" className="text-primary hover:underline">este enlace</a>.
               </p>
             </div>
           </div>

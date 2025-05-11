@@ -1,4 +1,3 @@
-
 import React from "react";
 import { FileCode, FileImage } from "lucide-react";
 
@@ -17,24 +16,24 @@ const LogoSection = () => {
         Nuestro logo puede utilizarse sobre fondos claros u oscuros. Mantenga siempre un área
         de protección alrededor del logo.
       </p>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-3 justify-center">
         <a 
           href="/media-kit/logo/svg" 
-          className="flex items-center gap-2 px-3 py-2 bg-muted/30 hover:bg-muted/50 rounded-lg text-sm transition-colors"
+          className="flex items-center gap-2 px-8 py-3 bg-muted/30 hover:bg-muted/50 rounded-full text-sm transition-all hover:scale-105"
         >
           <FileCode className="h-4 w-4" />
           <span>SVG</span>
         </a>
         <a 
           href="/media-kit/logo/png" 
-          className="flex items-center gap-2 px-3 py-2 bg-muted/30 hover:bg-muted/50 rounded-lg text-sm transition-colors"
+          className="flex items-center gap-2 px-8 py-3 bg-muted/30 hover:bg-muted/50 rounded-full text-sm transition-all hover:scale-105"
         >
           <FileImage className="h-4 w-4" />
           <span>PNG</span>
         </a>
         <a 
           href="/media-kit/logo/pdf" 
-          className="flex items-center gap-2 px-3 py-2 bg-muted/30 hover:bg-muted/50 rounded-lg text-sm transition-colors"
+          className="flex items-center gap-2 px-8 py-3 bg-muted/30 hover:bg-muted/50 rounded-full text-sm transition-all hover:scale-105"
         >
           <FileImage className="h-4 w-4" />
           <span>PDF</span>

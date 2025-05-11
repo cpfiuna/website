@@ -1,4 +1,3 @@
-
 import React from "react";
 import { PaintBucket } from "lucide-react";
 
@@ -77,7 +76,7 @@ const ColorsSection = () => {
       
       <a 
         href="/media-kit/colors.pdf" 
-        className="mt-auto flex items-center justify-center gap-2 px-4 py-2 bg-muted/30 hover:bg-muted/50 rounded-lg text-sm transition-colors"
+        className="mt-auto flex items-center justify-center gap-2 px-8 py-3 bg-muted/30 hover:bg-muted/50 rounded-full text-sm transition-colors hover:scale-105"
       >
         <PaintBucket className="h-4 w-4" />
         <span>Descargar paleta de colores</span>
