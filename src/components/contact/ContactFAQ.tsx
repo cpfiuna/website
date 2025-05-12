@@ -10,7 +10,7 @@ import {
 const faqs = [
   {
     question: "¿Cómo puedo unirme al Club de Programación?",
-    answer: "Para unirte al Club de Programación FIUNA, simplemente completa el formulario de membresía disponible en nuestro sitio web o acércate a nuestra oficina en el campus de la FIUNA. No hay requisitos previos ni cuotas para ingresar, solo tu interés en el mundo de la programación."
+    answer: "Cuando se habilite el período de recepción de miembros, podrás postularte a través de los formularios disponibles en nuestra web. Mientras tanto, si estás interesado en participar, puedes contactarnos mediante el formulario de contacto con el asunto 'Membresía'. Evaluaremos tu solicitud de manera individual y te mantendremos informado."
   },
   {
     question: "¿Necesito tener experiencia en programación para participar?",

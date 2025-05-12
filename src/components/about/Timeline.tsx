@@ -82,15 +82,6 @@ const Timeline = () => {
     if (index >= 0 && index < timelineEvents.length) {
       setActiveIndex(index);
       
-      const eventElements = timelineRef.current?.querySelectorAll('.timeline-event');
-      if (eventElements && eventElements[index]) {
-        eventElements[index].scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-          inline: 'center'
-        });
-      }
-      
       // If user initiated, pause auto-scrolling
       if (userInitiated) {
         setAutoScrollPaused(true);

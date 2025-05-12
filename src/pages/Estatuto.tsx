@@ -40,7 +40,7 @@ const Estatuto = () => {
                 <span>Miembros</span>
               </TabsTrigger>
               <TabsTrigger value="estructura" className="flex flex-col items-center gap-2 py-3">
-                <Award className="h-5 w-5" />
+                <Building className="h-5 w-5" />
                 <span>Estructura</span>
               </TabsTrigger>
               <TabsTrigger value="elecciones" className="flex flex-col items-center gap-2 py-3">
