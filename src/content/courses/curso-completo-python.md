@@ -1,4 +1,3 @@
-
 ---
 id: 7
 title: "Curso Completo de Python"

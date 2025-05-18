@@ -13,7 +13,7 @@ const ColorsSection = () => {
             <div className="h-24 bg-primary rounded-lg mb-2"></div>
             <div className="text-sm">
               <p className="font-medium">Primario</p>
-              <p className="text-muted-foreground">HEX: #0070f3</p>
+              <p className="text-muted-foreground">HEX: #0070F3</p>
             </div>
           </div>
           <div className="flex flex-col">
@@ -47,14 +47,14 @@ const ColorsSection = () => {
             <div className="h-24 bg-white rounded-lg border border-gray-200 mb-2"></div>
             <div className="text-sm">
               <p className="font-medium">Primario</p>
-              <p className="text-muted-foreground">HEX: #0070f3</p>
+              <p className="text-muted-foreground">HEX: #FAFAFA</p>
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="h-24 rounded-lg mb-2" style={{ backgroundColor: "#7E69AB" }}></div>
+            <div className="h-24 rounded-lg mb-2" style={{ backgroundColor: "#0070f3" }}></div>
             <div className="text-sm">
               <p className="font-medium">Secundario</p>
-              <p className="text-muted-foreground">HEX: #7E69AB</p>
+              <p className="text-muted-foreground">HEX: #0070f3</p>
             </div>
           </div>
           <div className="flex flex-col">
@@ -65,10 +65,10 @@ const ColorsSection = () => {
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="h-24 rounded-lg border border-gray-200 mb-2" style={{ backgroundColor: "#F5F5F5" }}></div>
+            <div className="h-24 rounded-lg border border-gray-200 mb-2" style={{ backgroundColor: "#333333" }}></div>
             <div className="text-sm">
               <p className="font-medium">Muted</p>
-              <p className="text-muted-foreground">HEX: #F5F5F5</p>
+              <p className="text-muted-foreground">HEX: #333333</p>
             </div>
           </div>
         </div>

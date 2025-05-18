@@ -51,25 +51,25 @@ const Privacy = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div className="bg-primary/10 p-4 rounded-lg border border-primary/20">
-                  <h3 className="text-md font-medium mb-2 text-muted-foreground">Información de contacto</h3>
+                    <h3 className="text-md font-medium mb-2" style={{ color: "#3b7fed" }}>Información de contacto</h3>
                   <p className="text-sm text-muted-foreground">
                     Nombre, dirección de correo electrónico.
                   </p>
                 </div>
                 <div className="bg-primary/10 p-4 rounded-lg border border-primary/20">
-                  <h3 className="text-md font-medium mb-2 text-muted-foreground">Información académica</h3>
+                  <h3 className="text-md font-medium mb-2" style={{ color: "#3b7fed" }}>Información académica</h3>
                   <p className="text-sm text-muted-foreground">
-                    Carrera, semestre, casa de estudios y unidad académica (cuando sea relevante).
+                    Carrera, casa de estudios y unidad académica (cuando sea relevante).
                   </p>
                 </div>
                 <div className="bg-primary/10 p-4 rounded-lg border border-primary/20">
-                  <h3 className="text-md font-medium mb-2 text-muted-foreground">Información de uso</h3>
+                  <h3 className="text-md font-medium mb-2" style={{ color: "#3b7fed" }}>Información de uso</h3>
                   <p className="text-sm text-muted-foreground">
                     Datos sobre cómo utiliza nuestro sitio web, como páginas visitadas y tiempo de permanencia.
                   </p>
                 </div>
                 <div className="bg-primary/10 p-4 rounded-lg border border-primary/20">
-                  <h3 className="text-md font-medium mb-2 text-muted-foreground">Comunicaciones</h3>
+                  <h3 className="text-md font-medium mb-2" style={{ color: "#3b7fed" }}>Comunicaciones</h3>
                   <p className="text-sm text-muted-foreground">
                     Mensajes que nos envía a través de formularios de contacto o correo electrónico.
                   </p>

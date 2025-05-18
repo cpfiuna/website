@@ -67,12 +67,12 @@ const UsageGuidelines = () => {
             <div className="p-3 bg-muted/20 rounded-lg text-sm mb-4">
               <p className="font-mono">© {new Date().getFullYear()} Club de Programación FIUNA. Todos los derechos reservados.</p>
             </div>
-            <p className="text-sm text-muted-foreground">
+            {/*<p className="text-sm text-muted-foreground">
               Para uso comercial o preguntas específicas, contactá con:
             </p>
             <a href="mailto:clubdeprogramacion@ing.una.py" className="hover:underline text-primary">
               clubdeprogramacion@ing.una.py
-            </a>
+            </a>*/}
           </div>
         </div>
 

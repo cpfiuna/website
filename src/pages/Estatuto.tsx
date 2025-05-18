@@ -606,10 +606,14 @@ const Estatuto = () => {
           <p className="text-muted-foreground mb-6">
             Podés descargar una copia del estatuto completo en PDF para consultarlo offline.
           </p>
-          <button className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+          <a 
+            href="/documentos/estatuto-cpf.pdf" 
+            download="Estatuto_CPF.pdf"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+          >
             <BookText className="h-5 w-5" />
             Descargar PDF
-          </button>
+          </a>
         </div>
       </section>
     </Layout>
