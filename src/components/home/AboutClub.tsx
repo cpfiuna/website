@@ -21,62 +21,12 @@ const AboutClub = () => {
               y las tecnologías de la información.
             </p>
             
-            <p className="mb-6">
+            <p className="text-lg mb-6"> {/*mb-6*/}
               Buscamos complementar la formación académica con experiencias prácticas,
               fomentando el trabajo en equipo, la resolución de problemas y el uso de
               tecnologías modernas que preparen a nuestros miembros para destacarse
               en el mundo profesional.
             </p>
-            
-            {/*<div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                  <Code className="h-5 w-5" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-base">Desarrollo</h3>
-                  <p className="text-sm text-muted-foreground">Proyectos reales con impacto</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                  <Users className="h-5 w-5" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-base">Comunidad</h3>
-                  <p className="text-sm text-muted-foreground">Red de apoyo y colaboración</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                  <Lightbulb className="h-5 w-5" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-base">Innovación</h3>
-                  <p className="text-sm text-muted-foreground">Soluciones creativas</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                  <BookOpen className="h-5 w-5" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-base">Formación</h3>
-                  <p className="text-sm text-muted-foreground">Aprendizaje continuo</p>
-                </div>
-              </div>
-            </div>
-            
-            <Link
-              to="/about"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium transition-all hover:scale-105 hover:shadow-neon-blue"
-            >
-              Conoce nuestra historia
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>*/}
           </div>
           
           <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
@@ -89,14 +39,14 @@ const AboutClub = () => {
             </div>
             <div className="aspect-square overflow-hidden rounded-lg transform -translate-y-4">
               <img 
-                src="/images/home/home-.jpg"
-                alt="Evento de programación del club" 
+                src="images/timeline/cpf-2019.jpg"
+                alt="Hackathon Girls Code Encarnación" 
                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="aspect-square overflow-hidden rounded-lg transform -translate-y-6">
               <img 
-                src="/images/home/home-.jpg"
+                src="images/timeline/cpf-2020.png"
                 alt="Taller de programación" 
                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
               />

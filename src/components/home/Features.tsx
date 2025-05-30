@@ -51,7 +51,7 @@ const Features = () => {
       <div className="container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            ¿Por qué unirte a <span className="gradient-text">cpf</span>?
+            ¿Por qué unirte al <span className="gradient-text">&lt;/cpf&gt;</span>?
           </h2>
           <p className="text-muted-foreground">
             Somos más que un club, somos una comunidad que impulsa el crecimiento
