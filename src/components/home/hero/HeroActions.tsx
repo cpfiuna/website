@@ -21,13 +21,13 @@ const HeroActions = ({ onMount }: HeroActionsProps) => {
   return (
     <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0">
       <Link
-        to="/about"
+        to="/nosotros"
         className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium transition-all hover:scale-105 hover:shadow-neon-blue"
       >
         Conocer más
       </Link>
       <Link
-        to="/contact"
+        to="/contacto"
         className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-full border border-primary bg-transparent text-primary font-medium transition-all hover:scale-105 hover:bg-primary/10 hover:shadow-neon-blue group"
       >
         Únete al club

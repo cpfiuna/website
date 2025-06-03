@@ -33,7 +33,7 @@ const EventCard = ({ event, getEventTypeLabel }: EventCardProps) => {
 
   return (
     <div className={`glass-card group hover:shadow-neon-blue transition-all ${isPastEvent ? 'opacity-80 dark:opacity-70' : ''}`}>
-      <Link to={`/events/${event.slug}`} className="block">
+      <Link to={`/eventos/${event.slug}`} className="block">
         <div className="relative">
           <img
             src={getEventImage()}
@@ -62,7 +62,7 @@ const EventCard = ({ event, getEventTypeLabel }: EventCardProps) => {
         </div>
       </Link>
       <div className="p-6">
-        <Link to={`/events/${event.slug}`}>
+        <Link to={`/eventos/${event.slug}`}>
           <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
             {event.title}
           </h3>
@@ -99,14 +99,14 @@ const EventCard = ({ event, getEventTypeLabel }: EventCardProps) => {
         <div className="flex justify-end mt-4">
           {event.isUpcoming ? (
             <Link
-              to={`/events/${event.slug}`}
+              to={`/eventos/${event.slug}`}
               className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium transition-all hover:scale-105 hover:shadow-neon-blue"
             >
               Ver detalles
             </Link>
             ) : (
             <Link
-              to={`/events/${event.slug}`}
+              to={`/eventos/${event.slug}`}
               className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-muted/70 text-muted-foreground text-sm font-medium transition-all hover:bg-muted hover:scale-105 hover:shadow-sm"
             >
               Ver resumen

@@ -8,8 +8,7 @@ const Transparency = () => {
   return (
     <Layout>
       {/* Hero section */}
-      <section className="relative py-24 px-6 overflow-hidden bg-gradient-to-b from-black to-background/90 dark:from-black dark:to-background/70">
-        <div className="absolute inset-0 bg-grid-white/5 [mask-image:linear-gradient(to_bottom,transparent,black)]"></div>
+      <section className="pt-24 pb-16 relative overflow-hidden bg-gradient-radial from-primary/5 to-transparent dark:from-primary/10 dark:to-transparent">
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -287,7 +286,7 @@ const Transparency = () => {
             
             <div className="mt-8 text-center">
               <Button className="rounded-full px-6 py-3 hover:shadow-neon-blue transition-all">
-                <a href="/projects" className="flex items-center gap-2 text-primary-foreground">
+                <a href="/proyectos" className="flex items-center gap-2 text-primary-foreground">
                   <Lightbulb className="h-5 w-5" />
                   <span>Ver todos los proyectos</span>
                 </a>

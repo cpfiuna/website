@@ -70,19 +70,19 @@ const ProjectDetail = () => {
   
   // Function to get status badge variant based on status
   const getStatusBadgeVariant = (status?: string) => {
-    if (!status) return "bg-amber-500 text-black";
+    if (!status) return "bg-[#F59E0BE6] text-white"; // amber-500 with E6 alpha
     
     switch (status.toLowerCase()) {
       case "completado":
       case "completed":
-        return "bg-green-500 text-white";
+        return "bg-[#10B981E6] text-white"; // green-500 with E6 alpha
       case "abandonado":
       case "planned":
-        return "bg-gray-400 text-black";
+        return "bg-[#9CA3AFE6] text-white"; // gray-400 with E6 alpha
       case "en desarrollo":
       case "in-progress":
       default:
-        return "bg-amber-500 text-black";
+        return "bg-[#F59E0BE6] text-white"; // amber-500 with E6 alpha
     }
   };
 
@@ -127,7 +127,7 @@ const ProjectDetail = () => {
     <Layout>
       <div className="bg-black/50 backdrop-blur-lg">
         <div className="container mx-auto px-6 py-8">
-          <Link to="/projects" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors mb-8">
+          <Link to="/proyectos" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors mb-8">
             <ChevronLeft className="h-4 w-4 mr-1" />
             Volver a proyectos
           </Link>
@@ -171,7 +171,7 @@ const ProjectDetail = () => {
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {project.team.map((member, index) => (
-                        <span key={index} className="px-3 py-1 rounded-full text-xs bg-blue-500/20 text-blue-400">
+                        <span key={index} className="px-3 py-1 rounded-full text-xs bg-[#3C83F6E6] text-white">
                           {typeof member === 'string' ? member : member.name}
                         </span>
                       ))}

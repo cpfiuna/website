@@ -30,7 +30,7 @@ const Footer = () => {
     {
       title: "Recursos",
       links: [
-        { name: "Documentación", href: "/docs" },
+        { name: "Documentación", href: "/documentacion" },
         { name: "Comunidad", href: "/community" },
         { name: "Media Kit", href: "/media-kit" },
         { name: "Prensa", href: "/press" },

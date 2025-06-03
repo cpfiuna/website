@@ -33,7 +33,7 @@ const EventDetailHeader = ({ event }: EventDetailHeaderProps) => {
     <section className="relative pt-4">
       <div className="container mx-auto px-6 mb-6">
         <Link
-          to="/events"
+          to="/eventos"
           className="inline-flex items-center text-sm text-muted-foreground hover:text-primary transition-colors"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />

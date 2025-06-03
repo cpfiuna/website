@@ -16,65 +16,77 @@ interface ResourceCategory {
 
 const resourceCategories: ResourceCategory[] = [
   {
-    title: "Tutoriales y Documentación",
+    title: "Plataformas de Aprendizaje",
     icon: BookOpen,
     resources: [
-      { name: "MDN Web Docs", description: "Documentación completa para desarrollo web", url: "https://developer.mozilla.org" },
-      { name: "React Documentation", description: "Guías oficiales y API de React", url: "https://reactjs.org/docs" },
-      { name: "TypeScript Handbook", description: "Documentación oficial de TypeScript", url: "https://www.typescriptlang.org/docs/" }
+      { name: "freeCodeCamp", description: "Cursos gratuitos completos con certificados y proyectos prácticos", url: "https://www.freecodecamp.org/espanol/" },
+      { name: "Codecademy", description: "Aprendizaje interactivo hands-on con editor en línea integrado", url: "https://www.codecademy.com/" },
+      { name: "Pluralsight", description: "Cursos técnicos avanzados con skill assessments y learning paths", url: "https://www.pluralsight.com/" },
+      { name: "Udemy Programming", description: "Amplia variedad de cursos prácticos con proyectos del mundo real", url: "https://www.udemy.com/courses/development/" },
+      { name: "The Odin Project", description: "Bootcamp gratuito completo de full-stack web development", url: "https://www.theodinproject.com/" }
     ]
   },
   {
-    title: "Herramientas y Editores",
+    title: "Competitive Programming",
     icon: Terminal,
     resources: [
-      { name: "VS Code", description: "Editor de código gratuito y potente", url: "https://code.visualstudio.com/" },
-      { name: "Git", description: "Sistema de control de versiones", url: "https://git-scm.com/" },
-      { name: "Node.js", description: "Entorno de ejecución para JavaScript", url: "https://nodejs.org/" }
+      { name: "Codeforces", description: "Plataforma líder para contests con rating system y editorials", url: "https://codeforces.com/" },
+      { name: "AtCoder", description: "Contests japoneses de alta calidad con problemas bien estructurados", url: "https://atcoder.jp/" },
+      { name: "USACO Guide", description: "Guía completa gratuita con roadmap organizado por dificultad", url: "https://usaco.guide/" },
+      { name: "LeetCode", description: "Ideal para preparación de entrevistas técnicas y coding challenges", url: "https://leetcode.com/" },
+      { name: "HackerRank", description: "Challenges de programación y preparación para entrevistas", url: "https://www.hackerrank.com/" }
     ]
   },
   {
-    title: "Bibliotecas y Frameworks",
+    title: "Herramientas de Desarrollo",
     icon: Code,
     resources: [
-      { name: "Next.js", description: "Framework React para producción", url: "https://nextjs.org/" },
-      { name: "Tailwind CSS", description: "Framework CSS utility-first", url: "https://tailwindcss.com/" },
-      { name: "React Query", description: "Biblioteca para gestionar datos en React", url: "https://tanstack.com/query/latest/" }
+      { name: "Visual Studio Code", description: "Editor líder con extensiones, debugging y Git integrado", url: "https://code.visualstudio.com/" },
+      { name: "GitHub Codespaces", description: "Entorno de desarrollo completo en la nube con VS Code", url: "https://github.com/features/codespaces" },
+      { name: "Postman", description: "Herramienta esencial para testing y desarrollo de APIs", url: "https://www.postman.com/" },
+      { name: "Docker", description: "Containerización para entornos consistentes y deployment", url: "https://www.docker.com/" },
+      { name: "Figma", description: "Herramienta de diseño colaborativo para interfaces y prototipos", url: "https://www.figma.com/" }
     ]
   },
   {
-    title: "Comunidad y Código Abierto",
+    title: "Documentación Técnica",
     icon: Github,
     resources: [
-      { name: "GitHub Student Pack", description: "Recursos gratuitos para estudiantes", url: "https://education.github.com/pack" },
-      { name: "Open Source Guides", description: "Guías para contribuir a código abierto", url: "https://opensource.guide/" },
-      { name: "DEV Community", description: "Comunidad de desarrolladores", url: "https://dev.to/" }
+      { name: "MDN Web Docs", description: "Documentación definitiva para tecnologías web y JavaScript", url: "https://developer.mozilla.org/es/" },
+      { name: "DevDocs", description: "Documentación unificada offline para múltiples tecnologías", url: "https://devdocs.io/" },
+      { name: "Developer Roadmaps", description: "Roadmaps visuales completos para diferentes carreras tech", url: "https://roadmap.sh/" },
+      { name: "GeeksforGeeks", description: "Tutoriales completos de algoritmos, estructuras de datos y CS", url: "https://www.geeksforgeeks.org/" },
+      { name: "GitHub Student Pack", description: "Recursos premium gratuitos para estudiantes desarrolladores", url: "https://education.github.com/pack" }
     ]
   },
   {
-    title: "Videos y Cursos",
+    title: "Cursos Universitarios Gratuitos",
     icon: Video,
     resources: [
-      { name: "freeCodeCamp", description: "Cursos gratuitos de programación", url: "https://www.freecodecamp.org/" },
-      { name: "The Odin Project", description: "Currículo completo para desarrollo web", url: "https://www.theodinproject.com/" },
-      { name: "Scrimba", description: "Cursos interactivos de programación", url: "https://scrimba.com/" }
+      { name: "Harvard CS50", description: "Curso introductorio legendario de ciencias de la computación", url: "https://cs50.harvard.edu/x/" },
+      { name: "MIT OpenCourseWare", description: "Cursos completos del MIT con materiales y assignments", url: "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/" },
+      { name: "Stanford Algorithms", description: "Especialización completa en algoritmos por Tim Roughgarden", url: "https://www.coursera.org/specializations/algorithms" },
+      { name: "MIT 6.00.1x", description: "Introducción a CS y programación usando Python del MIT", url: "https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-10" },
+      { name: "Full Stack Open", description: "Bootcamp gratuito de Universidad de Helsinki sobre React/Node.js", url: "https://fullstackopen.com/en/" }
     ]
   },
   {
-    title: "Eventos y Conferencias",
+    title: "Certificaciones Profesionales",
     icon: Coffee,
     resources: [
-      { name: "GitHub Universe", description: "Conferencia anual de GitHub", url: "https://githubuniverse.com/" },
-      { name: "React Conf", description: "Conferencia oficial de React", url: "https://conf.reactjs.org/" },
-      { name: "Google I/O", description: "Conferencia anual de Google para desarrolladores", url: "https://io.google/" }
+      { name: "AWS Certifications", description: "Certificaciones cloud reconocidas mundialmente por Amazon", url: "https://aws.amazon.com/certification/" },
+      { name: "Google Cloud Certifications", description: "Certificaciones en tecnologías cloud de Google", url: "https://cloud.google.com/certification" },
+      { name: "Microsoft Azure Certifications", description: "Certificaciones cloud y tecnologías Microsoft", url: "https://docs.microsoft.com/en-us/learn/certifications/" },
+      { name: "Oracle Certifications", description: "Certificaciones Java, bases de datos y tecnologías enterprise", url: "https://www.oracle.com/certification/" },
+      { name: "GitHub Certifications", description: "Certificaciones oficiales en Git, GitHub y DevOps", url: "https://examregistration.github.com/" }
     ]
   }
 ];
 
 const ExternalResources = () => {
   return (
-    <section className="py-16 px-6">
-      <div className="container mx-auto max-w-6xl">
+    <section className="py-16">
+      <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold mb-12 text-center">
           Recursos <span className="gradient-text">Externos</span> Recomendados
         </h2>
@@ -83,7 +95,7 @@ const ExternalResources = () => {
           {resourceCategories.map((category, index) => (
             <div 
               key={index} 
-              className="glass-card p-6 transition-all duration-300 hover:shadow-neon-blue"
+              className="glass-card-static p-6 transition-all duration-300 hover:shadow-neon-blue"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">

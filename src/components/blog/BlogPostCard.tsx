@@ -61,13 +61,13 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
   
   return (
     <Link to={`/blog/${post.slug}`} className="group">
-      <article className="overflow-hidden rounded-xl bg-black border border-gray-800 transition-all hover:border-primary/50">
+      <article className="glass-card group hover:shadow-neon-blue transition-all overflow-hidden rounded-xl">
         <div className="flex flex-col h-full">
           <div className="relative overflow-hidden h-48">
             <img
               src={getImageSrc()}
               alt={post.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              className="w-full h-full object-cover object-center rounded-t-xl"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.src = categoryImages.default;
@@ -78,7 +78,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
                 {post.tags.slice(0, 2).map((tag, idx) => (
                   <span
                     key={`${post.slug}-tag-${idx}`}
-                    className="text-xs px-2 py-0.5 bg-primary text-white rounded-full"
+                    className="text-xs px-2 py-0.5 bg-[#3C83F6E6] text-white rounded-full"
                   >
                     {tag}
                   </span>
@@ -88,7 +88,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
           </div>
           
           <div className="p-4 flex flex-col h-full">
-            <div className="flex text-xs text-gray-400 items-center mb-2">
+            <div className="flex text-xs text-muted-foreground items-center mb-2">
               <span className="flex items-center">
                 <CalendarIcon className="h-3 w-3 mr-1" />
                 {formatDate(post.date)}
@@ -100,16 +100,16 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
               </span>
             </div>
             
-            <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors line-clamp-2">
+            <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors line-clamp-2 text-card-foreground">
               {post.title}
             </h3>
             
-            <p className="text-sm text-gray-400 line-clamp-3 mb-3">
+            <p className="text-sm text-muted-foreground line-clamp-3 mb-3">
               {displayDescription}
             </p>
             
-            <div className="mt-auto text-sm text-gray-400">
-              Por <span className="text-gray-300">{post.author}</span>
+            <div className="mt-auto text-sm text-muted-foreground">
+              Por <span className="text-card-foreground">{post.author}</span>
             </div>
           </div>
         </div>

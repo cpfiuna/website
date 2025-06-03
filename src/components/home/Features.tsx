@@ -44,11 +44,11 @@ const Features = () => {
 
   return (
     <section className="py-20 section-padding relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-radial from-primary/5 to-transparent opacity-50 blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-radial from-primary/5 to-transparent opacity-50 blur-3xl"></div>
+      {/* Subtle background elements */}
+      <div className="absolute top-1/4 right-1/3 w-72 h-72 bg-primary/5 dark:bg-primary/10 rounded-full blur-3xl opacity-60"></div>
+      <div className="absolute bottom-1/4 left-1/4 w-56 h-56 bg-primary/4 dark:bg-primary/8 rounded-full blur-3xl opacity-50"></div>
       
-      <div className="container mx-auto">
+      <div className="container mx-auto relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             ¿Por qué unirte al <span className="gradient-text">&lt;/cpf&gt;</span>?
@@ -76,7 +76,7 @@ const Features = () => {
 
         <div className="mt-16 text-center">
           <Link
-            to="/about"
+            to="/nosotros"
             className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium transition-all hover:scale-105 hover:shadow-neon-blue"
           >
             Conoce nuestra historia

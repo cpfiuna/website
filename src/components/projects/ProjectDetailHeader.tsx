@@ -44,7 +44,7 @@ const ProjectDetailHeader: React.FC<ProjectDetailHeaderProps> = ({
           <Badge 
             key={index}
             variant="secondary" 
-            className="bg-[#2563eb] text-white text-xs px-3 py-1 rounded-full border-none"
+            className="bg-[#3C83F6E6] text-white text-xs px-3 py-1 rounded-full border-none"
           >
             {tag.replace(/"/g, '')}
           </Badge>

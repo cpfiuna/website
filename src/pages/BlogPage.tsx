@@ -79,12 +79,12 @@ const allTags = Array.from(new Set(blogPosts.flatMap(post => post.tags)));
 const BlogPostCard: React.FC<BlogPostProps> = ({ title, excerpt, image, author, date, tags, slug }) => {
   return (
     <Link to={`/blog/${slug}`}>
-      <Card className="glass-card overflow-hidden h-full flex flex-col transition-all hover:scale-[1.02]">
+      <Card className="glass-card overflow-hidden h-full flex flex-col group hover:shadow-neon-blue transition-all">
         <div className="h-48 overflow-hidden">
           <img src={image} alt={title} className="w-full h-full object-cover" />
         </div>
         <div className="p-6 flex-grow flex flex-col">
-          <h3 className="text-xl font-bold mb-2">{title}</h3>
+          <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{title}</h3>
           
           <div className="flex items-center text-[#94a3b8] mb-2">
             <User className="h-4 w-4 mr-2" />

@@ -7,7 +7,7 @@ const CodeOfConduct = () => {
     <Layout>
       <div className="container mx-auto py-12 lg:py-24 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8">
+          <div className="mb-0">
             <Link to="/" className="text-sm text-primary flex items-center hover:underline">
               <ArrowLeft className="h-4 w-4 mr-1" />
               Volver al inicio
@@ -26,7 +26,7 @@ const CodeOfConduct = () => {
           </div>
           
           <div className="prose prose-lg dark:prose-invert max-w-none">
-            <div className="glass-card p-8 mb-8">
+            <div className="glass-card-static p-8 mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <Users className="h-5 w-5 text-primary flex-shrink-0" />
                 <h2 className="text-2xl font-semibold m-0">Propósito</h2>
@@ -41,7 +41,7 @@ const CodeOfConduct = () => {
               </p>
             </div>
             
-            <div className="glass-card p-8 mb-8">
+            <div className="glass-card-static p-8 mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <FileCheck className="h-5 w-5 text-primary flex-shrink-0" />
                 <h2 className="text-2xl font-semibold m-0">Alcance</h2>
@@ -60,7 +60,7 @@ const CodeOfConduct = () => {
               </ul>
             </div>
             
-            <div className="glass-card p-8 mb-8">
+            <div className="glass-card-static p-8 mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <Heart className="h-5 w-5 text-primary flex-shrink-0" />
                 <h2 className="text-2xl font-semibold m-0">Nuestros Estándares</h2>
@@ -131,7 +131,7 @@ const CodeOfConduct = () => {
               </div>
             </div>
             
-            <div className="glass-card p-8 mb-8">
+            <div className="glass-card-static p-8 mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <Gavel className="h-5 w-5 text-primary flex-shrink-0" />
                 <h2 className="text-2xl font-semibold m-0">Responsabilidades y Aplicación</h2>
@@ -167,7 +167,7 @@ const CodeOfConduct = () => {
               </div>
             </div>
             
-            <div className="glass-card p-8 mb-8">
+            <div className="glass-card-static p-8 mb-8">
               <h2 className="text-2xl font-semibold mb-4">Proceso de Resolución de Conflictos</h2>
               <div className="space-y-4">
                 <div className="flex gap-4">

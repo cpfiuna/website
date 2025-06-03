@@ -60,17 +60,17 @@ export function useSidebarContent() {
     events: events.map(event => ({ 
       slug: event.slug || '', 
       title: event.title || 'Evento sin título', 
-      url: `/events/${event.slug}` 
+      url: `/eventos/${event.slug}` 
     })),
     projects: projects.map(project => ({ 
       slug: project.slug || '', 
       title: project.title || 'Proyecto sin título', 
-      url: `/projects/${project.slug}` 
+      url: `/proyectos/${project.slug}` 
     })),
     courses: courses.map(course => ({ 
       slug: course.slug || '', 
       title: course.title || 'Curso sin título', 
-      url: `/course/${course.slug}` 
+      url: `/curso/${course.slug}` 
     })),
     blogPosts: blogPosts.map(post => ({ 
       slug: post.slug || '', 

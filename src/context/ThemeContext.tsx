@@ -52,9 +52,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
-  // Apply theme to document
+  // Apply theme to document with smooth transition
   useEffect(() => {
     const root = window.document.documentElement;
+    
+    // Add transition class for smooth color transitions
+    root.style.transition = 'color 0.3s ease-in-out, background-color 0.3s ease-in-out';
+    
     root.classList.remove("light", "dark");
     root.classList.add(theme);
     
@@ -66,6 +70,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       // so we can follow system changes
       localStorage.removeItem("theme");
     }
+    
+    // Clean up transition after theme change is complete
+    const cleanup = setTimeout(() => {
+      root.style.transition = '';
+    }, 300);
+    
+    return () => clearTimeout(cleanup);
   }, [theme, systemTheme]);
 
   const toggleTheme = () => {

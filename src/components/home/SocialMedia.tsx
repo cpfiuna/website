@@ -7,10 +7,10 @@ import { contactInfo } from "@/config/site";
 const SocialMedia = () => {
   return (
     <section className="py-20 section-padding relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-radial from-primary/5 to-transparent opacity-50 blur-3xl"></div>
+      {/* Subtle background elements */}
+      <div className="absolute top-1/3 left-1/3 w-64 h-64 bg-primary/5 dark:bg-primary/10 rounded-full blur-3xl opacity-60"></div>
       
-      <div className="container mx-auto">
+      <div className="container mx-auto relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Conectate con <span className="gradient-text">Nosotros</span>

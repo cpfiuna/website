@@ -14,13 +14,13 @@ const CallToAction = () => {
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="/contact"
+            href="/contacto"
             className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium transition-all hover:scale-105 hover:shadow-neon-blue"
           >
             Unite al club
           </a>
           <a
-            href="/projects"
+            href="/proyectos"
             className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-primary bg-transparent text-primary font-medium transition-all hover:scale-105 hover:bg-primary/10 hover:shadow-neon-blue"
           >
             Ver nuestros proyectos

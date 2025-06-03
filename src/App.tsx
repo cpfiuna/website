@@ -38,25 +38,25 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/events/:slug" element={<EventDetail />} />
+            <Route path="/nosotros" element={<About />} />
+            <Route path="/eventos" element={<Events />} />
+            <Route path="/eventos/:slug" element={<EventDetail />} />
             <Route path="/logros" element={<Logros />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/:slug" element={<ProjectDetail />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/course/:slug" element={<CourseDetail />} />
+            <Route path="/proyectos" element={<Projects />} />
+            <Route path="/proyectos/:slug" element={<ProjectDetail />} />
+            <Route path="/recursos" element={<Resources />} />
+            <Route path="/curso/:slug" element={<CourseDetail />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/code-of-conduct" element={<CodeOfConduct />} />
-            <Route path="/media-kit" element={<MediaKit />} />
-            <Route path="/press" element={<Press />} />
-            <Route path="/transparency" element={<Transparency />} />
+            <Route path="/contacto" element={<Contact />} />
+            <Route path="/privacidad" element={<Privacy />} />
+            <Route path="/codigo-de-conducta" element={<CodeOfConduct />} />
+            <Route path="/kit-de-medios" element={<MediaKit />} />
+            <Route path="/prensa" element={<Press />} />
+            <Route path="/transparencia" element={<Transparency />} />
             <Route path="/estatuto" element={<Estatuto />} />
-            <Route path="/community" element={<Community />} />
-            <Route path="/docs/*" element={<Documentation />} />
+            <Route path="/comunidad" element={<Community />} />
+            <Route path="/documentacion/*" element={<Documentation />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

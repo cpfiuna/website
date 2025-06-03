@@ -106,7 +106,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="glass-card p-8">
+    <form onSubmit={handleSubmit} className="glass-card-static p-8">
       <div className="grid grid-cols-1 gap-6">
         <div className="space-y-2">
           <label htmlFor="name" className="text-sm font-medium">

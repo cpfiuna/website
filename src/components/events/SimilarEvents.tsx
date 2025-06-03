@@ -18,7 +18,7 @@ const SimilarEvents = ({ events }: SimilarEventsProps) => {
         {events.map((event) => (
           <Link 
             key={event.id} 
-            to={`/events/${event.slug}`}
+            to={`/eventos/${event.slug}`}
             className="glass-card overflow-hidden group hover:shadow-neon-blue transition-all"
           >
             <div className="h-40 overflow-hidden">

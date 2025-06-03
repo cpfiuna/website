@@ -3,7 +3,7 @@ import { Download } from "lucide-react";
 
 const TypographySection = () => {
   return (
-    <div className="glass-card p-8 mb-16">
+    <div className="glass-card-static p-8 mb-16">
       <h3 className="text-xl font-semibold mb-4">Tipografía</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Typography */}

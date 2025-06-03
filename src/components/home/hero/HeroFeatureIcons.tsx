@@ -23,28 +23,28 @@ const HeroFeatureIcons = ({ onMount }: HeroFeatureIconsProps) => {
       icon: <Code className="h-6 w-6 md:h-8 md:w-8 text-primary mb-2 md:mb-4 animate-pulse-slow" />,
       title: "Proyectos",
       description: "Código abierto y colaborativo",
-      link: "/projects",
+      link: "/proyectos",
       delay: 0
     },
     {
       icon: <Users className="h-6 w-6 md:h-8 md:w-8 text-primary mb-2 md:mb-4 animate-pulse-slow" style={{ animationDelay: "0.5s" }} />,
       title: "Comunidad",
       description: "Aprendizaje compartido",
-      link: "/community",
+      link: "/comunidad",
       delay: 0
     },
     {
       icon: <Calendar className="h-6 w-6 md:h-8 md:w-8 text-primary mb-2 md:mb-4 animate-pulse-slow" style={{ animationDelay: "1s" }} />,
       title: "Eventos",
       description: "Hackathons y workshops",
-      link: "/events",
+      link: "/eventos",
       delay: 0
     },
     {
       icon: <BookOpen className="h-6 w-6 md:h-8 md:w-8 text-primary mb-2 md:mb-4 animate-pulse-slow" style={{ animationDelay: "1.5s" }} />,
       title: "Recursos",
       description: "Tutoriales y herramientas",
-      link: "/resources",
+      link: "/recursos",
       delay: 0
     }
   ];

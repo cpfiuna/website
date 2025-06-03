@@ -100,3 +100,15 @@
   --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
+
+/* Smooth theme transitions for radial gradients */
+.bg-gradient-radial {
+  transition: background-image 0.5s ease-in-out;
+}
+
+/* Ensure smooth theme transitions for all background elements */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}

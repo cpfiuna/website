@@ -4,7 +4,7 @@ import { contactInfo } from "@/config/site";
 
 const UsageGuidelines = () => {
   return (
-    <section className="py-16 px-6 bg-muted/30">
+    <section className="py-16 px-6 bg-black/60 ">
       <div className="container mx-auto max-w-6xl">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold mb-4">Directrices de uso</h2>
@@ -15,7 +15,7 @@ const UsageGuidelines = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <div className="glass-card p-6">
+          <div className="glass-card-static p-6">
             <h3 className="text-lg font-semibold mb-3">Lo que debés hacer</h3>
             <ul className="space-y-2 text-sm">
               <li className="flex items-start">
@@ -37,7 +37,7 @@ const UsageGuidelines = () => {
             </ul>
           </div>
 
-          <div className="glass-card p-6">
+          <div className="glass-card-static p-6">
             <h3 className="text-lg font-semibold mb-3">Lo que no debés hacer</h3>
             <ul className="space-y-2 text-sm">
               <li className="flex items-start">
@@ -59,7 +59,7 @@ const UsageGuidelines = () => {
             </ul>
           </div>
 
-          <div className="glass-card p-6">
+          <div className="glass-card-static p-6">
             <h3 className="text-lg font-semibold mb-3">Requisitos de atribución</h3>
             <p className="text-sm text-muted-foreground mb-4">
               Cuando utilices nuestros recursos en cualquier material, incluí la siguiente atribución:
@@ -83,8 +83,8 @@ const UsageGuidelines = () => {
             no dudes en contactarnos.
           </p>
           <a 
-            href="/contact" 
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-muted/50 hover:bg-muted text-foreground rounded-full font-medium transition-all hover:scale-105"
+            href="/contacto" 
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full font-medium transition-all hover:shadow-neon-blue hover:scale-105"
           >
             <span>Contactar al equipo</span>
           </a>

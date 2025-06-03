@@ -78,7 +78,7 @@ interface ResourceCardProps {
 
 const ResourceCard = ({ resource }: ResourceCardProps) => {
   return (
-    <div className="glass-card p-6 hover:shadow-neon-blue transition-all duration-300">
+    <div className="glass-card-static p-6 hover:shadow-neon-blue transition-all duration-300">
       <div className="flex items-start justify-between mb-3">
         <div>
           <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
@@ -136,7 +136,7 @@ const FilterBar = ({
   handleTagToggle
 }: FilterBarProps) => {
   return (
-    <div className="glass-card p-6 mb-8">
+    <div className="glass-card-static p-6 mb-8">
       <div className="flex flex-col lg:flex-row gap-6">
         <div className="flex-1">
           <div className="relative">
@@ -217,8 +217,8 @@ const ClubResources = () => {
   });
 
   return (
-    <section className="py-16 px-6 bg-background">
-      <div className="container mx-auto max-w-6xl">
+    <section className="py-16 bg-background">
+      <div className="container mx-auto px-6">
         <div className="mb-12">
           <h2 className="text-3xl font-bold text-center">
             Recursos de <span className="gradient-text">{'</cpf>'}</span>

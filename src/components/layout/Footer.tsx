@@ -78,33 +78,35 @@ const Footer = () => {
     
     if (path === "/") {
       pageName = "Index";
-    } else if (path === "/about") {
+    } else if (path === "/about" || path === "/nosotros") {
       pageName = "About";
-    } else if (path === "/events") {
+    } else if (path === "/events" || path === "/eventos") {
       pageName = "Events";
-    } else if (path === "/projects") {
+    } else if (path === "/achievements" || path === "/logros") {
+      pageName = "Logros";
+    } else if (path === "/projects" || path === "/proyectos") {
       pageName = "Projects";
-    } else if (path === "/resources") {
+    } else if (path === "/resources" || path === "/recursos") {
       pageName = "Resources";
     } else if (path === "/blog") {
       pageName = "Blog";
-    } else if (path === "/contact") {
+    } else if (path === "/contact" || path === "/contacto") {
       pageName = "Contact";
-    } else if (path === "/privacy") {
+    } else if (path === "/privacy" || path === "/privacidad") {
       pageName = "Privacy";
-    } else if (path === "/code-of-conduct") {
+    } else if (path === "/code-of-conduct" || path === "/codigo-de-conducta") {
       pageName = "CodeOfConduct";
-    } else if (path === "/media-kit") {
+    } else if (path === "/media-kit" || path === "/kit-de-medios") {
       pageName = "MediaKit";
-    } else if (path === "/press") {
+    } else if (path === "/press" || path === "/prensa") {
       pageName = "Press";
-    } else if (path === "/transparency") {
+    } else if (path === "/transparency" || path === "/transparencia") {
       pageName = "Transparency";
-    } else if (path === "/community") {
+    } else if (path === "/community" || path === "/comunidad") {
       pageName = "Community";
-    } else if (path === "/estatuto") {
+    } else if (path === "/estatuto" || path === "/statute") {
       pageName = "Estatuto";
-    } else if (path.startsWith("/docs")) {
+    } else if (path.startsWith("/documentacion") || path.startsWith("/documentation")) {
       pageName = "Documentation";
     }
     
@@ -168,7 +170,7 @@ const Footer = () => {
                 ))}
                 <li>
                   <Link
-                    to="/docs"
+                    to="/documentacion"
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     Documentación

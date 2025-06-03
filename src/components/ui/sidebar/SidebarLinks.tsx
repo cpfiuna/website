@@ -13,22 +13,22 @@ export const SidebarLinks: React.FC<SidebarLinksProps> = ({ className }) => {
       <SidebarLink to="/" exact icon={<Home className="h-4 w-4" />}>
         Inicio
       </SidebarLink>
-      <SidebarLink to="/about" icon={<Info className="h-4 w-4" />}>
+      <SidebarLink to="/nosotros" icon={<Info className="h-4 w-4" />}>
         Sobre nosotros
       </SidebarLink>
-      <SidebarLink to="/projects" icon={<FolderKanban className="h-4 w-4" />}>
+      <SidebarLink to="/proyectos" icon={<FolderKanban className="h-4 w-4" />}>
         Proyectos
       </SidebarLink>
-      <SidebarLink to="/events" icon={<Calendar className="h-4 w-4" />}>
+      <SidebarLink to="/eventos" icon={<Calendar className="h-4 w-4" />}>
         Eventos
       </SidebarLink>
-      <SidebarLink to="/resources" icon={<BookOpen className="h-4 w-4" />}>
+      <SidebarLink to="/recursos" icon={<BookOpen className="h-4 w-4" />}>
         Recursos
       </SidebarLink>
       <SidebarLink to="/blog" icon={<FileText className="h-4 w-4" />}>
         Blog
       </SidebarLink>
-      <SidebarLink to="/contact" icon={<Mail className="h-4 w-4" />}>
+      <SidebarLink to="/contacto" icon={<Mail className="h-4 w-4" />}>
         Contacto
       </SidebarLink>
     </div>

@@ -27,7 +27,7 @@ const AboutPreview: React.FC = () => {
                 fundamentales para el mundo profesional.
               </p>
               <Link
-                to="/about"
+                to="/nosotros"
                 className="inline-flex items-center bg-secondary text-secondary-foreground font-medium py-3 px-6 rounded-lg transition-all hover:bg-secondary/80"
               >
                 Conoce más sobre nosotros

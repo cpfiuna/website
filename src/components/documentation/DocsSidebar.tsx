@@ -129,12 +129,12 @@ const DocsSidebar = ({
               variant="ghost"
               asChild
               className={`flex w-full items-center justify-start text-base font-medium px-3 py-2 rounded-md mb-3 ${
-                location.pathname === "/docs" 
+                location.pathname === "/documentacion" 
                   ? "bg-primary/10 text-primary" 
                   : "hover:bg-muted"
               }`}
             >
-              <Link to="/docs">
+              <Link to="/documentacion">
                 <Home className="h-4 w-4 mr-2" />
                 Inicio de documentación
               </Link>
@@ -175,11 +175,11 @@ const DocsSidebar = ({
                     {openCategories.includes(category) && (
                       <div className="pl-5 space-y-1 mt-1">
                         {items.map((item) => {
-                          const isActive = location.pathname === `/docs/${item.slug}`;
+                          const isActive = location.pathname === `/documentacion/${item.slug}`;
                           return (
                             <Link
                               key={item.slug}
-                              to={`/docs/${item.slug}`}
+                              to={`/documentacion/${item.slug}`}
                               className={`flex items-center text-sm px-3 py-2 rounded-md ${
                                 isActive 
                                   ? "bg-primary/10 text-primary" 

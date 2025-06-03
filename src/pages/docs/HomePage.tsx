@@ -83,7 +83,7 @@ const DocsHomePage: React.FC = () => {
                 nuestra guía de introducción para conocer nuestras actividades y cómo participar.
               </p>
               <Button asChild size="lg">
-                <a href="/docs/introduccion">Comenzar aquí</a>
+                <a href="/documentacion/introduccion">Comenzar aquí</a>
               </Button>
             </div>
             

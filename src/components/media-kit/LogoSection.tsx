@@ -3,7 +3,7 @@ import { FileCode, FileImage } from "lucide-react";
 
 const LogoSection = () => {
   return (
-    <div className="glass-card p-8 flex flex-col h-full">
+    <div className="glass-card-static p-8 flex flex-col h-full">
       <h3 className="text-xl font-semibold mb-4">Logo</h3>
       <div className="bg-muted/20 flex-grow rounded-lg p-8 flex items-center justify-center mb-6">
         <img 

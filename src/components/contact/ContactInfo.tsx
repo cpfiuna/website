@@ -4,7 +4,7 @@ import { MapPin, Mail, Share2 } from "lucide-react";
 
 const ContactInfo = () => {
   return (
-    <div className="glass-card p-8">
+    <div className="glass-card-static p-8">
       <h2 className="text-2xl font-bold mb-6">Información de contacto</h2>
       
       <div className="space-y-6">

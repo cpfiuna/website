@@ -22,14 +22,14 @@ const Hero: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              to="/join"
+              to="/contacto"
               className="btn-glow inline-flex items-center bg-primary text-white font-medium py-3 px-6 rounded-lg transition-all"
             >
               Únete al club
               <ChevronRight className="ml-2 h-5 w-5" />
             </Link>
             <Link
-              to="/projects"
+              to="/proyectos"
               className="inline-flex items-center bg-secondary text-secondary-foreground font-medium py-3 px-6 rounded-lg transition-all hover:bg-secondary/80"
             >
               Ver proyectos

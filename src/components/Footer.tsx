@@ -85,22 +85,22 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
+                <Link to="/nosotros" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
                   Sobre Nosotros
                 </Link>
               </li>
               <li>
-                <Link to="/events" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
+                <Link to="/eventos" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
                   Eventos
                 </Link>
               </li>
               <li>
-                <Link to="/projects" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
+                <Link to="/proyectos" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
                   Proyectos
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
+                <Link to="/contacto" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
                   Contacto
                 </Link>
               </li>
@@ -111,7 +111,7 @@ const Footer: React.FC = () => {
             <h3 className="font-semibold text-base mb-4">Recursos</h3>
             <ul className="space-y-2 text-center md:text-left">
               <li>
-                <Link to="/resources" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
+                <Link to="/recursos" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
                   Kit de Medios
                 </Link>
               </li>
@@ -121,12 +121,12 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/documentation" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
+                <Link to="/documentacion" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
                   Documentación
                 </Link>
               </li>
               <li>
-                <Link to="/community" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
+                <Link to="/comunidad" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
                   Comunidad
                 </Link>
               </li>
@@ -137,12 +137,12 @@ const Footer: React.FC = () => {
             <h3 className="font-semibold text-base mb-4">Legal</h3>
             <ul className="space-y-2 text-center md:text-left">
               <li>
-                <Link to="/privacy" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
+                <Link to="/privacidad" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
                   Política de Privacidad
                 </Link>
               </li>
               <li>
-                <Link to="/code-of-conduct" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
+                <Link to="/codigo-de-conducta" className="text-[#94a3b8] dark:text-[#94a3b8] hover:text-primary dark:hover:text-primary transition-colors text-sm">
                   Código de Conducta
                 </Link>
               </li>
@@ -158,7 +158,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-200 dark:border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-[#94a3b8] dark:text-[#94a3b8] text-xs">
             <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-4 md:mb-0">
-              <Link to="/report-issue" className="hover:text-primary transition-colors text-xs flex items-center">
+              <Link to="/contacto" className="hover:text-primary transition-colors text-xs flex items-center">
                 <AlertTriangle className="h-4 w-4 mr-2" />
                 Reportar Errores
               </Link>

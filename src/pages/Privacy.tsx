@@ -8,7 +8,7 @@ const Privacy = () => {
     <Layout>
       <div className="container mx-auto py-12 lg:py-24 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8">
+          <div className="mb-0">
             <Link to="/" className="text-sm text-primary flex items-center hover:underline">
               <ArrowLeft className="h-4 w-4 mr-1" />
               Volver al inicio
@@ -28,7 +28,7 @@ const Privacy = () => {
 
           <div className="space-y-8">
             {/* Introduction section */}
-            <div className="glass-card p-6">
+            <div className="glass-card-static p-6">
               <h2 className="text-xl font-semibold mb-4 flex items-center">
                 <span className="text-primary mr-2">1.</span> Introducción
               </h2>
@@ -41,7 +41,7 @@ const Privacy = () => {
             </div>
 
             {/* Information we collect section */}
-            <div className="glass-card p-6">
+            <div className="glass-card-static p-6">
               <h2 className="text-xl font-semibold mb-4 flex items-center">
                 <span className="text-primary mr-2">2.</span> Información que recopilamos
               </h2>
@@ -78,7 +78,7 @@ const Privacy = () => {
             </div>
 
             {/* How we use information section */}
-            <div className="glass-card p-6">
+            <div className="glass-card-static p-6">
               <h2 className="text-xl font-semibold mb-4 flex items-center">
                 <span className="text-primary mr-2">3.</span> Cómo utilizamos su información
               </h2>
@@ -114,7 +114,7 @@ const Privacy = () => {
             </div>
 
             {/* Information sharing section */}
-            <div className="glass-card p-6">
+            <div className="glass-card-static p-6">
               <h2 className="text-xl font-semibold mb-4 flex items-center">
                 <span className="text-primary mr-2">4.</span> Compartición de información
               </h2>
@@ -123,72 +123,70 @@ const Privacy = () => {
               </p>
             </div>
 
-            {/* Two-column layout for Security and Rights */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="glass-card p-6">
-                <h2 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="text-primary mr-2">5.</span> Seguridad de la información
-                </h2>
-                <p className="text-muted-foreground mb-4">
-                  Implementamos medidas de seguridad técnicas y organizativas para proteger su información personal contra acceso no autorizado, pérdida, alteración o destrucción. Sin embargo, ninguna transmisión por Internet o almacenamiento electrónico es 100% seguro, por lo que no podemos garantizar seguridad absoluta.
-                </p>
-              </div>
-              
-              <div className="glass-card p-6">
-                <h2 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="text-primary mr-2">6.</span> Sus derechos
-                </h2>
-                <p className="text-muted-foreground mb-4">
-                  Usted tiene derecho a:
-                </p>
-                <ul className="space-y-1">
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Acceder a su información personal</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Corregir datos inexactos</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Solicitar la eliminación de sus datos</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Oponerse al procesamiento</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Retirar su consentimiento</span>
-                  </li>
-                </ul>
-              </div>
+            {/* Security section */}
+            <div className="glass-card-static p-6">
+              <h2 className="text-xl font-semibold mb-4 flex items-center">
+                <span className="text-primary mr-2">5.</span> Seguridad de la información
+              </h2>
+              <p className="text-muted-foreground mb-4">
+                Implementamos medidas de seguridad técnicas y organizativas para proteger su información personal contra acceso no autorizado, pérdida, alteración o destrucción. Sin embargo, ninguna transmisión por Internet o almacenamiento electrónico es 100% seguro, por lo que no podemos garantizar seguridad absoluta.
+              </p>
+            </div>
+            
+            {/* Rights section */}
+            <div className="glass-card-static p-6">
+              <h2 className="text-xl font-semibold mb-4 flex items-center">
+                <span className="text-primary mr-2">6.</span> Sus derechos
+              </h2>
+              <p className="text-muted-foreground mb-4">
+                Usted tiene derecho a:
+              </p>
+              <ul className="space-y-1">
+                <li className="flex items-start">
+                  <span className="text-primary mr-2">•</span>
+                  <span>Acceder a su información personal</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary mr-2">•</span>
+                  <span>Corregir datos inexactos</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary mr-2">•</span>
+                  <span>Solicitar la eliminación de sus datos</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary mr-2">•</span>
+                  <span>Oponerse al procesamiento</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary mr-2">•</span>
+                  <span>Retirar su consentimiento</span>
+                </li>
+              </ul>
             </div>
 
-            {/* Two-column layout for Cookies and Third-party links */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="glass-card p-6">
-                <h2 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="text-primary mr-2">7.</span> Cookies y tecnologías
-                </h2>
-                <p className="text-muted-foreground">
-                  Nuestro sitio web utiliza cookies y tecnologías similares para mejorar su experiencia, analizar el tráfico y personalizar el contenido. Puede controlar las cookies a través de la configuración de su navegador.
-                </p>
-              </div>
-              
-              <div className="glass-card p-6">
-                <h2 className="text-xl font-semibold mb-4 flex items-center">
-                  <span className="text-primary mr-2">8.</span> Enlaces a sitios de terceros
-                </h2>
-                <p className="text-muted-foreground">
-                  Nuestro sitio web puede contener enlaces a otros sitios web. No somos responsables de las prácticas de privacidad de esos sitios y le recomendamos revisar sus políticas de privacidad.
-                </p>
-              </div>
+            {/* Cookies section */}
+            <div className="glass-card-static p-6">
+              <h2 className="text-xl font-semibold mb-4 flex items-center">
+                <span className="text-primary mr-2">7.</span> Cookies y tecnologías
+              </h2>
+              <p className="text-muted-foreground">
+                Nuestro sitio web utiliza cookies y tecnologías similares para mejorar su experiencia, analizar el tráfico y personalizar el contenido. Puede controlar las cookies a través de la configuración de su navegador.
+              </p>
+            </div>
+            
+            {/* Third-party links section */}
+            <div className="glass-card-static p-6">
+              <h2 className="text-xl font-semibold mb-4 flex items-center">
+                <span className="text-primary mr-2">8.</span> Enlaces a sitios de terceros
+              </h2>
+              <p className="text-muted-foreground">
+                Nuestro sitio web puede contener enlaces a otros sitios web. No somos responsables de las prácticas de privacidad de esos sitios y le recomendamos revisar sus políticas de privacidad.
+              </p>
             </div>
 
             {/* Contact section */}
-            <div className="glass-card p-6">
+            <div className="glass-card-static p-6">
               <h2 className="text-xl font-semibold mb-4 flex items-center">
               <span className="text-primary mr-2">9.</span> Contacto
               </h2>

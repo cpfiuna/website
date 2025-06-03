@@ -112,7 +112,7 @@ const ProjectDetailSidebar: React.FC<ProjectDetailSidebarProps> = ({ project, re
             {relatedProjects.map((related) => (
               <Link 
                 key={related.slug}
-                to={`/projects/${related.slug}`}
+                to={`/proyectos/${related.slug}`}
                 className="block group"
               >
                 <div className="flex gap-3">

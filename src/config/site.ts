@@ -25,38 +25,38 @@ export const contactInfo = {
   },
   socials: {
     github: "https://github.com/cpfiuna", // TODO: Replace with actual URL
-    discord: "https://discord.gg/b3GeJtUN", 
+    discord: "https://discord.gg/vU4zQb3FAn", 
     twitter: "https://twitter.com/cpfiuna", // Updated to lowercase
     instagram: "https://instagram.com/cpfiuna", // TODO: Replace with actual URL
-    youtube: "https://youtube.com/cpfiuna", // TODO: Replace with actual URL
+    youtube: "https://youtube.com/@cpfiuna", // TODO: Replace with actual URL
   },
 };
 
 // Navigation links
 export const navLinks = [
   { name: "Inicio", to: "/" },
-  { name: "Sobre Nosotros", to: "/about" },
-  { name: "Eventos", to: "/events" },
+  { name: "Sobre Nosotros", to: "/nosotros" },
+  { name: "Eventos", to: "/eventos" },
   { name: "Logros", to: "/logros" },
-  { name: "Proyectos", to: "/projects" },
-  { name: "Recursos", to: "/resources" },
-  { name: "Comunidad", to: "/community" },
+  { name: "Proyectos", to: "/proyectos" },
+  { name: "Recursos", to: "/recursos" },
+  { name: "Comunidad", to: "/comunidad" },
   { name: "Blog", to: "/blog" },
-  { name: "Contacto", to: "/contact" },
+  { name: "Contacto", to: "/contacto" },
 ];
 
 // Footer links
 export const footerLinks = {
   main: navLinks,
   legal: [
-    { name: "Privacidad", to: "/privacy" },
-    { name: "Código de Conducta", to: "/code-of-conduct" },
-    { name: "Transparencia", to: "/transparency" },
+    { name: "Privacidad", to: "/privacidad" },
+    { name: "Código de Conducta", to: "/codigo-de-conducta" },
+    { name: "Transparencia", to: "/transparencia" },
     { name: "Estatuto", to: "/estatuto" }
   ],
   resources: [
-    { name: "Kit de Medios", to: "/media-kit" },
-    { name: "Prensa", to: "/press" },
+    { name: "Kit de Medios", to: "/kit-de-medios" },
+    { name: "Prensa", to: "/prensa" },
   ],
   github: [
     {

@@ -14,7 +14,7 @@ const Hero = () => {
   const [showIcons, setShowIcons] = useState(false);
 
   return (
-    <div className="relative min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center py-16 md:py-24 px-4 md:px-6 overflow-hidden">
+    <div className="relative min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center py-16 md:py-24 px-4 md:px-6 overflow-hidden transition-all duration-500 ease-in-out">
       <HeroBackground />
       
       <div className="container mx-auto max-w-5xl relative z-10">

@@ -16,6 +16,9 @@ const MatrixRain = () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
+    // Clear the entire canvas when theme changes
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     // Characters to use
     const characters = "01</cpf>";
     const fontSize = 14;
@@ -27,15 +30,15 @@ const MatrixRain = () => {
     const draw = () => {
       // Use different background and text colors based on theme
       if (theme === "light") {
-        // For light theme: Near white background with darker blue text
-        ctx.fillStyle = "rgba(255, 255, 255, 0.05)";
+        // For light theme: Use lighter background fade
+        ctx.fillStyle = "rgba(255, 255, 255, 0.03)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "rgba(25, 80, 170, 0.7)"; // Darker blue for better contrast in light mode
+        ctx.fillStyle = "rgba(25, 80, 170, 0.6)"; // Darker blue for better contrast in light mode
       } else {
         // For dark theme: Keep original styling
-        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillStyle = "rgba(0, 0, 0, 0.03)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "rgba(33, 150, 243, 0.5)"; // Original blue color
+        ctx.fillStyle = "rgba(33, 150, 243, 0.4)"; // Original blue color
       }
       
       // Set text font
@@ -62,12 +65,13 @@ const MatrixRain = () => {
 
     // Animation frame ID for cleanup
     let animationId: number;
+    let timeoutId: number;
     
     // Animation loop - reducimos la frecuencia de actualización
     const animate = () => {
       draw();
       // Usar setTimeout en lugar de requestAnimationFrame para controlar mejor la velocidad
-      setTimeout(() => {
+      timeoutId = window.setTimeout(() => {
         animationId = requestAnimationFrame(animate);
       }, 50); // Añadir retraso de 50ms entre frames
     };
@@ -78,6 +82,8 @@ const MatrixRain = () => {
     const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      // Clear canvas on resize to prevent artifacts
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
     };
     
     window.addEventListener("resize", handleResize);
@@ -86,16 +92,19 @@ const MatrixRain = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationId);
+      clearTimeout(timeoutId);
+      // Clear canvas on cleanup
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
     };
   }, [theme]); // Add theme as a dependency to re-render when it changes
 
   // Adjust opacity based on theme
-  const canvasOpacity = theme === "light" ? 0.3 : 0.2;
+  const canvasOpacity = theme === "light" ? 0.25 : 0.15;
 
   return (
     <canvas 
       ref={canvasRef} 
-      className="absolute inset-0 w-full h-full z-0"
+      className="absolute inset-0 w-full h-full z-0 transition-opacity duration-500 ease-in-out"
       style={{ opacity: canvasOpacity }}
     />
   );

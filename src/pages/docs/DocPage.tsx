@@ -57,7 +57,7 @@ const DocPage: React.FC = () => {
                 <p className="text-lg text-muted-foreground mb-6">
                   Lo sentimos, no pudimos encontrar la documentación que estás buscando.
                 </p>
-                <Link to="/docs" className="flex items-center text-primary hover:underline">
+                <Link to="/documentacion" className="flex items-center text-primary hover:underline">
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Volver a la documentación
                 </Link>

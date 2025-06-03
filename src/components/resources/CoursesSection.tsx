@@ -31,15 +31,15 @@ const CoursesSection = () => {
 
   if (loading) {
     return (
-      <section className="py-16 px-6 bg-black">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold mb-10 text-center">
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-10 text-center text-foreground">
             Nuestros <span className="text-primary">Cursos</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={`skeleton-${i}`} className="glass-card animate-pulse">
+              <div key={`skeleton-${i}`} className="glass-card animate-pulse overflow-hidden rounded-xl">
                 <div className="h-40 bg-muted/50 rounded-t-xl"></div>
                 <div className="p-4">
                   <div className="h-6 bg-muted/50 rounded mb-3 w-3/4"></div>
@@ -59,12 +59,12 @@ const CoursesSection = () => {
 
   if (error) {
     return (
-      <section className="py-16 px-6 bg-black">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold mb-10 text-center">
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-10 text-center text-foreground">
             Nuestros <span className="text-primary">Cursos</span>
           </h2>
-          <div className="text-center text-red-400 p-4">
+          <div className="text-center text-destructive p-4">
             {error}
           </div>
         </div>
@@ -74,12 +74,12 @@ const CoursesSection = () => {
 
   if (!courses || courses.length === 0) {
     return (
-      <section className="py-16 px-6 bg-black">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold mb-10 text-center">
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-10 text-center text-foreground">
             Nuestros <span className="text-primary">Cursos</span>
           </h2>
-          <div className="text-center text-muted p-4">
+          <div className="text-center text-muted-foreground p-4">
             No hay cursos disponibles en este momento.
           </div>
         </div>
@@ -88,9 +88,9 @@ const CoursesSection = () => {
   }
 
   return (
-    <section className="py-16 px-6 bg-black">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl font-bold mb-10 text-center">
+    <section className="py-16 bg-background">
+      <div className="container mx-auto px-6">
+        <h2 className="text-3xl font-bold mb-10 text-center text-foreground">
           Nuestros <span className="text-primary">Cursos</span>
         </h2>
         
@@ -98,14 +98,14 @@ const CoursesSection = () => {
           {courses.map((course) => (
             <Link 
               key={`course-${course.slug || course.id}`}
-              to={`/course/${course.slug}`}
-              className="overflow-hidden rounded-lg bg-black border border-gray-800 hover:shadow-lg transition-all duration-300 hover:border-primary/50 group"
+              to={`/curso/${course.slug}`}
+              className="glass-card group hover:shadow-neon-blue transition-all overflow-hidden rounded-xl"
             >
               <div className="relative h-40 overflow-hidden">
                 <img 
                   src={course.image} 
                   alt={course.title}
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover object-center rounded-t-xl"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.src = "/placeholder.svg";
@@ -115,7 +115,7 @@ const CoursesSection = () => {
                   {course.tags && course.tags.map((tag, idx) => (
                     <span 
                       key={`${course.slug || course.id}-tag-${idx}`}
-                      className="text-xs px-2 py-1 bg-[#2563eb] text-white rounded-md"
+                      className="text-xs px-2 py-1 bg-[#3C83F6E6] text-white rounded-md"
                     >
                       {tag.replace(/"/g, '')}
                     </span>
@@ -124,7 +124,7 @@ const CoursesSection = () => {
                 
                 {/* Level badge moved to top left */}
                 <div className="absolute top-2 left-2">
-                  <span className="text-xs px-2 py-1 bg-muted/50 rounded-full">
+                  <span className="text-xs px-2 py-1 bg-[#070A13E6] rounded-full">
                     {course.level}
                   </span>
                 </div>
@@ -132,17 +132,17 @@ const CoursesSection = () => {
               
               <div className="p-4">
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="font-bold text-lg">
+                  <h3 className="font-bold text-lg text-card-foreground">
                     {course.title}
                   </h3>
                   {/* Removed level badge from here */}
                 </div>
                 
-                <p className="text-sm text-gray-400 mb-4 line-clamp-2">
+                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
                   {course.description}
                 </p>
                 
-                <div className="flex justify-between text-xs text-gray-500">
+                <div className="flex justify-between text-xs text-muted-foreground">
                   <span>{course.instructor}</span>
                   <span>{course.duration}</span>
                 </div>

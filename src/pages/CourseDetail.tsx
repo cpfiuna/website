@@ -85,7 +85,7 @@ const CourseDetail = () => {
                 El curso que buscas no existe o ha sido removido.
               </p>
               <Link 
-                to="/resources"
+                to="/recursos"
                 className="inline-flex items-center text-primary hover:underline"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
@@ -111,7 +111,7 @@ const CourseDetail = () => {
           <div className="container mx-auto px-6 py-12">
             {/* Back to courses button */}
             <Link 
-              to="/resources"
+              to="/recursos"
               className="inline-flex items-center text-sm text-muted-foreground hover:text-primary transition-colors mb-6"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -404,7 +404,7 @@ const CourseDetail = () => {
                   Si tenés dudas que no están cubiertas aquí, no dudes en contactarnos.
                 </p>
                 <a 
-                  href="/contact" 
+                  href="/contacto" 
                   className="inline-flex items-center text-primary hover:underline"
                 >
                   Contactanos

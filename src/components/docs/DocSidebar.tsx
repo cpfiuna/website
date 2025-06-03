@@ -56,9 +56,9 @@ const DocSidebar: React.FC<DocSidebarProps> = ({
       {/* Navigation */}
       <div className="mb-4">
         <Link
-          to="/docs"
+          to="/documentacion"
           className={`flex items-center py-2 px-3 rounded-md font-medium text-base 
-            ${location.pathname === "/docs" ? "bg-primary/10 text-primary" : "hover:bg-muted text-muted-foreground"}`}
+            ${location.pathname === "/documentacion" ? "bg-primary/10 text-primary" : "hover:bg-muted text-muted-foreground"}`}
         >
           <FileText className="mr-2 h-4 w-4" />
           Inicio
@@ -93,9 +93,9 @@ const DocSidebar: React.FC<DocSidebarProps> = ({
                   {docs.map((doc) => (
                     <Link
                       key={doc.slug}
-                      to={`/docs/${doc.slug}`}
+                      to={`/documentacion/${doc.slug}`}
                       className={`flex items-center py-2 px-3 rounded-md text-sm 
-                        ${location.pathname === `/docs/${doc.slug}` 
+                        ${location.pathname === `/documentacion/${doc.slug}` 
                           ? "bg-primary/10 text-primary" 
                           : "hover:bg-muted text-muted-foreground"}`}
                     >

@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Users, Calendar, Code2, Trophy } from "lucide-react";
+import { HERO_STATS } from "@/data/stats";
 
 interface CounterProps {
   end: number;
@@ -81,36 +82,24 @@ const Counter: React.FC<CounterProps> = ({
 };
 
 const StatsCounter: React.FC = () => {
+  const iconsMap = [Users, Calendar, Code2, Trophy];
+  
   return (
     <section className="py-16">
       <div className="container px-4">
         <div className="max-w-6xl mx-auto glass-card rounded-2xl p-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Counter
-              end={150}
-              duration={2000}
-              label="Miembros Activos"
-              icon={Users}
-              prefix="+"
-            />
-            <Counter
-              end={45}
-              duration={2000}
-              label="Eventos Realizados"
-              icon={Calendar}
-            />
-            <Counter
-              end={30}
-              duration={2000}
-              label="Proyectos Completados"
-              icon={Code2}
-            />
-            <Counter
-              end={12}
-              duration={2000}
-              label="Premios Recibidos"
-              icon={Trophy}
-            />
+            {HERO_STATS.map((stat, index) => (
+              <Counter
+                key={stat.label}
+                end={stat.value}
+                duration={2000}
+                label={stat.label}
+                icon={iconsMap[index] || Users}
+                prefix={stat.prefix || ""}
+                suffix={stat.suffix || ""}
+              />
+            ))}
           </div>
         </div>
       </div>

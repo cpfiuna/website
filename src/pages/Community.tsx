@@ -8,20 +8,22 @@ const Community = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-24 px-6 overflow-hidden bg-gradient-to-b from-black to-background/90 dark:from-black dark:to-background/70">
-        <div className="absolute inset-0 bg-grid-white/5 [mask-image:linear-gradient(to_bottom,transparent,black)]"></div>
-        <div className="container mx-auto max-w-5xl relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
-            Nuestra <span className="gradient-text">Comunidad</span>
-          </h1>
-          <p className="text-xl text-muted-foreground text-center max-w-3xl mx-auto">
-            Conectate con nuestra comunidad a través de redes sociales, Discord y más.
-          </p>
+      <section className="pt-24 pb-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-radial from-primary/5 to-transparent dark:from-primary/10 dark:to-transparent z-0"></div>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
+              Nuestra <span className="gradient-text">Comunidad</span>
+            </h1>
+            <p className="text-xl text-muted-foreground">
+              Conectate con nuestra comunidad a través de redes sociales, Discord y más.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Social Media Links */}
-      <section className="py-8 px-6">
+      <section className="py-16 px-6 bg-muted/50 dark:bg-black/40">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
             <a 
@@ -87,7 +89,7 @@ const Community = () => {
       </section>
 
       {/* YouTube Videos */}
-      <section className="py-16 px-6 bg-muted/30">
+      <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold mb-10 text-center">
             Videos <span className="gradient-text">Recientes</span>
@@ -131,7 +133,7 @@ const Community = () => {
       </section>
 
       {/* Instagram Posts */}
-      <section className="py-16 px-6">
+      <section className="py-16 px-6 bg-muted/50 dark:bg-black/40">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold mb-10 text-center">
             Instagram <span className="gradient-text">Feed</span>
@@ -160,7 +162,7 @@ const Community = () => {
       </section>
 
       {/* Community Projects & Collaborations */}
-      <section className="py-16 px-6 bg-muted/30">
+      <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold mb-10 text-center">
             Proyectos de la <span className="gradient-text">Comunidad</span>
@@ -180,7 +182,7 @@ const Community = () => {
                   <h3 className="text-xl font-semibold mb-2">Proyecto Colaborativo {item}</h3>
                   <p className="text-muted-foreground mb-4">Un proyecto desarrollado por miembros de nuestra comunidad.</p>
                   <Link 
-                    to="/projects"
+                    to="/proyectos"
                     className="inline-flex items-center text-primary hover:underline"
                   >
                     Ver detalles
@@ -192,7 +194,7 @@ const Community = () => {
           
           <div className="text-center mt-8">
             <Button asChild variant="default" className="rounded-full px-6 py-2 hover:scale-105 hover:shadow-neon-blue transition-all">
-              <Link to="/projects">
+              <Link to="/proyectos">
                 Ver todos los proyectos
               </Link>
             </Button>

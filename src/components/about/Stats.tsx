@@ -2,40 +2,25 @@
 import React from "react";
 import { Award, Code, Users, Calendar, Star, Briefcase } from "lucide-react";
 import AnimatedCounter from "../home/AnimatedCounter";
+import { ABOUT_STATS } from "@/data/stats";
 
 const Stats = () => {
-  const stats = [
-    {
-      value: 25,
-      label: "Proyectos",
-      icon: <Code className="h-6 w-6" />,
-    },
-    {
-      value: 150,
-      label: "Miembros",
-      icon: <Users className="h-6 w-6" />,
-    },
-    {
-      value: 45,
-      label: "Eventos",
-      icon: <Calendar className="h-6 w-6" />,
-    },
-    {
-      value: 12,
-      label: "Premios",
-      icon: <Award className="h-6 w-6" />,
-    },
-    {
-      value: 300,
-      label: "Contribuciones",
-      icon: <Star className="h-6 w-6" />,
-    },
-    {
-      value: 15,
-      label: "Aliados",
-      icon: <Briefcase className="h-6 w-6" />,
-    },
-  ];
+  const statsWithIcons = ABOUT_STATS.map((stat, index) => {
+    const iconMap = [
+      <Code className="h-6 w-6" />,
+      <Users className="h-6 w-6" />,
+      <Calendar className="h-6 w-6" />,
+      <Award className="h-6 w-6" />,
+      <Star className="h-6 w-6" />,
+      <Briefcase className="h-6 w-6" />,
+    ];
+    
+    return {
+      value: stat.value,
+      label: stat.label,
+      icon: iconMap[index] || <Code className="h-6 w-6" />,
+    };
+  });
 
   return (
     <section className="py-16 px-6 bg-#030509 dark:bg-#030509 relative overflow-hidden">
@@ -48,7 +33,7 @@ const Stats = () => {
         </h2>
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {stats.map((stat, index) => (
+          {statsWithIcons.map((stat, index) => (
             <AnimatedCounter
               key={stat.label}
               end={stat.value}

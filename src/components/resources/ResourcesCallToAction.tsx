@@ -25,7 +25,7 @@ const ResourcesCallToAction = ({ onOpenUploadModal }: ResourcesCallToActionProps
             Subir un recurso
           </button>
           <Link
-            to="/contact"
+            to="/contacto"
             className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-primary bg-transparent text-primary font-medium transition-all hover:scale-105 hover:bg-primary/10 hover:shadow-neon-blue"
           >
             Sugerir un recurso

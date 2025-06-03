@@ -3,80 +3,118 @@ import React, { useState } from "react";
 import { Trophy, Medal, Award, Star, GraduationCap, Flag, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { de } from "date-fns/locale";
+import { describe } from "node:test";
 
 // Sample data for achievements
 const achievements = [
   {
+    id: 0,
+    title: "Clasificados entre los 100 proyectos de Ueno Moonshot",
+    description: "Un proyecto de un equipo formado por miembros del Club fue seleccionado entre los 100 mejores proyectos para participar en la prestigiosa incubadora de startups Moonshot de Ueno Bank.",
+    icon: <Trophy className="h-8 w-8 text-primary" />,
+    year: 2024,
+    category: "competition",
+    link: "https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/acentauri/"
+  },
+  {
     id: 1,
+    title: "Finalistas Globales en NASA Space Apps Challenge",
+    description: "Miembros del Club de Programación fueron seleccionados entre los 40 finalistas globales de la competencia con el proyecto 'Appsteroids'.",
+    icon: <Trophy className="h-8 w-8 text-primary" />,
+    year: 2024,
+    category: "competition",
+    link: "https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/acentauri/"
+  },
+  {
+    id: 1,
+    title: "Primer Lugar Local en NASA Space Apps Challenge",
+    description: "Miembros del Club de Programación ganaron el primer lugar en la competencia local con el proyecto 'Appsteroids'.",
+    icon: <Trophy className="h-8 w-8 text-primary" />,
+    year: 2024,
+    category: "competition",
+    link: "https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/acentauri/"
+  },
+  {
+    id: 2,
+    title: "Mención de Honor Local en NASA Space Apps Challenge",
+    description: "Miembros del Club de Programación recibieron una mención de honor en la competencia local con el proyecto 'Moonquake Visualizer'.",
+    icon: <Trophy className="h-8 w-8 text-primary" />,
+    year: 2022,
+    category: "competition",
+    link: "#"
+  },
+  {
+    id: 91,
     title: "Primer lugar en IEEEXtreme 2023",
     description: "El equipo del CPF obtuvo el primer lugar en la competencia IEEEXtreme a nivel nacional y quedó entre los primeros 100 a nivel global.",
     icon: <Trophy className="h-8 w-8 text-primary" />,
     year: 2023,
     category: "competition",
-    link: "/events/ieeextreme"
+    link: "#"
   },
   {
-    id: 2,
+    id: 92,
     title: "Participación en ICPC Sudamérica",
     description: "El equipo clasificó a las finales regionales del International Collegiate Programming Contest (ICPC) representando a Paraguay.",
     icon: <GraduationCap className="h-8 w-8 text-primary" />,
     year: 2022,
     category: "competition",
-    link: "/events"
+    link: "#"
   },
   {
-    id: 3,
+    id: 93,
     title: "Reconocimiento de Google Developer Student Clubs",
     description: "El club fue reconocido por Google como uno de los mejores clubes de programación universitarios en Latinoamérica.",
     icon: <Award className="h-8 w-8 text-primary" />,
     year: 2023,
     category: "recognition",
-    link: "/about"
+    link: "#"
   },
   {
-    id: 4,
+    id: 94,
     title: "Ganadores del NASA Space Apps Challenge",
     description: "El equipo de CPF ganó el desafío local del NASA Space Apps Challenge con el proyecto 'MoonQuake Visualizer'.",
     icon: <Trophy className="h-8 w-8 text-primary" />,
     year: 2022,
     category: "hackathon",
-    link: "/projects/moonquake-visualizer"
+    link: "/#"
   },
   {
-    id: 5,
+    id: 95,
     title: "GitHub Campus Expert",
     description: "Dos miembros del club fueron seleccionados como GitHub Campus Experts, representando a la universidad en eventos internacionales.",
     icon: <Star className="h-8 w-8 text-primary" />,
     year: 2023,
     category: "recognition",
-    link: "/about"
+    link: "/#"
   },
   {
-    id: 6,
+    id: 96,
     title: "Medalla de oro en Olimpiada Paraguaya de Informática",
     description: "Estudiantes del club obtuvieron medallas de oro en la Olimpiada Nacional de Informática representando a la FIUNA.",
     icon: <Medal className="h-8 w-8 text-primary" />,
     year: 2021,
     category: "competition",
-    link: "/events"
+    link: "/#"
   },
   {
-    id: 7,
+    id: 97,
     title: "Hackathon de Innovación Sostenible",
     description: "El equipo ganó el primer premio con una solución para monitoreo de calidad del agua usando IoT y machine learning.",
     icon: <Flag className="h-8 w-8 text-primary" />,
     year: 2023,
     category: "hackathon",
-    link: "/events/hackathon-soluciones-sostenibles"
+    link: "/#"
   },
   {
-    id: 8,
+    id: 98,
     title: "Mejor Club Universitario",
     description: "Reconocimiento otorgado por el Ministerio de Tecnología como el mejor club de programación universitario del país.",
     icon: <Award className="h-8 w-8 text-primary" />,
     year: 2022,
     category: "recognition",
-    link: "/about"
+    link: "/#"
   },
 ];
 

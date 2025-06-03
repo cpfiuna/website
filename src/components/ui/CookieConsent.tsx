@@ -23,19 +23,18 @@ const CookieConsent = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-background/80 backdrop-blur-sm border-t border-border">
-      <div className="container mx-auto max-w-4xl">
+    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-background/80 backdrop-blur-sm border-t border-border">      <div className="container mx-auto max-w-4xl">
         <div className="flex items-center justify-between gap-4">
-          <div className="text-sm">
-            <p className="mb-1">
+          <div className="text-sm flex items-center">
+            <p>
               Este sitio utiliza cookies y tecnologías similares para mejorar su experiencia.
-              Ver nuestra <Link to="/privacy" className="text-primary hover:underline">política de privacidad</Link>.
+              <br />
+              Ver nuestra <Link to="/privacidad" className="text-primary hover:underline">política de privacidad</Link>.
             </p>
           </div>
-          <div className="flex items-center gap-4 shrink-0">
-            <button 
+          <div className="flex items-center gap-4 shrink-0"><button 
               onClick={acceptCookies}
-              className="px-4 py-2 text-sm bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+              className="px-6 py-3 text-sm bg-primary text-primary-foreground rounded-full font-medium hover:scale-105 hover:shadow-neon-blue transition-all"
             >
               Aceptar cookies
             </button>

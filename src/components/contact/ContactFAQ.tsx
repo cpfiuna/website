@@ -32,7 +32,7 @@ const faqs = [
 
 const ContactFAQ = () => {
   return (
-    <div className="glass-card p-8">
+    <div className="glass-card-static p-8">
       <h2 className="text-2xl font-bold mb-6">Preguntas frecuentes</h2>
       
       <Accordion type="single" collapsible className="w-full">

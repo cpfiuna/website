@@ -2,7 +2,7 @@
 id: 7
 title: "Curso Completo de Python"
 description: "Desde conceptos básicos hasta estructuras de datos avanzadas, algoritmos y visualización de datos."
-level: "Principiante a Intermedio"
+level: "Intermedio"
 duration: "16 semanas"
 instructor: "Dr. Carlos Gómez"
 image: "https://images.unsplash.com/photo-1526379879527-8559ecfcaec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"

@@ -12,7 +12,7 @@ const ResourcesCTA: React.FC = () => {
         Si tienes tutoriales, artículos, videos u otros recursos educativos que quieras compartir con la comunidad,
         ¡contáctanos!
       </p>
-      <Link to="/contact">
+      <Link to="/contacto">
         <Button size="lg">
           Compartir Recursos <ChevronRight className="ml-2 h-5 w-5" />
         </Button>

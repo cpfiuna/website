@@ -4,11 +4,12 @@ import { ArrowRight, Code, Users, Lightbulb, BookOpen } from "lucide-react";
 
 const AboutClub = () => {
   return (
-    <section className="py-16 section-padding bg-muted/30 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-background to-transparent"></div>
-      <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-background to-transparent"></div>
+    <section className="py-16 section-padding relative overflow-hidden">
+      {/* Subtle background elements */}
+      <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-primary/5 dark:bg-primary/10 rounded-full blur-3xl opacity-60"></div>
+      <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-primary/4 dark:bg-primary/8 rounded-full blur-3xl opacity-50"></div>
       
-      <div className="container mx-auto">
+      <div className="container mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div className="order-2 lg:order-1">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -39,22 +40,22 @@ const AboutClub = () => {
             </div>
             <div className="aspect-square overflow-hidden rounded-lg transform -translate-y-4">
               <img 
-                src="images/timeline/cpf-2019.jpg"
-                alt="Hackathon Girls Code Encarnación" 
+                src="images/home/home-7.jpg"
+                alt="Revisando el código de un proyecto en equipo" 
+                className="object-cover w-full h-full hover:scale-105 transition-transform duration-300 object-left"
+              />
+            </div>
+            <div className="aspect-square overflow-hidden rounded-lg transform translate-y-6">
+              <img 
+                src="/images/home/home-0.jpg"
+                alt="VR en el Tigo Campus Party" 
                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="aspect-square overflow-hidden rounded-lg transform -translate-y-6">
               <img 
-                src="images/timeline/cpf-2020.png"
-                alt="Taller de programación" 
-                className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="aspect-square overflow-hidden rounded-lg transform translate-y-6">
-              <img 
-                src="/images/home/home-2.jpg"
-                alt="Miembros del club en el NASA Space Apps Challenge 2022" 
+                src="images/home/home-6.jpg"
+                alt="Taller de programación en el Tigo Campus Party" 
                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
               />
             </div>

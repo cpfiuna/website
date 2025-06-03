@@ -2,7 +2,7 @@
 id: 4
 title: "Fundamentos de JavaScript"
 description: "Domina el lenguaje de programación de la web con este curso completo para principiantes y nivel intermedio."
-level: "Principiante-Intermedio"
+level: "Intermedio"
 duration: "7 semanas"
 instructor: "Prof. Daniel Martínez"
 image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"

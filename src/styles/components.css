@@ -8,6 +8,10 @@
   @apply relative backdrop-blur-md bg-white/20 dark:bg-black/30 border border-white/20 dark:border-white/10 rounded-xl shadow-xl overflow-hidden transition-all duration-300 hover:translate-y-[-5px];
 }
 
+.glass-card-static {
+  @apply relative backdrop-blur-md bg-white/20 dark:bg-black/30 border border-white/20 dark:border-white/10 rounded-xl shadow-xl overflow-hidden;
+}
+
 .glow-border {
   @apply border border-cpf-blue-500/50 shadow-neon-blue transition-all duration-300;
 }

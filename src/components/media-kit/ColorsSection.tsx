@@ -3,72 +3,52 @@ import { PaintBucket } from "lucide-react";
 
 const ColorsSection = () => {
   return (
-    <div className="glass-card p-8 flex flex-col h-full">
+    <div className="glass-card-static p-8 flex flex-col h-full">
       <h3 className="text-xl font-semibold mb-4">Colores</h3>
       
       <div className="mb-6">
-        <h4 className="font-medium mb-3">Tema Oscuro</h4>
-        <div className="grid grid-cols-2 gap-4 mb-6">
+        <p className="text-muted-foreground mb-6">Paleta de colores oficial del Club de Programación FIUNA</p>
+        <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col">
-            <div className="h-24 bg-primary rounded-lg mb-2"></div>
+            <div className="h-24 rounded-lg mb-2" style={{ backgroundColor: "#0070F3" }}></div>
             <div className="text-sm">
               <p className="font-medium">Primario</p>
               <p className="text-muted-foreground">HEX: #0070F3</p>
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="h-24 bg-secondary rounded-lg mb-2"></div>
+            <div className="h-24 rounded-lg mb-2" style={{ backgroundColor: "#1A2333" }}></div>
             <div className="text-sm">
               <p className="font-medium">Secundario</p>
-              <p className="text-muted-foreground">HEX: #7E69AB</p>
+              <p className="text-muted-foreground">HEX: #1A2333</p>
             </div>
           </div>
-          <div className="flex flex-col">
-            <div className="h-24 bg-background rounded-lg border mb-2"></div>
+         {/* <div className="flex flex-col">
+            <div className="h-24 rounded-lg mb-2" style={{ backgroundColor: "#070A13" }}></div>
             <div className="text-sm">
-              <p className="font-medium">Fondo</p>
-              <p className="text-muted-foreground">HEX: #1A1A1A</p>
+              <p className="font-medium">Oscuro</p>
+              <p className="text-muted-foreground">HEX: #070A13</p>
             </div>
           </div>
-          <div className="flex flex-col">
-            <div className="h-24 bg-muted rounded-lg mb-2"></div>
+           <div className="flex flex-col">
+            <div className="h-24 rounded-lg mb-2" style={{ backgroundColor: "#2c529f" }}></div>
             <div className="text-sm">
-              <p className="font-medium">Muted</p>
+              <p className="font-medium">Azul &lt;/cpf&gt;</p>
               <p className="text-muted-foreground">HEX: #333333</p>
             </div>
-          </div>
-        </div>
-      </div>
-      
-      <div className="mb-6">
-        <h4 className="font-medium mb-3">Tema Claro</h4>
-        <div className="grid grid-cols-2 gap-4">
+          </div> */}
           <div className="flex flex-col">
-            <div className="h-24 bg-white rounded-lg border border-gray-200 mb-2"></div>
+            <div className="h-24 rounded-lg border border-gray-200 mb-2" style={{ backgroundColor: "#FAFAFA" }}></div>
             <div className="text-sm">
-              <p className="font-medium">Primario</p>
+              <p className="font-medium">Títulos</p>
               <p className="text-muted-foreground">HEX: #FAFAFA</p>
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="h-24 rounded-lg mb-2" style={{ backgroundColor: "#0070f3" }}></div>
+            <div className="h-24 rounded-lg mb-2" style={{ backgroundColor: "#94A3B8" }}></div>
             <div className="text-sm">
-              <p className="font-medium">Secundario</p>
-              <p className="text-muted-foreground">HEX: #0070f3</p>
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <div className="h-24 bg-white rounded-lg border border-gray-200 mb-2"></div>
-            <div className="text-sm">
-              <p className="font-medium">Fondo</p>
-              <p className="text-muted-foreground">HEX: #FFFFFF</p>
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <div className="h-24 rounded-lg border border-gray-200 mb-2" style={{ backgroundColor: "#333333" }}></div>
-            <div className="text-sm">
-              <p className="font-medium">Muted</p>
-              <p className="text-muted-foreground">HEX: #333333</p>
+              <p className="font-medium">Textos</p>
+              <p className="text-muted-foreground">HEX: #94A3B8</p>
             </div>
           </div>
         </div>
@@ -76,7 +56,7 @@ const ColorsSection = () => {
       
       <a 
         href="/media-kit/colors.pdf" 
-        className="mt-auto flex items-center justify-center gap-2 px-8 py-3 bg-muted/30 hover:bg-muted/50 rounded-full text-sm transition-colors hover:scale-105"
+        className="mt-auto flex items-center justify-center gap-2 px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full text-sm transition-all hover:shadow-neon-blue hover:scale-105"
       >
         <PaintBucket className="h-4 w-4" />
         <span>Descargar paleta de colores</span>

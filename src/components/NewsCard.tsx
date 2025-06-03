@@ -40,11 +40,11 @@ const NewsCard: React.FC<NewsCardProps> = ({
       case "eventos":
         return "bg-green-500";
       case "cursos":
-        return "bg-blue-500";
+        return "bg-[#3C83F6E6]";
       case "proyectos":
         return "bg-orange-500";
       default:
-        return "bg-primary";
+        return "bg-[#3C83F6E6]";
     }
   };
 
@@ -58,12 +58,12 @@ const NewsCard: React.FC<NewsCardProps> = ({
   };
 
   return (
-    <div className="rounded-xl overflow-hidden transition-all duration-300 hover:translate-y-[-5px] shadow-md">
+    <div className="glass-card hover:shadow-neon-blue transition-all duration-300 h-full flex flex-col">
       <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
         <img
           src={getImage()}
           alt={title}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+          className="w-full h-full object-cover object-center rounded-t-xl"
           onError={(e) => {
             const target = e.currentTarget as HTMLImageElement;
             // Fallback to category image on error
@@ -83,18 +83,18 @@ const NewsCard: React.FC<NewsCardProps> = ({
           </div>
         )}
       </div>
-      <div className="p-6 bg-black/80 text-white">
-        <div className="flex items-center text-sm text-gray-400 mb-3">
+      <div className="p-6 flex flex-col flex-grow">
+        <div className="flex items-center text-sm text-muted-foreground mb-3">
           <Calendar className="h-4 w-4 mr-2" />
           <span>{date}</span>
         </div>
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-gray-300 mb-4 line-clamp-2 text-sm">
+        <p className="text-muted-foreground mb-4 line-clamp-2 text-sm flex-grow">
           {excerpt || "Sin descripción disponible"}
         </p>
         <Link
           to={slug}
-          className="inline-flex items-center text-blue-400 font-medium hover:underline text-sm"
+          className="inline-flex items-center text-primary font-medium hover:underline text-sm mt-auto"
         >
           Leer más <ArrowRight className="ml-2 h-4 w-4" />
         </Link>

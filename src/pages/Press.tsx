@@ -141,14 +141,14 @@ const Press = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a 
-                href="/media-kit" 
+                href="/kit-de-medios" 
                 className="inline-flex items-center gap-2 px-6 py-3 bg-muted/50 hover:bg-muted text-foreground rounded-full font-medium transition-colors"
               >
                 <Link2 className="h-5 w-5" />
                 <span>Kit de Medios</span>
               </a>
               <a 
-                href="/contact" 
+                href="/contacto" 
                 className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full font-medium transition-colors"
               >
                 <Users className="h-5 w-5" />

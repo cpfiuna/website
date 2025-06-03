@@ -3,34 +3,24 @@ import React from "react";
 import { Users, Trophy, Briefcase, GraduationCap } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import AnimatedCounter from "@/components/home/AnimatedCounter";
+import { LOGROS_STATS } from "@/data/stats";
 
 const LogrosStats = () => {
-  const stats = [
-    {
-      icon: <Users className="h-10 w-10 text-primary" />,
-      value: 145,
-      label: "Miembros activos",
-      suffix: ""
-    },
-    {
-      icon: <Trophy className="h-10 w-10 text-primary" />,
-      value: 25,
-      label: "Premios recibidos",
-      suffix: "+"
-    },
-    {
-      icon: <Briefcase className="h-10 w-10 text-primary" />,
-      value: 30,
-      label: "Proyectos realizados",
-      suffix: "+"
-    },
-    {
-      icon: <GraduationCap className="h-10 w-10 text-primary" />,
-      value: 12,
-      label: "Competencias",
-      suffix: ""
-    }
-  ];
+  const statsWithIcons = LOGROS_STATS.map((stat, index) => {
+    const iconMap = [
+      <Users className="h-10 w-10 text-primary" />,
+      <Trophy className="h-10 w-10 text-primary" />,
+      <Briefcase className="h-10 w-10 text-primary" />,
+      <GraduationCap className="h-10 w-10 text-primary" />,
+    ];
+    
+    return {
+      icon: iconMap[index] || <Users className="h-10 w-10 text-primary" />,
+      value: stat.value,
+      label: stat.label,
+      suffix: stat.suffix || "",
+    };
+  });
 
   return (
     <section className="py-16">
@@ -38,8 +28,8 @@ const LogrosStats = () => {
         <h2 className="text-3xl font-bold text-center mb-12">Nuestros números</h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="glass-card p-6 flex flex-col items-center text-center">
+          {statsWithIcons.map((stat, index) => (
+            <div key={index} className="glass-card-static p-6 flex flex-col items-center text-center">
               <div className="flex justify-center mb-4">
                 {stat.icon}
               </div>
