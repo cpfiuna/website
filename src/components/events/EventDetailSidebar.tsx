@@ -3,7 +3,7 @@ import React from "react";
 import { CalendarIcon, Clock, MapPin, ExternalLink, User, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { EventFrontMatter } from "@/utils/markdownUtils";
-import { formatDate } from "@/utils/markdownUtils";
+import { formatDate } from "@/utils/markdown/formatters";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface EventDetailSidebarProps {
@@ -15,7 +15,7 @@ const EventDetailSidebar = ({ event, isFull = false }: EventDetailSidebarProps) 
   return (
     <aside className="space-y-6">
       {/* Event details card */}
-      <Card className="bg-black/60 border-[#2A2A2A]">
+      <Card className="bg-card border-border">
         <CardContent className="p-6">
           <h3 className="text-lg font-semibold mb-4">Detalles del Evento</h3>
           
@@ -80,7 +80,7 @@ const EventDetailSidebar = ({ event, isFull = false }: EventDetailSidebarProps) 
       
       {/* Speakers section if available */}
       {event.speakers && event.speakers.length > 0 && (
-        <Card className="bg-black/60 border-[#2A2A2A]">
+        <Card className="bg-card border-border">
           <CardContent className="p-6">
             <div className="flex items-center mb-4">
               <Users className="h-5 w-5 text-primary mr-2" />

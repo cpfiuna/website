@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Calendar } from "lucide-react";
 import { EventFrontMatter } from "@/utils/markdownUtils";
+import { formatDate } from "@/utils/markdown/formatters";
 
 interface SimilarEventsProps {
   events: EventFrontMatter[];
@@ -31,15 +32,10 @@ const SimilarEvents = ({ events }: SimilarEventsProps) => {
             <div className="p-4">
               <h3 className="font-medium mb-2 group-hover:text-primary transition-colors">
                 {event.title}
-              </h3>
-              <div className="flex items-center text-xs text-muted-foreground">
+              </h3>              <div className="flex items-center text-xs text-muted-foreground">
                 <Calendar className="h-3 w-3 mr-1" />
                 <span>
-                  {new Date(event.date).toLocaleDateString("es-ES", {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
+                  {formatDate(event.date)}
                 </span>
               </div>
             </div>

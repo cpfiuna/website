@@ -1,5 +1,6 @@
-
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -144,6 +145,56 @@ export default {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': 'hsl(var(--foreground))',
+            '--tw-prose-headings': 'hsl(var(--foreground))',
+            '--tw-prose-links': 'hsl(var(--primary))',
+            '--tw-prose-bold': 'hsl(var(--foreground))',
+            '--tw-prose-bullets': 'hsl(var(--muted-foreground))',
+            '--tw-prose-counters': 'hsl(var(--muted-foreground))',
+            'ul > li': {
+              color: 'hsl(var(--muted-foreground))',
+            },
+            'ol > li': {
+              color: 'hsl(var(--muted-foreground))',
+            },
+            'ul > li > strong, ol > li > strong': {
+              color: 'hsl(var(--foreground))',
+              fontWeight: '700',
+            },
+            'strong': {
+              color: 'hsl(var(--foreground))',
+              fontWeight: '700',
+            },
+          },
+        },
+        invert: {
+          css: {
+            '--tw-prose-body': 'hsl(var(--foreground))',
+            '--tw-prose-headings': 'hsl(var(--foreground))',
+            '--tw-prose-links': 'hsl(var(--primary))',
+            '--tw-prose-bold': 'hsl(var(--foreground))',
+            '--tw-prose-bullets': 'hsl(var(--muted-foreground))',
+            '--tw-prose-counters': 'hsl(var(--muted-foreground))',
+            'ul > li': {
+              color: 'hsl(var(--muted-foreground))',
+            },
+            'ol > li': {
+              color: 'hsl(var(--muted-foreground))',
+            },
+            'ul > li > strong, ol > li > strong': {
+              color: 'hsl(var(--foreground))',
+              fontWeight: '700',
+            },
+            'strong': {
+              color: 'hsl(var(--foreground))',
+              fontWeight: '700',
+            },
+          },
+        },
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
@@ -155,5 +206,8 @@ export default {
       },
     }
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    tailwindcssAnimate,
+    typography,
+  ],
 } satisfies Config;

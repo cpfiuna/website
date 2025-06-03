@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Calendar, Clock, MapPin } from "lucide-react";
 import { EventFrontMatter } from "@/utils/markdownUtils";
+import { formatDate } from "@/utils/markdown/formatters";
 
 interface EventCardProps {
   event: EventFrontMatter;
@@ -74,15 +75,10 @@ const EventCard = ({ event, getEventTypeLabel }: EventCardProps) => {
         </p>
         
         {/* Event details take full width initially */}
-        <div className="space-y-2 mb-4">
-          <div className="flex items-center text-sm text-muted-foreground">
+        <div className="space-y-2 mb-4">          <div className="flex items-center text-sm text-muted-foreground">
             <Calendar className="h-4 w-4 mr-2" />
             <span>
-              {new Date(event.date).toLocaleDateString("es-ES", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
+              {formatDate(event.date)}
             </span>
           </div>
           <div className="flex items-center text-sm text-muted-foreground">

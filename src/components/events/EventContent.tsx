@@ -53,28 +53,6 @@ const EventContent = ({ event }: EventContentProps) => {
         </div>
       )}
       
-      {/* Registration section */}
-      {event.registrationLink && (
-        <div className="mt-8">
-          <h2 className="text-2xl font-bold mb-4">¿Cómo participar?</h2>
-          <div className="bg-muted p-6 rounded-xl">
-            <p className="mb-4">
-              Para participar en este evento, es necesario registrarse previamente 
-              a través del siguiente enlace:
-            </p>
-            <a
-              href={event.registrationLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 rounded-full bg-primary text-primary-foreground hover:bg-primary/80 transition-colors"
-            >
-              <ExternalLink className="mr-2 h-4 w-4" />
-              Registrarse
-            </a>
-          </div>
-        </div>
-      )}
-      
       {/* Resources section */}
       {event.resources && event.resources.length > 0 && (
         <div className="mt-8">

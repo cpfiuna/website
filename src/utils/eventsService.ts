@@ -1,6 +1,7 @@
 
 import { getAllContent, getContentBySlug } from './contentLoader';
 import { EventFrontMatter } from './markdownUtils';
+import { getPrimaryDate } from './markdown/formatters';
 
 // Get all events (with sorting and filtering options)
 export async function getAllEvents({
@@ -35,7 +36,7 @@ export async function getAllEvents({
   // Sort events
   if (sortBy === 'date') {
     filteredEvents.sort((a, b) => 
-      new Date(b.frontMatter.date).getTime() - new Date(a.frontMatter.date).getTime()
+      getPrimaryDate(b.frontMatter.date).getTime() - getPrimaryDate(a.frontMatter.date).getTime()
     );
   }
   

@@ -1,4 +1,5 @@
 import { parseMarkdown, BlogFrontMatter, EventFrontMatter, ProjectFrontMatter, CourseFrontMatter } from "./markdownUtils";
+import { getPrimaryDate } from './markdown/formatters';
 
 // Function to get all markdown content files of a specific type
 export async function getAllContent<T>(
@@ -83,7 +84,7 @@ export async function getAllEvents({
   // Sort events
   if (sortBy === 'date') {
     filteredEvents.sort((a, b) => 
-      new Date(b.frontMatter.date).getTime() - new Date(a.frontMatter.date).getTime()
+      getPrimaryDate(b.frontMatter.date).getTime() - getPrimaryDate(a.frontMatter.date).getTime()
     );
   }
   

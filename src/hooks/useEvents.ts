@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { parseMarkdown, EventFrontMatter } from '@/utils/markdownUtils';
+import { isUpcomingEvent, getPrimaryDate } from '@/utils/markdown/formatters';
 
 // Import all event markdown files
 const eventFiles = import.meta.glob('../content/events/*.md', { as: 'raw', eager: true });
@@ -20,9 +21,7 @@ export function useEvents() {
           const { frontMatter } = parseMarkdown(content as string);
           
           // Calculate isUpcoming based on date comparison
-          const today = new Date();
-          const eventDate = new Date(frontMatter.date);
-          const isUpcoming = eventDate > today;
+          const isUpcoming = isUpcomingEvent(frontMatter.date);
 
           // Ensure frontMatter has all required fields
           const eventData: EventFrontMatter = {
@@ -65,7 +64,7 @@ export function useEvents() {
       
       // Sort events by date (newest first)
       parsedEvents.sort((a, b) => {
-        return new Date(b.date).getTime() - new Date(a.date).getTime();
+        return getPrimaryDate(b.date).getTime() - getPrimaryDate(a.date).getTime();
       });
       
       setEvents(parsedEvents);
