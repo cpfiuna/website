@@ -1,0 +1,941 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Guía Integral para el Desarrollo de Agentes de IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#1e3a8a',
+                        'secondary': '#3b82f6',
+                        'accent': '#60a5fa',
+                        'neutral': '#f8fafc',
+                        'base': '#ffffff',
+                        'text': '#1e293b',
+                        'muted': '#64748b'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+        }
+    </style>
+  </head>
+
+  <body class="font-sans text-text bg-neutral">
+    <!-- Fixed Table of Contents -->
+    <nav id="toc" class="fixed left-0 top-0 h-screen w-80 bg-base shadow-xl z-40 overflow-y-auto border-r border-gray-200 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+      <div class="p-6">
+        <h3 class="font-serif text-lg font-semibold text-primary mb-4">Índice de Contenidos</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="#introduccion" class="block py-2 px-3 rounded hover:bg-gray-50 transition-colors">Introducción</a>
+          </li>
+          <li>
+            <a href="#fundamentos" class="block py-2 px-3 rounded hover:bg-gray-50 transition-colors">1. Fundamentos de los Agentes de IA</a>
+          </li>
+          <li>
+            <a href="#asistentes" class="block py-2 px-3 rounded hover:bg-gray-50 transition-colors">2. Creación de Asistentes Virtuales</a>
+          </li>
+          <li>
+            <a href="#automatizacion" class="block py-2 px-3 rounded hover:bg-gray-50 transition-colors">3. Automatización de Flujos de Trabajo</a>
+          </li>
+          <li>
+            <a href="#plataforma" class="block py-2 px-3 rounded hover:bg-gray-50 transition-colors">4. Plataforma de Agentes Multimodales</a>
+          </li>
+          <li>
+            <a href="#tecnologias" class="block py-2 px-3 rounded hover:bg-gray-50 transition-colors">5. Tecnologías Clave</a>
+          </li>
+          <li>
+            <a href="#buenas-practicas" class="block py-2 px-3 rounded hover:bg-gray-50 transition-colors">6. Buenas Prácticas</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Mobile TOC Toggle -->
+    <button id="toc-toggle" class="lg:hidden fixed top-4 left-4 z-50 bg-primary text-white p-3 rounded-full shadow-lg">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Main Content -->
+    <main class="lg:ml-80">
+      <!-- Hero Section -->
+      <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Hero Content -->
+            <div class="text-white">
+              <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-shadow italic leading-tight">
+                Guía Integral para el Desarrollo de
+                <span class="block text-accent">Agentes de IA</span>
+              </h1>
+              <p class="text-lg sm:text-xl mb-8 text-gray-100 leading-relaxed">
+                Domina la creación de asistentes virtuales avanzados, la automatización de flujos de trabajo empresariales y el desarrollo de plataformas de IA multimodal.
+              </p>
+              <div class="flex flex-wrap gap-4">
+                <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">Zapier &amp; Make</span>
+                <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">Flowise 3.0</span>
+                <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">LangChain</span>
+                <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">CrewAI</span>
+              </div>
+            </div>
+
+            <!-- Hero Visual Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="glass-effect rounded-lg p-6">
+                <i class="fas fa-robot text-4xl text-accent mb-4"></i>
+                <h3 class="font-serif text-lg font-semibold text-white mb-2">Agentes Autónomos</h3>
+                <p class="text-gray-200 text-sm">Sistemas inteligentes que toman decisiones y aprenden de la experiencia</p>
+              </div>
+              <div class="glass-effect rounded-lg p-6">
+                <i class="fas fa-cogs text-4xl text-accent mb-4"></i>
+                <h3 class="font-serif text-lg font-semibold text-white mb-2">Automatización</h3>
+                <p class="text-gray-200 text-sm">Flujos de trabajo empresariales optimizados con inteligencia artificial</p>
+              </div>
+              <div class="glass-effect rounded-lg p-6 col-span-2">
+                <i class="fas fa-brain text-4xl text-accent mb-4"></i>
+                <h3 class="font-serif text-lg font-semibold text-white mb-2">Multimodalidad</h3>
+                <p class="text-gray-200 text-sm">Procesamiento integrado de texto, imágenes, audio y video para una comprensión contextual profunda</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Introduction -->
+      <section id="introduccion" class="py-16 bg-base">
+        <div class="container mx-auto px-6">
+          <div class="max-w-4xl mx-auto">
+            <div class="bg-gradient-to-r from-primary to-secondary text-white rounded-xl p-8 mb-12">
+              <h2 class="font-serif text-3xl font-bold mb-4">Visión General</h2>
+              <p class="text-lg leading-relaxed">
+                La combinación de agentes de IA con modelos de Machine Learning y tecnologías como Zapier, Make, Flowise 3.0, n8n, LangChain, LangGraph, CrewAI, RAG, agentes multimodales y MCP permite crear sistemas inteligentes avanzados capaces de transformar procesos empresariales y mejorar la interacción humano-computadora.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
+                  <i class="fas fa-lightbulb text-white text-xl"></i>
+                </div>
+                <h3 class="font-serif text-xl font-semibold mb-3">Innovación Tecnológica</h3>
+                <p class="text-muted">Integración avanzada de modelos de ML con arquitecturas de agentes inteligentes</p>
+              </div>
+              <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center mb-4">
+                  <i class="fas fa-chart-line text-white text-xl"></i>
+                </div>
+                <h3 class="font-serif text-xl font-semibold mb-3">Eficiencia Empresarial</h3>
+                <p class="text-muted">Automatización de flujos de trabajo complejos con intervención humana mínima</p>
+              </div>
+              <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mb-4">
+                  <i class="fas fa-users text-white text-xl"></i>
+                </div>
+                <h3 class="font-serif text-xl font-semibold mb-3">Experiencia de Usuario</h3>
+                <p class="text-muted">Asistentes virtuales avanzados con capacidades multimodales y contextuales</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: Fundamentos -->
+      <section id="fundamentos" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+          <div class="max-w-6xl mx-auto">
+            <h2 class="font-serif text-4xl font-bold text-primary mb-12 text-center">1. Fundamentos de los Agentes de IA</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+              <div>
+                <h3 class="font-serif text-2xl font-semibold mb-6">Introducción a los Agentes de IA</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                  Los agentes de Inteligencia Artificial son entidades computacionales diseñadas para percibir su entorno, procesar información, razonar, tomar decisiones y actuar para lograr objetivos específicos. A diferencia de los programas tradicionales, incorporan capacidades de aprendizaje y adaptación.
+                </p>
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                  <h4 class="font-semibold mb-3 text-primary">Componentes Clave:</h4>
+                  <ul class="space-y-2 text-muted">
+                    <li class="flex items-center"><i class="fas fa-eye text-secondary mr-3"></i>Percepción (sensores/entradas)</li>
+                    <li class="flex items-center"><i class="fas fa-brain text-secondary mr-3"></i>Procesamiento (modelos ML)</li>
+                    <li class="flex items-center"><i class="fas fa-decide text-secondary mr-3"></i>Toma de decisiones (lógica)</li>
+                    <li class="flex items-center"><i class="fas fa-cog text-secondary mr-3"></i>Actuación (efectores/salidas)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <img src="https://kimi-web-img.moonshot.cn/img/img2024.cnblogs.com/b60bef1f7d34945049beaf63d64ffa184e688fcd.png" alt="Diagrama de arquitectura de agente de IA mostrando percepción, procesamiento, decisión y actuación" class="w-full rounded-lg shadow-lg" size="medium" aspect="wide" style="linedrawing" query="arquitectura agente IA" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+              </div>
+            </div>
+
+            <!-- Methodology -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+              <h3 class="font-serif text-2xl font-semibold mb-8 text-center">Metodología de Desarrollo</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-white font-bold text-xl">1</span>
+                  </div>
+                  <h4 class="font-semibold mb-2">Definir Objetivo</h4>
+                  <p class="text-sm text-muted">Establecer propósito y alcance del agente</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-white font-bold text-xl">2</span>
+                  </div>
+                  <h4 class="font-semibold mb-2">Diseñar Arquitectura</h4>
+                  <p class="text-sm text-muted">Planificar flujo de trabajo y componentes</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-white font-bold text-xl">3</span>
+                  </div>
+                  <h4 class="font-semibold mb-2">Preparar Datos</h4>
+                  <p class="text-sm text-muted">Recopilar y limpiar datos de entrenamiento</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-white font-bold text-xl">4</span>
+                  </div>
+                  <h4 class="font-semibold mb-2">Seleccionar Modelo</h4>
+                  <p class="text-sm text-muted">Elegir herramientas y frameworks adecuados</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-white font-bold text-xl">5</span>
+                  </div>
+                  <h4 class="font-semibold mb-2">Construir Integraciones</h4>
+                  <p class="text-sm text-muted">Desarrollar herramientas y APIs</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-white font-bold text-xl">6</span>
+                  </div>
+                  <h4 class="font-semibold mb-2">Entrenar Agente</h4>
+                  <p class="text-sm text-muted">Alimentar modelo con datos estructurados</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-white font-bold text-xl">7</span>
+                  </div>
+                  <h4 class="font-semibold mb-2">Probar Rendimiento</h4>
+                  <p class="text-sm text-muted">Evaluar y optimizar resultados</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-white font-bold text-xl">8</span>
+                  </div>
+                  <h4 class="font-semibold mb-2">Desplegar y Monitorear</h4>
+                  <p class="text-sm text-muted">Implementar en producción</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Asistentes Virtuales -->
+      <section id="asistentes" class="py-16 bg-base">
+        <div class="container mx-auto px-6">
+          <div class="max-w-6xl mx-auto">
+            <h2 class="font-serif text-4xl font-bold text-primary mb-12 text-center">2. Creación de Asistentes Virtuales Avanzados</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+              <div class="lg:col-span-2">
+                <h3 class="font-serif text-2xl font-semibold mb-6">Plataformas Visuales de Desarrollo</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                  El diseño de asistentes virtuales avanzados se ha simplificado gracias a plataformas visuales como Flowise y Make, que permiten construir flujos de trabajo complejos mediante interfaces intuitivas de arrastrar y soltar.
+                </p>
+
+                <div class="space-y-6">
+                  <div class="bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                      <i class="fas fa-palette text-primary text-2xl mr-4"></i>
+                      <h4 class="font-semibold text-lg">Flowise</h4>
+                    </div>
+                    <p class="text-muted mb-3">Plataforma de código abierto para construir sistemas de agentes LLM visualmente, con soporte para Chatflow y Agentflow.</p>
+                    <ul class="text-sm text-muted space-y-1">
+                      <li>• Soporte para más de 100 LLMs y bases de datos vectoriales</li>
+                      <li>• Integración nativa de RAG</li>
+                      <li>• Sistemas multiagente con orquestación</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                      <i class="fas fa-cogs text-secondary text-2xl mr-4"></i>
+                      <h4 class="font-semibold text-lg">Make (Integromat)</h4>
+                    </div>
+                    <p class="text-muted mb-3">Herramienta de automatización con capacidades avanzadas para crear agentes de IA que interactúan con más de 1000 aplicaciones.</p>
+                    <ul class="text-sm text-muted space-y-1">
+                      <li>• Biblioteca de más de 1000 aplicaciones integradas</li>
+                      <li>• Editor visual de flujos de trabajo complejos</li>
+                      <li>• Módulos de Agente de IA para análisis y generación</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <img src="https://kimi-web-img.moonshot.cn/img/i.ytimg.com/21f5271c4ee5fe0c26d4f023dd1faa1a643e5378.jpg" alt="Interfaz de usuario de Flowise mostrando componentes de arrastrar y soltar" class="w-full rounded-lg shadow-lg mb-6" size="medium" aspect="wide" style="photo" query="Flowise interfaz de usuario" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+
+                <div class="bg-gradient-to-br from-primary to-secondary text-white rounded-lg p-6">
+                  <h4 class="font-serif text-lg font-semibold mb-3">Caso de Estudio</h4>
+                  <p class="text-sm mb-3">Asistente de Servicio al Cliente con Make</p>
+                  <ul class="text-sm space-y-2">
+                    <li class="flex items-center"><i class="fas fa-check mr-2"></i>Recepción de consultas</li>
+                    <li class="flex items-center"><i class="fas fa-check mr-2"></i>Análisis de intención</li>
+                    <li class="flex items-center"><i class="fas fa-check mr-2"></i>Recuperación de información</li>
+                    <li class="flex items-center"><i class="fas fa-check mr-2"></i>Generación de respuestas</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- RAG Implementation -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+              <h3 class="font-serif text-2xl font-semibold mb-6">Implementación de RAG (Retrieval-Augmented Generation)</h3>
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <p class="text-lg mb-6 leading-relaxed">
+                    RAG mejora la precisión y relevancia de las respuestas al permitir que los LLMs consulten bases de conocimiento externas antes de generar una respuesta, abordando problemas como información desactualizada o alucinaciones.
+                  </p>
+
+                  <div class="space-y-4">
+                    <div class="border-l-4 border-primary pl-4">
+                      <h4 class="font-semibold mb-2">Fase de Recuperación</h4>
+                      <p class="text-sm text-muted">La consulta del usuario se convierte en embedding para buscar en bases de datos vectoriales los documentos más relevantes.</p>
+                    </div>
+                    <div class="border-l-4 border-secondary pl-4">
+                      <h4 class="font-semibold mb-2">Fase de Generación Aumentada</h4>
+                      <p class="text-sm text-muted">Los documentos recuperados se inyectan como contexto en el prompt del LLM para generar respuestas fundamentadas.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <img src="https://kimi-web-img.moonshot.cn/img/yuedu.biz/a05df86905fc24f4872612134f1e881132530c00.png" alt="Arquitectura RAG mostrando recuperación de documentos y generación aumentada" class="w-full rounded-lg shadow-md" size="medium" aspect="wide" query="arquitectura RAG" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Automatización -->
+      <section id="automatizacion" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+          <div class="max-w-6xl mx-auto">
+            <h2 class="font-serif text-4xl font-bold text-primary mb-12 text-center">3. Automatización de Flujos de Trabajo Empresariales</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+              <div>
+                <h3 class="font-serif text-2xl font-semibold mb-6">Integración con Plataformas de Automatización</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                  La integración de agentes de IA en plataformas como Zapier, Make y n8n amplía enormemente el potencial de automatización, introduciendo capacidades de análisis, toma de decisiones y generación de contenido en los flujos de trabajo.
+                </p>
+
+                <div class="space-y-4">
+                  <div class="bg-white rounded-lg p-4 shadow-md">
+                    <div class="flex items-center mb-2">
+                      <i class="fas fa-bolt text-primary mr-3"></i>
+                      <h4 class="font-semibold">Zapier</h4>
+                    </div>
+                    <p class="text-sm text-muted">Facilidad de uso y amplia biblioteca de integraciones preconstruidas. Ideal para automatizaciones rápidas con capacidades de IA básicas.</p>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-4 shadow-md">
+                    <div class="flex items-center mb-2">
+                      <i class="fas fa-puzzle-piece text-secondary mr-3"></i>
+                      <h4 class="font-semibold">Make</h4>
+                    </div>
+                    <p class="text-sm text-muted">Mayor control sobre lógica de flujo de trabajo. Adecuado para manipulación de datos avanzada y ramificaciones complejas.</p>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-4 shadow-md">
+                    <div class="flex items-center mb-2">
+                      <i class="fas fa-code text-accent mr-3"></i>
+                      <h4 class="font-semibold">n8n</h4>
+                    </div>
+                    <p class="text-sm text-muted">Código abierto y autohospedable. Máxima flexibilidad para integración de modelos personalizados y sistemas RAG avanzados.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <img src="https://kimi-web-img.moonshot.cn/img/placeholder-0620/图片14.png" alt="Diagrama de integración de agentes de IA en plataformas de automatización" class="w-full rounded-lg shadow-lg" size="large" aspect="wide" style="linedrawing" query="integración agentes IA automatización flujos trabajo" referrerpolicy="no-referrer"/>
+              </div>
+            </div>
+
+            <!-- MCP Protocol -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+              <h3 class="font-serif text-2xl font-semibold mb-6">Model Context Protocol (MCP)</h3>
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                  <p class="text-lg mb-6 leading-relaxed">
+                    MCP es un protocolo abierto que estandariza la interacción entre aplicaciones de IA y fuentes de datos externas. Actúa como un sistema de complementos universal, permitiendo que agentes de IA accedan a herramientas y datos de manera segura y controlada.
+                  </p>
+
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                      <i class="fas fa-desktop text-primary text-2xl mb-2"></i>
+                      <h4 class="font-semibold text-sm">MCP Host</h4>
+                      <p class="text-xs text-muted">Aplicación de IA</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                      <i class="fas fa-user text-secondary text-2xl mb-2"></i>
+                      <h4 class="font-semibold text-sm">MCP Client</h4>
+                      <p class="text-xs text-muted">Gestor de comunicación</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                      <i class="fas fa-server text-accent text-2xl mb-2"></i>
+                      <h4 class="font-semibold text-sm">MCP Server</h4>
+                      <p class="text-xs text-muted">Conector a herramientas</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="bg-gradient-to-br from-primary to-secondary text-white rounded-lg p-6 h-full">
+                    <h4 class="font-serif text-lg font-semibold mb-4">Casos de Uso Empresarial</h4>
+                    <ul class="space-y-3 text-sm">
+                      <li class="flex items-start">
+                        <i class="fas fa-headset mr-3 mt-1"></i>
+                        <div>
+                          <strong>Servicio al Cliente:</strong> Verificación de estado de pedidos, inicio de reembolsos
+                        </div>
+                      </li>
+                      <li class="flex items-start">
+                        <i class="fas fa-chart-line mr-3 mt-1"></i>
+                        <div>
+                          <strong>Marketing:</strong> Análisis de tendencias, generación de contenido, programación
+                        </div>
+                      </li>
+                      <li class="flex items-start">
+                        <i class="fas fa-utensils mr-3 mt-1"></i>
+                        <div>
+                          <strong>Reservas:</strong> Manejo de cancelaciones, ofertas contextuales
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Plataforma Multimodal -->
+      <section id="plataforma" class="py-16 bg-base">
+        <div class="container mx-auto px-6">
+          <div class="max-w-6xl mx-auto">
+            <h2 class="font-serif text-4xl font-bold text-primary mb-12 text-center">4. Plataforma de Agentes de IA Multimodal</h2>
+
+            <div class="mb-12">
+              <h3 class="font-serif text-2xl font-semibold mb-6 text-center">Conceptos de Agentes Multimodales</h3>
+              <p class="text-lg text-center mb-8 max-w-4xl mx-auto leading-relaxed">
+                Los agentes multimodales representan una evolución significativa al procesar múltiples tipos de datos integrados: texto, imágenes, audio y video. Esta capacidad permite una comprensión más rica y contextual del mundo, similar a la percepción humana.
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white rounded-lg p-6 shadow-md text-center">
+                  <i class="fas fa-font text-primary text-3xl mb-4"></i>
+                  <h4 class="font-semibold mb-2">Texto</h4>
+                  <p class="text-sm text-muted">Procesamiento de lenguaje natural avanzado</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md text-center">
+                  <i class="fas fa-image text-secondary text-3xl mb-4"></i>
+                  <h4 class="font-semibold mb-2">Imágenes</h4>
+                  <p class="text-sm text-muted">Visión por computadora y análisis visual</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md text-center">
+                  <i class="fas fa-volume-up text-accent text-3xl mb-4"></i>
+                  <h4 class="font-semibold mb-2">Audio</h4>
+                  <p class="text-sm text-muted">Reconocimiento de voz y análisis de tono</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md text-center">
+                  <i class="fas fa-video text-primary text-3xl mb-4"></i>
+                  <h4 class="font-semibold mb-2">Video</h4>
+                  <p class="text-sm text-muted">Análisis de secuencias y comprensión contextual</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Architecture -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+              <h3 class="font-serif text-2xl font-semibold mb-8">Arquitectura de un Sistema Multimodal</h3>
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <img src="https://kimi-web-img.moonshot.cn/img/cdn.prod.website-files.com/2e0654d78cdbaa639d28231f8ee1243e91edaa5a.webp" alt="Diagrama de arquitectura de agente multimodal mostrando capas de procesamiento" class="w-full rounded-lg shadow-md mb-6" size="medium" aspect="wide" query="arquitectura agente multimodal" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                </div>
+
+                <div class="space-y-6">
+                  <div class="border-l-4 border-primary pl-4">
+                    <h4 class="font-semibold mb-2">Capa de Entrada Multimodal</h4>
+                    <p class="text-sm text-muted">Ingestión y preprocesamiento de datos de diversas fuentes y formatos</p>
+                  </div>
+
+                  <div class="border-l-4 border-secondary pl-4">
+                    <h4 class="font-semibold mb-2">Procesamiento por Modalidad</h4>
+                    <p class="text-sm text-muted">Modelos especializados para interpretar cada tipo de dato (LLMs, CNNs, RNNs)</p>
+                  </div>
+
+                  <div class="border-l-4 border-accent pl-4">
+                    <h4 class="font-semibold mb-2">Capa de Fusión Multimodal</h4>
+                    <p class="text-sm text-muted">Integración de representaciones unimodales en una comprensión unificada</p>
+                  </div>
+
+                  <div class="border-l-4 border-primary pl-4">
+                    <h4 class="font-semibold mb-2">Comprensión y Razonamiento</h4>
+                    <p class="text-sm text-muted">Inferencias y toma de decisiones basadas en representación multimodal</p>
+                  </div>
+
+                  <div class="border-l-4 border-secondary pl-4">
+                    <h4 class="font-semibold mb-2">Capa de Salida Multimodal</h4>
+                    <p class="text-sm text-muted">Generación de respuestas en múltiples formatos (texto, imagen, voz)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Multi-Agent Orchestration -->
+            <div class="bg-gradient-to-br from-primary to-secondary text-white rounded-xl p-8">
+              <h3 class="font-serif text-2xl font-semibold mb-6">Orquestación de Múltiples Agentes</h3>
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <p class="mb-6 leading-relaxed">
+                    Para tareas complejas, es más efectivo diseñar sistemas compuestos por múltiples agentes especializados que colaboran entre sí. Un agente orquestador gestiona la interacción, descompone tareas y sintetiza resultados.
+                  </p>
+
+                  <div class="space-y-4">
+                    <div class="flex items-center">
+                      <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-robot text-sm"></i>
+                      </div>
+                      <span>Agente de Análisis de Sentimientos</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-eye text-sm"></i>
+                      </div>
+                      <span>Agente de Reconocimiento Visual</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-microphone text-sm"></i>
+                      </div>
+                      <span>Agente de Análisis de Audio</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-crown text-sm"></i>
+                      </div>
+                      <span>Agente Orquestador</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="bg-white bg-opacity-10 rounded-lg p-6">
+                    <h4 class="font-semibold mb-4">Frameworks de Soporte</h4>
+                    <ul class="space-y-2 text-sm">
+                      <li class="flex items-center"><i class="fas fa-code mr-3"></i>LangChain &amp; LangGraph</li>
+                      <li class="flex items-center"><i class="fas fa-users mr-3"></i>CrewAI</li>
+                      <li class="flex items-center"><i class="fas fa-sitemap mr-3"></i>AutoGen</li>
+                      <li class="flex items-center"><i class="fas fa-palette mr-3"></i>Flowise 3.0</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Tecnologías Clave -->
+      <section id="tecnologias" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+          <div class="max-w-6xl mx-auto">
+            <h2 class="font-serif text-4xl font-bold text-primary mb-12 text-center">5. Tecnologías Clave y su Integración</h2>
+
+            <!-- Technology Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              <!-- LangChain &amp; LangGraph -->
+              <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center mb-4">
+                  <i class="fas fa-link text-primary text-2xl mr-4"></i>
+                  <h3 class="font-serif text-xl font-semibold">LangChain &amp; LangGraph</h3>
+                </div>
+                <p class="text-muted mb-4">Frameworks para construcción de aplicaciones LLM con componentes modulares y flujos de trabajo basados en grafos.</p>
+                <ul class="text-sm text-muted space-y-1">
+                  <li>• Gestión de prompts y cadenas</li>
+                  <li>• Integración RAG nativa</li>
+                  <li>• Agentes con uso de herramientas</li>
+                  <li>• Flujos de trabajo stateful complejos</li>
+                </ul>
+              </div>
+
+              <!-- CrewAI -->
+              <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center mb-4">
+                  <i class="fas fa-users text-secondary text-2xl mr-4"></i>
+                  <h3 class="font-serif text-xl font-semibold">CrewAI</h3>
+                </div>
+                <p class="text-muted mb-4">Framework para creación de &#34;tripulaciones&#34; de agentes especializados que colaboran en tareas complejas.</p>
+                <ul class="text-sm text-muted space-y-1">
+                  <li>• Agentes con roles específicos</li>
+                  <li>• Procesos de colaboración definibles</li>
+                  <li>• Integración con múltiples LLMs</li>
+                  <li>• Arquitectura modular</li>
+                </ul>
+              </div>
+
+              <!-- Flowise 3.0 -->
+              <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center mb-4">
+                  <i class="fas fa-palette text-accent text-2xl mr-4"></i>
+                  <h3 class="font-serif text-xl font-semibold">Flowise 3.0</h3>
+                </div>
+                <p class="text-muted mb-4">Plataforma visual de desarrollo de agentes LLM con interfaz de arrastrar y soltar.</p>
+                <ul class="text-sm text-muted space-y-1">
+                  <li>• Desarrollo visual sin código</li>
+                  <li>• Soporte para múltiples LLMs</li>
+                  <li>• Integración de RAG</li>
+                  <li>• Sistemas multiagente</li>
+                </ul>
+              </div>
+
+              <!-- RAG -->
+              <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center mb-4">
+                  <i class="fas fa-search text-primary text-2xl mr-4"></i>
+                  <h3 class="font-serif text-xl font-semibold">RAG</h3>
+                </div>
+                <p class="text-muted mb-4">Retrieval-Augmented Generation mejora la precisión de LLMs mediante consulta a bases de conocimiento externas.</p>
+                <ul class="text-sm text-muted space-y-1">
+                  <li>• Recuperación de información contextual</li>
+                  <li>• Generación aumentada con contexto</li>
+                  <li>• Reducción de alucinaciones</li>
+                  <li>• Conocimiento actualizable</li>
+                </ul>
+              </div>
+
+              <!-- MCP -->
+              <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center mb-4">
+                  <i class="fas fa-plug text-secondary text-2xl mr-4"></i>
+                  <h3 class="font-serif text-xl font-semibold">MCP</h3>
+                </div>
+                <p class="text-muted mb-4">Model Context Protocol estandariza la conexión entre agentes de IA y herramientas externas.</p>
+                <ul class="text-sm text-muted space-y-1">
+                  <li>• Protocolo abierto estandarizado</li>
+                  <li>• Conexión a múltiples herramientas</li>
+                  <li>• Comunicación bidireccional</li>
+                  <li>• Arquitectura cliente-servidor</li>
+                </ul>
+              </div>
+
+              <!-- Automation Platforms -->
+              <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center mb-4">
+                  <i class="fas fa-cogs text-accent text-2xl mr-4"></i>
+                  <h3 class="font-serif text-xl font-semibold">Automatización</h3>
+                </div>
+                <p class="text-muted mb-4">Zapier, Make y n8n para integración con aplicaciones empresariales y automatización de flujos.</p>
+                <ul class="text-sm text-muted space-y-1">
+                  <li>• Miles de integraciones preconstruidas</li>
+                  <li>• Editores visuales de flujos</li>
+                  <li>• Opciones de código abierto</li>
+                  <li>• Escalabilidad empresarial</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Integration Example -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+              <h3 class="font-serif text-2xl font-semibold mb-6 text-center">Ejemplo de Integración Completa</h3>
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h4 class="font-semibold mb-4">Flujo de Trabajo Avanzado</h4>
+                  <div class="space-y-4">
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                      <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold mr-4">1</div>
+                      <div>
+                        <strong>Recepción de Consulta</strong>
+                        <p class="text-sm text-muted">El usuario envía una consulta multimodal (texto + imagen)</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                      <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white text-sm font-bold mr-4">2</div>
+                      <div>
+                        <strong>Procesamiento Multimodal</strong>
+                        <p class="text-sm text-muted">CrewAI orquesta agentes especializados para cada modalidad</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                      <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white text-sm font-bold mr-4">3</div>
+                      <div>
+                        <strong>Recuperación de Contexto</strong>
+                        <p class="text-sm text-muted">RAG consulta bases de conocimiento relevantes</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                      <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold mr-4">4</div>
+                      <div>
+                        <strong>Generación de Respuesta</strong>
+                        <p class="text-sm text-muted">LLM genera respuesta contextual basada en análisis multimodal</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <img src="https://kimi-web-img.moonshot.cn/img/cdn.prod.website-files.com/2e0654d78cdbaa639d28231f8ee1243e91edaa5a.webp" alt="Arquitectura de sistema de agentes de IA multimodal" class="w-full rounded-lg shadow-md" size="large" aspect="wide" query="arquitectura sistema agentes ia multimodal" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+
+                  <div class="mt-6 p-4 bg-gradient-to-r from-primary to-secondary text-white rounded-lg">
+                    <h4 class="font-semibold mb-2">Tecnologías Utilizadas</h4>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                      <div>• LangChain/LangGraph</div>
+                      <div>• CrewAI</div>
+                      <div>• RAG</div>
+                      <div>• MCP</div>
+                      <div>• Flowise</div>
+                      <div>• Make/Zapier</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Buenas Prácticas -->
+      <section id="buenas-practicas" class="py-16 bg-base">
+        <div class="container mx-auto px-6">
+          <div class="max-w-6xl mx-auto">
+            <h2 class="font-serif text-4xl font-bold text-primary mb-12 text-center">6. Buenas Prácticas y Consideraciones Avanzadas</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+              <!-- Scalable Architecture -->
+              <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
+                  <i class="fas fa-expand-arrows-alt text-white text-xl"></i>
+                </div>
+                <h3 class="font-serif text-xl font-semibold mb-4">Arquitecturas Escalables</h3>
+                <ul class="space-y-3 text-sm text-muted">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-primary mr-3 mt-1"></i>
+                    <span><strong>Modularidad:</strong> Componentes independientes para facilitar desarrollo y escalado</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-primary mr-3 mt-1"></i>
+                    <span><strong>Gestión del Estado:</strong> Sistemas de memoria eficientes para mantener contexto</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-primary mr-3 mt-1"></i>
+                    <span><strong>Tolerancia a Fallos:</strong> Mecanismos de reintento y circuit breakers</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-primary mr-3 mt-1"></i>
+                    <span><strong>Monitoreo:</strong> Registros detallados para diagnóstico y mejora continua</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Memory Management -->
+              <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center mb-4">
+                  <i class="fas fa-memory text-white text-xl"></i>
+                </div>
+                <h3 class="font-serif text-xl font-semibold mb-4">Gestión de Memoria</h3>
+                <div class="space-y-4">
+                  <div>
+                    <h4 class="font-semibold text-primary mb-2">Memoria a Corto Plazo</h4>
+                    <p class="text-sm text-muted mb-2">Retención de información relevante para la interacción actual mediante ventana de contexto del LLM.</p>
+                    <ul class="text-xs text-muted space-y-1">
+                      <li>• Resumen de conversaciones largas</li>
+                      <li>• Selección estratégica de fragmentos relevantes</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-secondary mb-2">Memoria a Largo Plazo</h4>
+                    <p class="text-sm text-muted mb-2">Almacenamiento y recuperación de información a través de múltiples interacciones usando bases de datos vectoriales.</p>
+                    <ul class="text-xs text-muted space-y-1">
+                      <li>• Personalización de experiencia del usuario</li>
+                      <li>• Aprendizaje de interacciones pasadas</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Human-in-the-Loop -->
+              <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mb-4">
+                  <i class="fas fa-user-check text-white text-xl"></i>
+                </div>
+                <h3 class="font-serif text-xl font-semibold mb-4">Human-in-the-Loop (HITL)</h3>
+                <p class="text-sm text-muted mb-4">Integración de supervisión humana para aplicaciones críticas que requieren alta precisión y fiabilidad.</p>
+
+                <div class="space-y-3">
+                  <div class="p-3 bg-gray-50 rounded-lg">
+                    <h4 class="font-semibold text-sm mb-1">Beneficios Clave</h4>
+                    <ul class="text-xs text-muted space-y-1">
+                      <li>• Mejora de precisión y confiabilidad</li>
+                      <li>• Aumento de confianza del usuario</li>
+                      <li>• Aprendizaje continuo del agente</li>
+                    </ul>
+                  </div>
+
+                  <div class="p-3 bg-gray-50 rounded-lg">
+                    <h4 class="font-semibold text-sm mb-1">Implementación</h4>
+                    <ul class="text-xs text-muted space-y-1">
+                      <li>• Escalamiento de consultas complejas</li>
+                      <li>• Revisión y aprobación humana</li>
+                      <li>• Retroalimentación para reentrenamiento</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Best Practices Summary -->
+            <div class="bg-gradient-to-br from-primary to-secondary text-white rounded-xl p-8">
+              <h3 class="font-serif text-2xl font-semibold mb-6 text-center">Resumen de Buenas Prácticas</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h4 class="font-semibold mb-4">Diseño y Desarrollo</h4>
+                  <ul class="space-y-2 text-sm">
+                    <li class="flex items-center"><i class="fas fa-arrow-right mr-3"></i>Definir objetivos SMART claros</li>
+                    <li class="flex items-center"><i class="fas fa-arrow-right mr-3"></i>Utilizar arquitectura modular</li>
+                    <li class="flex items-center"><i class="fas fa-arrow-right mr-3"></i>Implementar pruebas exhaustivas</li>
+                    <li class="flex items-center"><i class="fas fa-arrow-right mr-3"></i>Planificar integraciones desde el inicio</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-4">Operación y Mantenimiento</h4>
+                  <ul class="space-y-2 text-sm">
+                    <li class="flex items-center"><i class="fas fa-arrow-right mr-3"></i>Monitoreo continuo del rendimiento</li>
+                    <li class="flex items-center"><i class="fas fa-arrow-right mr-3"></i>Actualizaciones periódicas</li>
+                    <li class="flex items-center"><i class="fas fa-arrow-right mr-3"></i>Seguridad integrada desde el diseño</li>
+                    <li class="flex items-center"><i class="fas fa-arrow-right mr-3"></i>Iteración basada en retroalimentación</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="py-12 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+          <div class="max-w-4xl mx-auto text-center">
+            <h3 class="font-serif text-2xl font-semibold mb-4">Guía Integral para el Desarrollo de Agentes de IA</h3>
+            <p class="text-gray-300 mb-6">
+              Esta guía proporciona los fundamentos, metodologías y herramientas necesarias para crear sistemas de IA avanzados que transformen procesos empresariales y mejoren la interacción humano-computadora.
+            </p>
+            <div class="flex justify-center space-x-8 text-sm text-gray-400">
+              <span>Zapier &amp; Make</span>
+              <span>•</span>
+              <span>Flowise 3.0</span>
+              <span>•</span>
+              <span>LangChain</span>
+              <span>•</span>
+              <span>CrewAI</span>
+              <span>•</span>
+              <span>RAG</span>
+              <span>•</span>
+              <span>MCP</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+        // Mobile TOC Toggle
+        document.getElementById('toc-toggle').addEventListener('click', function() {
+            const toc = document.getElementById('toc');
+            toc.classList.toggle('-translate-x-full');
+        });
+
+        // Close TOC when clicking outside
+        document.addEventListener('click', function(event) {
+            const toc = document.getElementById('toc');
+            const tocToggle = document.getElementById('toc-toggle');
+            if (!toc.contains(event.target) && !tocToggle.contains(event.target)) {
+                toc.classList.add('-translate-x-full');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile TOC after clicking
+                    document.getElementById('toc').classList.add('-translate-x-full');
+                }
+            });
+        });
+
+        // Highlight active section in TOC
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const tocLinks = document.querySelectorAll('#toc a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                link.classList.remove('bg-primary', 'text-white');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('bg-primary', 'text-white');
+                }
+            });
+        });
+    </script>
+  
+
+</body></html>
