@@ -8,6 +8,7 @@ import { getContentBySlug } from "@/utils/staticSiteGenerator";
 import { CourseFrontMatter } from "@/utils/markdownUtils";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import { Button } from "@/components/ui/button";
+import { getInstructorByName } from "@/data/instructors";
 
 const CourseDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -15,9 +16,27 @@ const CourseDetail = () => {
   const [course, setCourse] = useState<{frontMatter: CourseFrontMatter, content: string} | null>(null);
   const [loading, setLoading] = useState(true);
   
-  // This would normally come from the course data, for now we'll simulate it
-  const hasYoutubeVideo = slug === "desarrollo-web-react" || slug === "javascript-fundamentos";
-  const youtubeUrl = hasYoutubeVideo ? "https://youtube.com/watch?v=example" : "";
+  // Determine YouTube video availability from frontmatter
+  const getVideoStatus = () => {
+    if (!course?.frontMatter.youtubeUrl) {
+      return { hasVideo: false, url: "", message: "Vídeo por subir" };
+    }
+    
+    const url = course.frontMatter.youtubeUrl;
+    
+    if (url === "none" || url === "null" || url === "unavailable") {
+      return { hasVideo: false, url: "", message: "Vídeo no disponible" };
+    }
+    
+    if (url.includes("youtube.com") || url.includes("youtu.be")) {
+      return { hasVideo: true, url: url, message: "" };
+    }
+    
+    // Fallback for any other value
+    return { hasVideo: false, url: "", message: "Vídeo por subir" };
+  };
+  
+  const videoStatus = getVideoStatus();
   
   useEffect(() => {
     const fetchCourse = async () => {
@@ -150,7 +169,28 @@ const CourseDetail = () => {
                   </div>
                   
                   <div className="flex items-center mt-6 pt-6 border-t border-border">
-                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary mr-4">
+                    {(() => {
+                      const instructor = getInstructorByName(frontMatter.instructor);
+                      return instructor?.profilePicture ? (
+                        <img 
+                          src={instructor.profilePicture} 
+                          alt={frontMatter.instructor}
+                          className="w-12 h-12 rounded-full object-cover mr-4"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            // Show fallback icon
+                            const fallback = target.nextElementSibling as HTMLElement;
+                            if (fallback) fallback.style.display = 'flex';
+                          }}
+                        />
+                      ) : (
+                        <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary mr-4">
+                          <User className="h-6 w-6" />
+                        </div>
+                      );
+                    })()}
+                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary mr-4" style={{ display: 'none' }}>
                       <User className="h-6 w-6" />
                     </div>
                     <div>
@@ -158,12 +198,12 @@ const CourseDetail = () => {
                       <p className="font-medium">{frontMatter.instructor}</p>
                     </div>
                     
-                    {hasYoutubeVideo ? (
+                    {videoStatus.hasVideo ? (
                       <Button 
                         className="ml-auto"
                         variant="outline"
                         size="sm"
-                        onClick={() => window.open(youtubeUrl, '_blank')}
+                        onClick={() => window.open(videoStatus.url, '_blank')}
                       >
                         <Youtube className="mr-2 h-4 w-4" />
                         Ver en YouTube
@@ -176,7 +216,7 @@ const CourseDetail = () => {
                         disabled
                       >
                         <AlertCircle className="mr-2 h-4 w-4" />
-                        Vídeo por subir
+                        {videoStatus.message}
                       </Button>
                     )}
                   </div>
@@ -184,7 +224,7 @@ const CourseDetail = () => {
               </div>
               
               <div className="lg:col-span-1">
-                <div className="glass-card overflow-hidden">
+                <div className="glass-card-static overflow-hidden">
                   <img 
                     src={frontMatter.image} 
                     alt={frontMatter.title}
@@ -242,13 +282,34 @@ const CourseDetail = () => {
             
             <TabsContent value="overview" className="space-y-8">
               <div className="prose prose-lg dark:prose-invert max-w-none">
-                <MarkdownRenderer content={content} />
+                <MarkdownRenderer content={extractDescriptionOnly(content)} />
               </div>
               
-              <div className="bg-muted/30 rounded-xl p-6">
+              <div className="glass-card-static p-6">
                 <h3 className="text-lg font-bold mb-4">Sobre el instructor</h3>
                 <div className="flex items-center mb-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary mr-4">
+                  {(() => {
+                    const instructor = getInstructorByName(frontMatter.instructor);
+                    return instructor?.profilePicture ? (
+                      <img 
+                        src={instructor.profilePicture} 
+                        alt={frontMatter.instructor}
+                        className="w-16 h-16 rounded-full object-cover mr-4"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          // Show fallback icon
+                          const fallback = target.nextElementSibling as HTMLElement;
+                          if (fallback) fallback.style.display = 'flex';
+                        }}
+                      />
+                    ) : (
+                      <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary mr-4">
+                        <User className="h-8 w-8" />
+                      </div>
+                    );
+                  })()}
+                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary mr-4" style={{ display: 'none' }}>
                     <User className="h-8 w-8" />
                   </div>
                   <div>
@@ -268,7 +329,7 @@ const CourseDetail = () => {
               
               <div className="space-y-6">
                 {syllabus.map((week, weekIndex) => (
-                  <div key={weekIndex} className="glass-card p-6">
+                  <div key={weekIndex} className="glass-card-static p-6">
                     <h3 className="text-lg font-medium mb-4">{week.title}</h3>
                     <ul className="space-y-2">
                       {week.topics.map((topic, topicIndex) => (
@@ -369,28 +430,28 @@ const CourseDetail = () => {
               <h2 className="text-2xl font-bold mb-6">Preguntas frecuentes</h2>
               
               <div className="space-y-4">
-                <div className="glass-card p-6">
+                <div className="glass-card-static p-6">
                   <h3 className="font-medium text-lg mb-2">¿Necesito tener conocimientos previos?</h3>
                   <p className="text-muted-foreground">
                     Depende del nivel del curso. Para cursos principiantes, no se requiere experiencia previa. Para niveles intermedios, se mencionan los requisitos específicos en la descripción.
                   </p>
                 </div>
                 
-                <div className="glass-card p-6">
+                <div className="glass-card-static p-6">
                   <h3 className="font-medium text-lg mb-2">¿Habrá certificado al finalizar el curso?</h3>
                   <p className="text-muted-foreground">
                     Sí, recibirás un certificado de participación emitido por el Club de Programación FIUNA al completar satisfactoriamente el curso.
                   </p>
                 </div>
                 
-                <div className="glass-card p-6">
+                <div className="glass-card-static p-6">
                   <h3 className="font-medium text-lg mb-2">¿Qué materiales necesito para participar?</h3>
                   <p className="text-muted-foreground">
                     Una computadora con acceso a internet y las herramientas específicas mencionadas en la descripción del curso. La mayoría de software utilizado es gratuito o cuenta con versiones de prueba suficientes.
                   </p>
                 </div>
                 
-                <div className="glass-card p-6">
+                <div className="glass-card-static p-6">
                   <h3 className="font-medium text-lg mb-2">¿Qué hago si no puedo asistir a alguna clase?</h3>
                   <p className="text-muted-foreground">
                     Todas las clases serán grabadas y estarán disponibles en nuestra plataforma para miembros del club. Además, puedes contactar al instructor para resolver dudas específicas.
@@ -424,7 +485,8 @@ function extractSyllabus(content: string): { title: string; topics: string[] }[]
   const syllabus: { title: string; topics: string[] }[] = [];
   
   // Look for section that starts with "### " which typically denotes weeks in our markdown
-  const regex = /### (.*?)\n([\s\S]*?)(?=### |$)/g;
+  // Updated regex to handle both Unix (\n) and Windows (\r\n) line endings
+  const regex = /### (.*?)[\r\n]([\s\S]*?)(?=### |## |$)/g;
   let match;
   
   while ((match = regex.exec(content)) !== null) {
@@ -433,11 +495,12 @@ function extractSyllabus(content: string): { title: string; topics: string[] }[]
     
     // Extract topics (bullet points)
     const topics: string[] = [];
-    const topicLines = weekContent.split('\n');
+    const topicLines = weekContent.split(/\r?\n/);
     
     for (const line of topicLines) {
-      if (line.trim().startsWith('- ')) {
-        topics.push(line.trim().substring(2));
+      const trimmedLine = line.trim();
+      if (trimmedLine.startsWith('- ')) {
+        topics.push(trimmedLine.substring(2));
       }
     }
     
@@ -449,26 +512,19 @@ function extractSyllabus(content: string): { title: string; topics: string[] }[]
     }
   }
   
-  // If we couldn't extract syllabus (different format), return some defaults
-  if (syllabus.length === 0) {
-    return [
-      {
-        title: "Semana 1: Introducción",
-        topics: ["Fundamentos básicos", "Configuración del entorno", "Primeros pasos"]
-      },
-      {
-        title: "Semana 2: Conceptos fundamentales",
-        topics: ["Estructuras básicas", "Ejercicios prácticos", "Estudio de casos"]
-      }
-    ];
-  }
-  
   return syllabus;
 }
 
-// Helper function to extract instructor bio from the markdown content
+// Helper function to get instructor bio from the instructors data
 function extractInstructorBio(content: string, instructorName: string): string {
-  // Look for the instructor section in the markdown
+  // Get instructor from data
+  const instructor = getInstructorByName(instructorName);
+  
+  if (instructor) {
+    return instructor.bio;
+  }
+  
+  // Fallback: try to extract from markdown content (legacy support)
   const instructorSectionRegex = /## Instructor(?:a)?\s+\*\*([^*]+)\*\*\s+([\s\S]+?)(?=\s*##|$)/i;
   const match = content.match(instructorSectionRegex);
   
@@ -476,21 +532,35 @@ function extractInstructorBio(content: string, instructorName: string): string {
     return match[2].trim();
   }
   
-  // Fallback for different markdown structures
-  const paragraphsAfterInstructor = content.split(/## Instructor(?:a)?/i)[1];
-  if (paragraphsAfterInstructor) {
-    const firstParagraphs = paragraphsAfterInstructor.split(/\n\n|\r\n\r\n/);
-    // Skip the name line and get the next paragraph
-    for (let i = 1; i < firstParagraphs.length; i++) {
-      const paragraph = firstParagraphs[i].trim();
-      if (paragraph && !paragraph.startsWith('#') && paragraph.length > 30) {
-        return paragraph;
-      }
-    }
-  }
-  
   // Default fallback if no matching structure is found
-  return "Especialista con amplia experiencia en enseñanza y práctica profesional. Enfoque práctico y orientado a resultados.";
+  return "Error de carga del perfil del instructor. Por favor, contacta al administrador del curso.";
+}
+
+// Helper function to extract only the description part (before syllabus sections)
+function extractDescriptionOnly(content: string): string {
+  // Split content by ### headers (which mark syllabus sections like "### Semana X")
+  const sections = content.split(/### /);
+  
+  // The first section should be the description
+  let descriptionContent = sections[0].trim();
+  
+  // Remove any ## Instructor section if it exists in the description
+  const instructorSectionRegex = /## Instructor(?:a)?[\s\S]*$/i;
+  descriptionContent = descriptionContent.replace(instructorSectionRegex, '').trim();
+  
+  // Remove "## Contenido del curso" section and everything after it
+  const contenidoSectionRegex = /## Contenido del curso[\s\S]*$/i;
+  descriptionContent = descriptionContent.replace(contenidoSectionRegex, '').trim();
+  
+  // Remove "## Metodología" section and everything after it if it appears before syllabus
+  const metodologiaSectionRegex = /## Metodología[\s\S]*$/i;
+  descriptionContent = descriptionContent.replace(metodologiaSectionRegex, '').trim();
+  
+  // Remove "## Requisitos" section and everything after it if it appears before syllabus
+  const requisitosSectionRegex = /## Requisitos[\s\S]*$/i;
+  descriptionContent = descriptionContent.replace(requisitosSectionRegex, '').trim();
+  
+  return descriptionContent;
 }
 
 export default CourseDetail;

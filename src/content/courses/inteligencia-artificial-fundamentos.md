@@ -4,10 +4,11 @@ title: "Fundamentos de Inteligencia Artificial"
 description: "Explora los conceptos básicos de la inteligencia artificial, aprendizaje automático y sus aplicaciones prácticas."
 level: "Intermedio"
 duration: "10 semanas"
-instructor: "Dra. Sofía Pérez"
-image: "https://images.unsplash.com/photo-1677442135743-d6c304abad89?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+instructor: "Oscar Alderete"
+image: "/images/cursos/curso-ia-banner.jpg"
 tags: ["Inteligencia Artificial", "Machine Learning", "Python"]
 slug: "inteligencia-artificial-fundamentos"
+youtubeUrl: "none"
 ---
 
 # Fundamentos de Inteligencia Artificial
@@ -118,11 +119,3 @@ El curso combina:
 - Álgebra lineal básica
 - Computadora con capacidad para ejecutar Python y bibliotecas de ML
 - Curiosidad y disposición para resolver problemas complejos
-
-## Instructora
-
-**Dra. Sofía Pérez**
-
-Doctora en Ciencias de la Computación con especialización en Aprendizaje Automático. Investigadora en el campo de la IA aplicada a la resolución de problemas sociales. Con experiencia en empresas tecnológicas líderes y más de 15 publicaciones en conferencias internacionales de IA. Apasionada por democratizar el conocimiento en inteligencia artificial y sus aplicaciones éticas.
-
-¡Inicia tu viaje en el fascinante mundo de la Inteligencia Artificial con este curso fundamental!

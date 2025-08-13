@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { parseMarkdown, BlogFrontMatter } from '@/utils/markdownUtils';
 
 // Import all blog markdown files
-const blogFiles = import.meta.glob('../content/blog/*.md', { as: 'raw', eager: true });
+const blogFiles = import.meta.glob('../content/blog/*.md', { query: '?raw', import: 'default', eager: true });
 
 // Default images for blog posts that don't have one
 const defaultImages = {

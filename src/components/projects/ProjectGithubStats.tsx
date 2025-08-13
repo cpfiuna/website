@@ -27,7 +27,7 @@ const ProjectGithubStats = ({ repoUrl, stats }: ProjectGithubStatsProps) => {
       >
         <Star className="h-5 w-5 text-yellow-400 mb-1" />
         <div className="text-lg font-semibold">{safeStats.stars.toLocaleString()}</div>
-        <div className="text-xs text-muted-foreground">Stars</div>
+        <div className="text-xs text-muted-foreground">Estrellas</div>
       </a>
       
       <a
@@ -49,7 +49,7 @@ const ProjectGithubStats = ({ repoUrl, stats }: ProjectGithubStatsProps) => {
       >
         <AlertCircle className="h-5 w-5 text-red-400 mb-1" />
         <div className="text-lg font-semibold">{safeStats.issues.toLocaleString()}</div>
-        <div className="text-xs text-muted-foreground">Issues</div>
+        <div className="text-xs text-muted-foreground">Problemas</div>
       </a>
       
       <a
@@ -60,7 +60,7 @@ const ProjectGithubStats = ({ repoUrl, stats }: ProjectGithubStatsProps) => {
       >
         <Users className="h-5 w-5 text-green-400 mb-1" />
         <div className="text-lg font-semibold">{safeStats.contributors.toLocaleString()}</div>
-        <div className="text-xs text-muted-foreground">Contributors</div>
+        <div className="text-xs text-muted-foreground">Contribuidores</div>
       </a>
     </div>
   );

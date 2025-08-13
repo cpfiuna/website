@@ -19,7 +19,7 @@ const timelineEvents = [
 		year: "2018",
 		title: "Primeras Actividades",
 		description:
-			"El Club inicia sus primeras actividades y talleres, estableciéndose como espacio abierto para estudiantes. Se organizan cursos de Godot, Java y POO, participa en IEEE Xtreme e Intercoding UCA, colabora con DTICS en la creación del sistema de evaluación docente y colabora en la organización de la segunda edición de FIUNA TECH DAY.",
+			"El Club inicia sus primeras actividades y talleres, estableciéndose como espacio abierto para estudiantes. Se organizan cursos de Godot, Java y POO, participa en IEEEXtreme e Intercoding UCA, colabora con DTICS en la creación del sistema de evaluación docente y colabora en la organización de la segunda edición de FIUNA TECH DAY.",
 		icon: Code,
 		image: "/images/timeline/cpf-2018.jpg",
 	},
@@ -183,8 +183,7 @@ const Timeline = () => {
 				<div className="flex justify-center items-center gap-4 mb-6 sm:mb-12">
 					<button
 						onClick={prevEvent}
-						disabled={activeIndex === 0}
-						className="p-2 rounded-full bg-secondary hover:bg-secondary/80 text-secondary-foreground disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+						className="p-2 rounded-full bg-secondary hover:bg-secondary/80 text-secondary-foreground transition-all"
 						aria-label="Evento anterior"
 					>
 						<ChevronLeft className="h-6 w-6" />
@@ -196,8 +195,7 @@ const Timeline = () => {
 
 					<button
 						onClick={nextEvent}
-						disabled={activeIndex === timelineEvents.length - 1}
-						className="p-2 rounded-full bg-secondary hover:bg-secondary/80 text-secondary-foreground disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+						className="p-2 rounded-full bg-secondary hover:bg-secondary/80 text-secondary-foreground transition-all"
 						aria-label="Siguiente evento"
 					>
 						<ChevronRight className="h-6 w-6" />

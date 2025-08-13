@@ -86,7 +86,7 @@ const LogroCard = ({ logro }: LogroCardProps) => {
           )}
         </div>
         
-        {logro.url && (
+        {/*{logro.url && (
           <a 
             href={logro.url}
             target="_blank"
@@ -96,7 +96,7 @@ const LogroCard = ({ logro }: LogroCardProps) => {
             Ver más
             <ArrowRight className="ml-1 h-3 w-3" />
           </a>
-        )}
+        )}*/}
       </div>
     </div>
   );

@@ -1,13 +1,14 @@
 ---
 id: 3
-title: "Desarrollo Web con HTML y CSS"
+title: "Desarrollo Web para principiantes"
 description: "Aprende los fundamentos del desarrollo web frontend creando sitios web modernos y responsivos."
 level: "Principiante"
 duration: "5 semanas"
-instructor: "Prof. María Gómez"
-image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+instructor: "David Giménez"
+image: "/images/cursos/curso-webdev-banner.jpg"
 tags: ["HTML", "CSS", "Frontend", "Web"]
 slug: "desarrollo-web-html-css"
+youtubeUrl: "none"
 ---
 
 # Desarrollo Web con HTML y CSS
@@ -86,11 +87,3 @@ El curso combina:
 - Editor de texto (se recomendará Visual Studio Code)
 - Navegador web moderno (Chrome, Firefox, Edge)
 - Disposición para aprender y practicar regularmente
-
-## Instructora
-
-**Prof. María Gómez**
-
-Licenciada en Diseño Gráfico con especialización en Diseño Web. Cuenta con 7 años de experiencia como desarrolladora frontend y diseñadora UI/UX. Ha colaborado en proyectos para importantes empresas nacionales e internacionales, y se especializa en crear experiencias web accesibles y centradas en el usuario.
-
-¡Inicia tu camino en el desarrollo web con este curso práctico y completo!

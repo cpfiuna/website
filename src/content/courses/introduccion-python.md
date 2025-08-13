@@ -1,13 +1,14 @@
 ---
 id: 1
-title: "Introducción a Python"
+title: "Introducción a la programación en Python"
 description: "Aprendé los fundamentos de Python desde cero. Curso básico para principiantes."
 level: "Principiante"
 duration: "6 semanas"
-instructor: "Prof. Ana González"
-image: "https://images.unsplash.com/photo-1526379879527-8559ecfcaec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+instructor: "Esteban Ibarra"
+image: "/images/cursos/curso-python-banner.jpg"
 tags: ["Python", "Programación", "Básico"]
 slug: "introduccion-python"
+youtubeUrl: "none"
 ---
 
 # Introducción a Python
@@ -79,11 +80,3 @@ El curso combina:
 - No se requiere experiencia previa en programación
 - Computadora con acceso a internet
 - Disposición para resolver problemas y práctica regular
-
-## Instructora
-
-**Prof. Ana González**
-
-Licenciada en Informática con maestría en Ciencias de la Computación. Experiencia de 8 años en desarrollo de software y 5 años como docente de programación. Especialista en Python para ciencia de datos e inteligencia artificial.
-
-¡Te esperamos para iniciar tu viaje en el mundo de la programación con Python!

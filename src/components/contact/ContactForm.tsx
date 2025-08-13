@@ -154,11 +154,11 @@ const ContactForm = () => {
           >
             <option value="">Selecciona un asunto</option>
             <option value="Consulta General">Consulta General</option>
-            <option value="Eventos">Eventos</option>
-            <option value="Proyectos">Proyectos</option>
+            <option value="Sugerencia">Sugerencias</option>
             <option value="Membresía">Membresía</option>
+            <option value="Proyectos">Proyectos</option>
+            <option value="Eventos">Eventos</option>
             <option value="Prensa">Prensa</option>
-            <option value="Sugerencia">Sugerencia</option>
             <option value="Otro">Otro</option>
           </select>
         </div>

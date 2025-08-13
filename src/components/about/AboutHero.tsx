@@ -12,7 +12,7 @@ const AboutHero = () => {
           </h1>
           
           <p className="text-xl text-muted-foreground">
-            Somos una comunidad de estudiantes y profesionales apasionados por la programación 
+            Somos una comunidad de estudiantes apasionados por la programación 
             y el desarrollo de software en la Facultad de Ingeniería de la Universidad Nacional de Asunción.
           </p>
         </div>

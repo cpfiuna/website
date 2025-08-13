@@ -14,7 +14,7 @@ const CodeOfConduct = () => {
             </Link>
           </div>
           
-          <div className="mb-12 text-center">
+          <div className="mb-10 text-center">
             <Handshake className="h-12 w-12 mx-auto mb-4 text-primary" />
             <h1 className="text-3xl md:text-5xl font-bold mb-4">Código de <span className="gradient-text">Conducta</span></h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -25,11 +25,11 @@ const CodeOfConduct = () => {
             </div>
           </div>
           
-          <div className="prose prose-lg dark:prose-invert max-w-none">
-            <div className="glass-card-static p-8 mb-8">
+          <div className="space-y-8">
+            <div className="glass-card-static p-6">
               <div className="flex items-center gap-3 mb-4">
                 <Users className="h-5 w-5 text-primary flex-shrink-0" />
-                <h2 className="text-2xl font-semibold m-0">Propósito</h2>
+                <h2 className="text-xl font-semibold m-0">Propósito</h2>
               </div>
               <p className="text-muted-foreground">
                 El propósito de este Código de Conducta es establecer un ambiente inclusivo, 
@@ -41,12 +41,12 @@ const CodeOfConduct = () => {
               </p>
             </div>
             
-            <div className="glass-card-static p-8 mb-8">
+            <div className="glass-card-static p-6">
               <div className="flex items-center gap-3 mb-4">
                 <FileCheck className="h-5 w-5 text-primary flex-shrink-0" />
-                <h2 className="text-2xl font-semibold m-0">Alcance</h2>
+                <h2 className="text-xl font-semibold m-0">Alcance</h2>
               </div>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground mb-4">
                 Este Código de Conducta aplica a todos los miembros, colaboradores, mentores, 
                 directivos y participantes en cualquier actividad organizada por el Club de 
                 Programación FIUNA, incluyendo:
@@ -60,14 +60,14 @@ const CodeOfConduct = () => {
               </ul>
             </div>
             
-            <div className="glass-card-static p-8 mb-8">
+            <div className="glass-card-static p-6">
               <div className="flex items-center gap-3 mb-4">
                 <Heart className="h-5 w-5 text-primary flex-shrink-0" />
-                <h2 className="text-2xl font-semibold m-0">Nuestros Estándares</h2>
+                <h2 className="text-xl font-semibold m-0">Nuestros Estándares</h2>
               </div>
               
               <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-3">Comportamientos que contribuyen a crear un ambiente positivo:</h3>
+                <h3 className="text-md font-medium mb-3">Comportamientos que contribuyen a crear un ambiente positivo:</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
                     <span className="h-5 w-5 text-green-500 flex-shrink-0">✓</span>
@@ -97,7 +97,7 @@ const CodeOfConduct = () => {
               </div>
               
               <div>
-                <h3 className="text-xl font-semibold mb-3">Comportamientos inaceptables:</h3>
+                <h3 className="text-md font-medium mb-3">Comportamientos inaceptables:</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
                     <span className="h-5 w-5 text-red-500 flex-shrink-0">✗</span>
@@ -131,17 +131,17 @@ const CodeOfConduct = () => {
               </div>
             </div>
             
-            <div className="glass-card-static p-8 mb-8">
+            <div className="glass-card-static p-6">
               <div className="flex items-center gap-3 mb-4">
                 <Gavel className="h-5 w-5 text-primary flex-shrink-0" />
-                <h2 className="text-2xl font-semibold m-0">Responsabilidades y Aplicación</h2>
+                <h2 className="text-xl font-semibold m-0">Responsabilidades y Aplicación</h2>
               </div>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground mb-4">
                 Los directivos del Club son responsables de aclarar los estándares de 
                 comportamiento aceptable y se espera que tomen medidas correctivas apropiadas y 
                 justas en respuesta a cualquier caso de comportamiento inaceptable.
               </p>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground mb-4">
                 Los directivos del Club tienen el derecho y la responsabilidad de 
                 eliminar, editar o rechazar comentarios, commits, código, ediciones de wiki, 
                 issues y otras contribuciones que no estén alineadas con este Código de Conducta, 
@@ -167,13 +167,13 @@ const CodeOfConduct = () => {
               </div>
             </div>
             
-            <div className="glass-card-static p-8 mb-8">
-              <h2 className="text-2xl font-semibold mb-4">Proceso de Resolución de Conflictos</h2>
-              <div className="space-y-4">
+            <div className="glass-card-static p-6">
+              <h2 className="text-xl font-semibold mb-4">Proceso de Resolución de Conflictos</h2>
+              <div className="space-y-3">
                 <div className="flex gap-4">
                   <div className="bg-primary/15 text-primary h-8 w-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
                   <div>
-                    <h3 className="font-semibold mb-1">Reporte</h3>
+                    <h3 className="text-md font-medium mb-1">Reporte</h3>
                     <p className="text-muted-foreground">Cualquier miembro puede reportar una violación al código de conducta a los organizadores del club.</p>
                   </div>
                 </div>
@@ -181,7 +181,7 @@ const CodeOfConduct = () => {
                 <div className="flex gap-4">
                   <div className="bg-primary/15 text-primary h-8 w-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
                   <div>
-                    <h3 className="font-semibold mb-1">Evaluación</h3>
+                    <h3 className="text-md font-medium mb-1">Evaluación</h3>
                     <p className="text-muted-foreground">Los directivos evaluarán el caso y recopilarán información necesaria.</p>
                   </div>
                 </div>
@@ -189,7 +189,7 @@ const CodeOfConduct = () => {
                 <div className="flex gap-4">
                   <div className="bg-primary/15 text-primary h-8 w-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
                   <div>
-                    <h3 className="font-semibold mb-1">Mediación</h3>
+                    <h3 className="text-md font-medium mb-1">Mediación</h3>
                     <p className="text-muted-foreground">En casos menores, se buscará resolver el conflicto mediante mediación.</p>
                   </div>
                 </div>
@@ -197,7 +197,7 @@ const CodeOfConduct = () => {
                 <div className="flex gap-4">
                   <div className="bg-primary/15 text-primary h-8 w-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div>
                   <div>
-                    <h3 className="font-semibold mb-1">Acción</h3>
+                    <h3 className="text-md font-medium mb-1">Acción</h3>
                     <p className="text-muted-foreground">Dependiendo de la gravedad, se pueden tomar diferentes acciones, desde advertencias hasta expulsión.</p>
                   </div>
                 </div>
@@ -205,14 +205,14 @@ const CodeOfConduct = () => {
                 <div className="flex gap-4">
                   <div className="bg-primary/15 text-primary h-8 w-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">5</div>
                   <div>
-                    <h3 className="font-semibold mb-1">Apelación</h3>
+                    <h3 className="text-md font-medium mb-1">Apelación</h3>
                     <p className="text-muted-foreground">Existe un proceso de apelación para quienes consideren injusta la resolución.</p>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div className="border-t border-border pt-6">
+            <div className="glass-card-static p-6">
               <h2 className="text-xl font-semibold mb-4">Atribución</h2>
               <p className="text-muted-foreground">
               Este Código de Conducta está adaptado del&nbsp;

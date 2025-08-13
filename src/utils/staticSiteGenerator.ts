@@ -9,7 +9,7 @@ export async function getAllContent<T>(
   const globPattern = `../content/${contentType}/*.md`;
   
   // Import all markdown files matching the pattern
-  const contentFiles = import.meta.glob('../content/*/*.md', { as: 'raw', eager: true });
+  const contentFiles = import.meta.glob('../content/*/*.md', { query: '?raw', import: 'default', eager: true });
   
   // Filter files that match our content type
   const filteredFiles = Object.entries(contentFiles).filter(
@@ -235,54 +235,3 @@ export async function getAllBlogPosts({
   
   return filteredPosts;
 }
-
-// Get all documentation pages
-export async function getAllDocPages({
-  filterByCategory,
-  sortBy = 'order',
-  limit
-}: {
-  filterByCategory?: string,
-  sortBy?: 'order' | 'title',
-  limit?: number
-} = {}): Promise<Array<{ frontMatter: DocFrontMatter, content: string, slug: string }>> {
-  // Get all documentation pages
-  const docPages = await getAllContent<DocFrontMatter>('docs');
-  
-  // Filter docs based on category if specified
-  let filteredDocs = docPages;
-  if (filterByCategory) {
-    filteredDocs = filteredDocs.filter(doc => 
-      doc.frontMatter.category === filterByCategory
-    );
-  }
-  
-  // Sort docs
-  if (sortBy === 'order') {
-    filteredDocs.sort((a, b) => 
-      Number(a.frontMatter.order || 0) - Number(b.frontMatter.order || 0)
-    );
-  } else if (sortBy === 'title') {
-    filteredDocs.sort((a, b) => 
-      (a.frontMatter.title || '').localeCompare(b.frontMatter.title || '')
-    );
-  }
-  
-  // Apply limit if specified
-  if (limit && limit > 0) {
-    filteredDocs = filteredDocs.slice(0, limit);
-  }
-  
-  return filteredDocs;
-}
-
-// Type for documentation front matter
-export type DocFrontMatter = {
-  title: string;
-  description: string;
-  category: string;
-  order?: number;
-  tags?: string[];
-  icon?: string;
-  slug: string;
-};

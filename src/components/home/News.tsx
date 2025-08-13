@@ -26,33 +26,33 @@ const NewsCardSkeleton = () => (
 const FallbackNewsCard = ({ index }: { index: number }) => {
   const fallbackItems = [
     {
-      title: "Nuevo curso de Python para principiantes",
-      excerpt: "Aprende los fundamentos de la programación con uno de los lenguajes más populares.",
-      date: new Date().toISOString(),
-      category: "Cursos",
-      slug: "python-principiantes"
-    },
-    {
-      title: "Hackathon: Soluciones tecnológicas sostenibles",
-      excerpt: "Participa en este evento de 48 horas para crear soluciones a problemas ambientales.",
+      title: "Placeholder",
+      excerpt: "Placeholder",
       date: new Date().toISOString(),
       category: "Eventos",
-      slug: "hackathon-soluciones-sostenibles"
+      slug: "Placeholder"
     },
     {
-      title: "Proyecto destacado: Análisis de datos climáticos",
-      excerpt: "Herramienta de visualización y análisis de datos meteorológicos históricos.",
-      date: new Date().toISOString(),
-      category: "Proyectos",
-      slug: "analisis-datos-climaticos"
-    },
-    {
-      title: "Workshop: Introducción a React",
-      excerpt: "Aprende los fundamentos de React y crea tu primera aplicación en este taller práctico.",
+      title: "Placeholder",
+      excerpt: "Placeholder",
       date: new Date().toISOString(),
       category: "Eventos",
-      slug: "workshop-introduccion-react"
-    }
+      slug: "Placeholder"
+    },
+    {
+      title: "Placeholder",
+      excerpt: "Placeholder",
+      date: new Date().toISOString(),
+      category: "Eventos",
+      slug: "Placeholder"
+    },
+    {
+      title: "Placeholder",
+      excerpt: "Placeholder",
+      date: new Date().toISOString(),
+      category: "Eventos",
+      slug: "Placeholder"
+    },
   ];
 
   const item = fallbackItems[index % fallbackItems.length];
@@ -157,7 +157,7 @@ const News = () => {
           )}
         </div>
 
-        <div className="mt-10 text-center">
+        {/*<div className="mt-10 text-center">
           <Link
             to="/blog"
             className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary/10 text-primary font-medium transition-all hover:bg-primary/20"
@@ -165,7 +165,7 @@ const News = () => {
             Ver todas las novedades
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
-        </div>
+        </div>*/}
       </div>
     </section>
   );

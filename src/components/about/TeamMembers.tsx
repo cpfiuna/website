@@ -14,13 +14,12 @@ const TeamMembers = () => {
           members={teamMembers}
         />
 
-        {/* FALTAN SECRETARIOS AYYYLMAOOO
         <div className="mt-20">
           <TeamSection 
-            title={<>Nuestros <span className="gradient-text">Secretarios</span></>}
+            title={<>Nuestros <span className="gradient-text">Leads</span></>}
             members={secretariaMembers}
           />
-        </div>*/}
+        </div>
       </div>
     </section>
   );

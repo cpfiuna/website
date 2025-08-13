@@ -48,6 +48,33 @@ const NewsCard: React.FC<NewsCardProps> = ({
     }
   };
 
+  // Translate and format event types to Spanish
+  const getEventTypeInSpanish = (type: string) => {
+    const translations: { [key: string]: string } = {
+      'conference': 'Conferencia',
+      'workshop': 'Taller',
+      'hackathon': 'Hackathon',
+      'seminar': 'Seminario',
+      'meetup': 'Encuentro',
+      'competition': 'Competencia',
+      'webinar': 'Webinar',
+      'course': 'Curso',
+      'training': 'Capacitación',
+      'presentation': 'Presentación',
+      'talk': 'Charla',
+      'panel': 'Panel',
+      'networking': 'Networking',
+      'social': 'Social',
+      'virtual': 'Virtual',
+      'online': 'En línea',
+      'presencial': 'Presencial',
+      'hybrid': 'Híbrido'
+    };
+
+    const lowercaseType = type.toLowerCase();
+    return translations[lowercaseType] || type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
+  };
+
   // Get appropriate image or fallback based on category
   const getImage = () => {
     if (!imageSrc || imageSrc === "/placeholder.svg" || !imageSrc.trim()) {
@@ -78,7 +105,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
         {eventType && (
           <div className="absolute top-3 right-3">
             <Badge variant="secondary" className="text-xs font-semibold">
-              {eventType}
+              {getEventTypeInSpanish(eventType)}
             </Badge>
           </div>
         )}
@@ -89,15 +116,15 @@ const NewsCard: React.FC<NewsCardProps> = ({
           <span>{date}</span>
         </div>
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-muted-foreground mb-4 line-clamp-2 text-sm flex-grow">
+        <p className="text-muted-foreground mb-4 text-sm flex-grow">
           {excerpt || "Sin descripción disponible"}
         </p>
-        <Link
+        {/*<Link
           to={slug}
           className="inline-flex items-center text-primary font-medium hover:underline text-sm mt-auto"
         >
           Leer más <ArrowRight className="ml-2 h-4 w-4" />
-        </Link>
+        </Link>*/}
       </div>
     </div>
   );

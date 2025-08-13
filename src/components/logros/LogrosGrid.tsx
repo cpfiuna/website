@@ -10,17 +10,8 @@ import { describe } from "node:test";
 const achievements = [
   {
     id: 0,
-    title: "Clasificados entre los 100 proyectos de Ueno Moonshot",
-    description: "Un proyecto de un equipo formado por miembros del Club fue seleccionado entre los 100 mejores proyectos para participar en la prestigiosa incubadora de startups Moonshot de Ueno Bank.",
-    icon: <Trophy className="h-8 w-8 text-primary" />,
-    year: 2024,
-    category: "competition",
-    link: "https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/acentauri/"
-  },
-  {
-    id: 1,
     title: "Finalistas Globales en NASA Space Apps Challenge",
-    description: "Miembros del Club de Programación fueron seleccionados entre los 40 finalistas globales de la competencia con el proyecto 'Appsteroids'.",
+    description: "Miembros del CPF fueron seleccionados entre los 40 finalistas globales de la competencia con el proyecto 'Appsteroids'.",
     icon: <Trophy className="h-8 w-8 text-primary" />,
     year: 2024,
     category: "competition",
@@ -29,29 +20,67 @@ const achievements = [
   {
     id: 1,
     title: "Primer Lugar Local en NASA Space Apps Challenge",
-    description: "Miembros del Club de Programación ganaron el primer lugar en la competencia local con el proyecto 'Appsteroids'.",
+    description: "Miembros del CPF ganaron el primer lugar en la competencia local con el proyecto 'Appsteroids'.",
     icon: <Trophy className="h-8 w-8 text-primary" />,
     year: 2024,
     category: "competition",
     link: "https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/acentauri/"
   },
   {
+    id: 6,
+    title: "Primer lugar en la Hackathon Samsung Tigo Campus Party",
+    description: "El equipo del CPF obtuvo el primer lugar en la Hackathon Samsung Tigo Campus Party.",
+    icon: <Trophy className="h-8 w-8 text-primary" />,
+    year: 2023,
+    category: "competition",
+    link: "#"
+  },
+  {
     id: 2,
     title: "Mención de Honor Local en NASA Space Apps Challenge",
-    description: "Miembros del Club de Programación recibieron una mención de honor en la competencia local con el proyecto 'Moonquake Visualizer'.",
+    description: "Miembros del CPF recibieron una mención de honor en la competencia local con el proyecto 'Moonquake Visualizer'.",
     icon: <Trophy className="h-8 w-8 text-primary" />,
     year: 2022,
     category: "competition",
     link: "#"
   },
   {
-    id: 91,
-    title: "Primer lugar en IEEEXtreme 2023",
-    description: "El equipo del CPF obtuvo el primer lugar en la competencia IEEEXtreme a nivel nacional y quedó entre los primeros 100 a nivel global.",
+    id: 5,
+    title: "Primer lugar en la Hackathon Samsung Tigo Campus Party",
+    description: "El equipo del CPF obtuvo el primer lugar en la Hackathon Samsung Tigo Campus Party.",
     icon: <Trophy className="h-8 w-8 text-primary" />,
-    year: 2023,
+    year: 2021,
     category: "competition",
     link: "#"
+  },
+  {
+    id: 3,
+    title: "Primer lugar local en la Competencia IEEEXtreme 12.0",
+    description: "El equipo del CPF obtuvo el primer lugar en la competencia IEEEXtreme a nivel nacional.",
+    icon: <Trophy className="h-8 w-8 text-primary" />,
+    year: 2018,
+    category: "competition",
+    link: "#"
+  },
+  {
+    id: 4,
+    title: "Primer lugar en el Intercoding de la Universidad Católica",
+    description: "El equipo del CPF obtuvo el primer lugar en la competencia Intercoding UC.",
+    icon: <Trophy className="h-8 w-8 text-primary" />,
+    year: 2018,
+    category: "competition",
+    link: "#"
+  },
+
+  /*
+  {
+    id: 0,
+    title: "Clasificados entre los 100 proyectos de Ueno Moonshot",
+    description: "Un proyecto de un equipo formado por miembros del Club fue seleccionado entre los 100 mejores proyectos para participar en la prestigiosa incubadora de startups Moonshot de Ueno Bank.",
+    icon: <Trophy className="h-8 w-8 text-primary" />,
+    year: 2024,
+    category: "competition",
+    link: "https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/acentauri/"
   },
   {
     id: 92,
@@ -71,7 +100,7 @@ const achievements = [
     category: "recognition",
     link: "#"
   },
-  {
+  /*{
     id: 94,
     title: "Ganadores del NASA Space Apps Challenge",
     description: "El equipo de CPF ganó el desafío local del NASA Space Apps Challenge con el proyecto 'MoonQuake Visualizer'.",
@@ -110,12 +139,12 @@ const achievements = [
   {
     id: 98,
     title: "Mejor Club Universitario",
-    description: "Reconocimiento otorgado por el Ministerio de Tecnología como el mejor club de programación universitario del país.",
+    description: "Reconocimiento otorgado por el Ministerio de Tecnología como el mejor CPF universitario del país.",
     icon: <Award className="h-8 w-8 text-primary" />,
     year: 2022,
     category: "recognition",
     link: "/#"
-  },
+  },*/
 ];
 
 // Categories for filter
@@ -138,7 +167,7 @@ const LogrosGrid = () => {
       <div className="container px-6 mx-auto">
         <h2 className="text-3xl font-bold text-center mb-8">Nuestros principales logros</h2>
         
-        {/* Category filter */}
+        {/* Category filter 
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
             <Button
@@ -150,25 +179,30 @@ const LogrosGrid = () => {
               {category.label}
             </Button>
           ))}
-        </div>
+        </div>*/}
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredAchievements.map((achievement) => (
-            <Link 
+            // <Link 
+            //   key={achievement.id}
+            //   to={achievement.link}
+            //   className="glass-card p-6 hover:translate-y-[-5px] hover:shadow-neon-blue transition-all duration-300 group"
+            // >
+            <div 
               key={achievement.id}
-              to={achievement.link}
-              className="glass-card p-6 hover:translate-y-[-5px] hover:shadow-neon-blue transition-all duration-300 group"
+              className="glass-card-static p-6 hover:shadow-neon-blue transition-all duration-300 group"
             >
               <div className="flex justify-center mb-4">
                 {achievement.icon}
               </div>
               <span className="text-sm font-medium text-muted-foreground block text-center">{achievement.year}</span>
               <h3 className="text-xl font-semibold mb-3 text-center">{achievement.title}</h3>
-              <p className="text-muted-foreground text-sm mb-4">{achievement.description}</p>
-              <div className="text-primary text-sm font-medium flex items-center justify-center mt-auto group-hover:underline">
+              {/*<p className="text-muted-foreground text-sm mb-4">{achievement.description}</p>*/}
+              {/*<div className="text-primary text-sm font-medium flex items-center justify-center mt-auto group-hover:underline">
                 Ver más <ArrowRight className="ml-1 h-4 w-4" />
-              </div>
-            </Link>
+              </div>*/}
+            </div>
+            // </Link>
           ))}
         </div>
       </div>

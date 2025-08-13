@@ -15,7 +15,7 @@ const About = () => {
       <AboutHero />
       <MissionVision />
       <ValuesSection />
-      <Stats />
+      {/*<Stats /> algun dia voy a terminar de agregar estos numeros i promise :)*/}
       <Timeline />
       <TeamMembers />
       <CallToAction />

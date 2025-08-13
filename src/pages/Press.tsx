@@ -103,7 +103,7 @@ const Press = () => {
                   <img 
                     src={item.image} 
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                     <div className="p-4">
@@ -133,7 +133,7 @@ const Press = () => {
           </div>
 
           {/* Press kit section */}
-          <div className="glass-card p-8 text-center">
+          <div className="glass-card-static p-8 text-center">
             <h3 className="text-2xl font-semibold mb-4">¿Sos periodista o medio de comunicación?</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               Si querés realizar una entrevista o necesitás información para una nota, podés acceder a 
@@ -142,14 +142,14 @@ const Press = () => {
             <div className="flex flex-wrap justify-center gap-4">
               <a 
                 href="/kit-de-medios" 
-                className="inline-flex items-center gap-2 px-6 py-3 bg-muted/50 hover:bg-muted text-foreground rounded-full font-medium transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-muted/50 hover:bg-muted text-foreground rounded-full font-medium transition-all hover:hover:scale-105"
               >
                 <Link2 className="h-5 w-5" />
                 <span>Kit de Medios</span>
               </a>
               <a 
                 href="/contacto" 
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full font-medium transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full font-medium transition-all hover:shadow-neon-blue hover:scale-105"
               >
                 <Users className="h-5 w-5" />
                 <span>Contactar al equipo</span>

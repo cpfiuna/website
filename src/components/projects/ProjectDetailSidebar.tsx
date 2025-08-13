@@ -46,37 +46,12 @@ const ProjectDetailSidebar: React.FC<ProjectDetailSidebarProps> = ({ project, re
         <h3 className="text-lg font-semibold mb-3">Acerca del proyecto</h3>
         
         <div className="space-y-4">
-          <div>
+          {/*<div>
             <h4 className="text-sm font-medium text-muted-foreground mb-1">Categoría</h4>
             <span className="inline-block px-3 py-1 bg-primary/10 rounded-full text-primary text-sm">
               {project.category}
             </span>
-          </div>
-          
-          <div>
-            <h4 className="text-sm font-medium text-muted-foreground mb-1">Tecnologías</h4>
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech, index) => (
-                <span key={index} className="px-2 py-1 bg-muted/50 rounded-md text-xs">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-          
-          {project.tags && project.tags.length > 0 && (
-            <div>
-              <h4 className="text-sm font-medium text-muted-foreground mb-1">Etiquetas</h4>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag, index) => (
-                  <span key={index} className="inline-flex items-center px-2 py-1 bg-muted/30 rounded text-xs">
-                    <Tag className="h-3 w-3 mr-1" />
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
+          </div>*/}
           
           <div>
             <h4 className="text-sm font-medium text-muted-foreground mb-1">Fecha de inicio</h4>

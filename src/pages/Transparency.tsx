@@ -34,7 +34,7 @@ const Transparency = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {[2023, 2022, 2021].map((year) => (
-              <div key={year} className="glass-card p-6 flex flex-col">
+              <div key={year} className="glass-card-static p-6 flex flex-col">
                 <div className="mb-4 flex justify-between items-start">
                   <h3 className="text-xl font-semibold">{year}</h3>
                   <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">
@@ -111,7 +111,7 @@ const Transparency = () => {
               incluyendo fuentes de financiamiento y distribución de gastos.
             </p>
             
-            <div className="glass-card p-8">
+            <div className="glass-card-static p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div>
                   <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
@@ -234,7 +234,7 @@ const Transparency = () => {
           </div>
           
           {/* Projects and Impact section */}
-          <div className="glass-card p-8 mb-16">
+          <div className="glass-card-static p-8 mb-16">
             <h3 className="text-2xl font-semibold mb-6 text-center">Proyectos e Impacto</h3>
             
             <div className="space-y-6">

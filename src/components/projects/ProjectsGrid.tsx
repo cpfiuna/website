@@ -13,10 +13,10 @@ const ProjectsGrid = ({ projects }: ProjectsGridProps) => {
   if (projects.length === 0) {
     return (
       <Container size="full" className="mx-auto">
-        <div className="text-center py-16 bg-black/80 rounded-xl border border-border/50">
-          <Code className="h-12 w-12 mx-auto text-gray-500 mb-4" />
-          <h3 className="text-xl font-semibold mb-2 text-white">No hay proyectos disponibles</h3>
-          <p className="text-gray-400">
+        <div className="text-center py-16 bg-muted/20 dark:bg-black/80 rounded-xl border border-border/50">
+          <Code className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
+          <h3 className="text-xl font-semibold mb-2">No hay proyectos disponibles</h3>
+          <p className="text-muted-foreground">
             No se encontraron proyectos con los filtros actuales.
           </p>
         </div>

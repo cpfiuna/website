@@ -4,7 +4,7 @@ import { contactInfo } from "@/config/site";
 
 const UsageGuidelines = () => {
   return (
-    <section className="py-16 px-6 bg-black/60 ">
+    <section className="py-16 px-6 bg-muted/50 dark:bg-black/60">
       <div className="container mx-auto max-w-6xl">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold mb-4">Directrices de uso</h2>

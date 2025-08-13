@@ -1,5 +1,6 @@
 
-import { Youtube, Instagram, Twitter, Disc } from "lucide-react";
+import { Disc } from "lucide-react";
+import { SiYoutube, SiInstagram, SiX } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { contactInfo } from "@/config/site";
@@ -25,7 +26,7 @@ const SocialMedia = () => {
         <div className="mb-16">
           <div className="flex justify-between items-center mb-8">
             <h3 className="text-2xl font-bold flex items-center">
-              <Youtube className="mr-2 text-red-500" /> YouTube
+              <SiYoutube className="mr-2 text-red-500" /> YouTube
             </h3>
             <a 
               href={contactInfo.socials.youtube} 
@@ -39,15 +40,15 @@ const SocialMedia = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[1, 2, 3].map((item) => (
-              <div key={item} className="glass-card overflow-hidden hover:shadow-neon-blue group transition-all duration-300">
+              <div key={item} className="glass-card-static overflow-hidden hover:shadow-neon-blue group transition-all duration-300">
                 <div className="aspect-video bg-muted/20 dark:bg-black/30 flex items-center justify-center relative overflow-hidden">
-                  <img 
-                    src="/placeholder.svg" 
-                    alt="Video thumbnail" 
+                  <img
+                    src="/placeholder.svg"
+                    alt="Video thumbnail"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <Youtube className="h-12 w-12 text-red-500" />
+                    <SiYoutube className="h-12 w-12 text-red-500" />
                   </div>
                 </div>
                 <div className="p-4">
@@ -65,7 +66,7 @@ const SocialMedia = () => {
         <div className="mb-16">
           <div className="flex justify-between items-center mb-8">
             <h3 className="text-2xl font-bold flex items-center">
-              <Instagram className="mr-2 text-pink-500" /> Instagram
+              <SiInstagram className="mr-2 text-pink-500" /> Instagram
             </h3>
             <a 
               href={contactInfo.socials.instagram} 
@@ -100,7 +101,7 @@ const SocialMedia = () => {
         <div className="mb-12">
           <div className="flex justify-between items-center mb-8">
             <h3 className="text-2xl font-bold flex items-center">
-              <Twitter className="mr-2 text-blue-400" /> Twitter
+              <SiX className="mr-2 text-white" /> X
             </h3>
             <a 
               href={contactInfo.socials.twitter} 
@@ -114,7 +115,7 @@ const SocialMedia = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3].map((item) => (
-              <div key={item} className="glass-card p-4 hover:shadow-neon-blue transition-all">
+              <div key={item} className="glass-card-static p-4 hover:shadow-neon-blue transition-all">
                 <div className="flex items-start gap-3 mb-3">
                   <div className="w-10 h-10 rounded-full bg-muted/20 flex-shrink-0 overflow-hidden">
                     <img 
@@ -141,7 +142,7 @@ const SocialMedia = () => {
 
         <div className="text-center">
           <Link
-            to="/community"
+            to="/comunidad"
             className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium transition-all hover:scale-105 hover:shadow-neon-blue"
           >
             Ver más en nuestra comunidad

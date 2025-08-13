@@ -9,7 +9,7 @@ export async function getAllContent<T>(
   // Create the correct glob pattern based on content type
   try {
     // Import all markdown files for the specified content type
-    const contentFiles = import.meta.glob('../content/**/*.md', { as: 'raw', eager: true });
+    const contentFiles = import.meta.glob('../content/**/*.md', { query: '?raw', import: 'default', eager: true });
     
     console.log(`Looking for ${contentType} files in content directory`);
     

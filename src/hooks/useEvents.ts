@@ -3,7 +3,7 @@ import { parseMarkdown, EventFrontMatter } from '@/utils/markdownUtils';
 import { isUpcomingEvent, getPrimaryDate } from '@/utils/markdown/formatters';
 
 // Import all event markdown files
-const eventFiles = import.meta.glob('../content/events/*.md', { as: 'raw', eager: true });
+const eventFiles = import.meta.glob('../content/events/*.md', { query: '?raw', import: 'default', eager: true });
 
 export function useEvents() {
   const [events, setEvents] = useState<Array<EventFrontMatter>>([]);

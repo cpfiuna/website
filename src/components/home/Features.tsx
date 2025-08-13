@@ -63,7 +63,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="glass-card p-6 hover:translate-y-[-5px] hover:shadow-neon-blue"
+              className="glass-card-static p-6"
             >
               <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-primary/10 text-primary mb-6">
                 <feature.icon className="h-6 w-6" />

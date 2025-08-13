@@ -209,3 +209,43 @@
 .dark .markdown-content.prose ol li ul li {
   color: hsl(var(--muted-foreground)) !important;
 }
+
+/* Markdown headers should override prose styling */
+.prose .markdown-content h1,
+.prose .markdown-content h2,
+.prose .markdown-content h3,
+.prose .markdown-content h4 {
+  color: hsl(var(--foreground)) !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.prose .markdown-content h2 {
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+  font-weight: 700 !important;
+}
+
+.prose .markdown-content h3 {
+  font-size: 1.25rem !important;
+  line-height: 1.75rem !important;
+  font-weight: 700 !important;
+}
+
+/* Ensure paragraphs have proper spacing */
+.prose .markdown-content p {
+  margin-bottom: 1rem !important;
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+/* Ensure lists have proper styling */
+.prose .markdown-content ul,
+.prose .markdown-content ol {
+  margin-bottom: 1rem !important;
+}
+
+.prose .markdown-content ul li,
+.prose .markdown-content ol li {
+  color: hsl(var(--muted-foreground)) !important;
+  margin-left: 1.5rem !important;
+}

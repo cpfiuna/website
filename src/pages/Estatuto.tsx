@@ -55,7 +55,7 @@ const Estatuto = () => {
               </TabsTrigger>
             </TabsList>
             
-            <div className="glass-card p-6 md:p-8">
+            <div className="glass-card-static p-6 md:p-8">
               <TabsContent value="general" className="mt-0">
                 <h2 className="text-2xl font-bold mb-6">Título I: Disposiciones Generales</h2>
                 <ScrollArea className="h-[50vh] pr-4">

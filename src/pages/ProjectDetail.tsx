@@ -125,9 +125,8 @@ const ProjectDetail = () => {
 
   return (
     <Layout>
-      <div className="bg-black/50 backdrop-blur-lg">
-        <div className="container mx-auto px-6 py-8">
-          <Link to="/proyectos" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors mb-8">
+      <div className="container mx-auto px-6 py-8">
+        <Link to="/proyectos" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors mb-8">
             <ChevronLeft className="h-4 w-4 mr-1" />
             Volver a proyectos
           </Link>
@@ -139,7 +138,7 @@ const ProjectDetail = () => {
           />
           
           {/* Add project gallery here */}
-          <ProjectDetailGallery projectSlug={slug || ''} />
+          <ProjectDetailGallery project={project} />
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10">
             <div className="lg:col-span-2 order-2 lg:order-1">
@@ -162,22 +161,6 @@ const ProjectDetail = () => {
                   repoUrl={project.githubLink || "#"} 
                   stats={githubStats} 
                 />
-                
-                {project.team && project.team.length > 0 && (
-                  <div className="mt-6">
-                    <h3 className="text-lg font-semibold mb-3 flex items-center">
-                      <Users className="h-5 w-5 mr-2" />
-                      Equipo
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {project.team.map((member, index) => (
-                        <span key={index} className="px-3 py-1 rounded-full text-xs bg-[#3C83F6E6] text-white">
-                          {typeof member === 'string' ? member : member.name}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
                 
                 <div className="flex gap-4 mt-8">
                   <a
@@ -205,7 +188,6 @@ const ProjectDetail = () => {
             </div>
           </div>
         </div>
-      </div>
     </Layout>
   );
 };

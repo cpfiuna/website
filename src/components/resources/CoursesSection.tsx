@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { getAllCourses } from "@/utils/coursesService";
 import { CourseFrontMatter } from "@/utils/markdownUtils";
 import { Card, CardContent } from "@/components/ui/card";
+import { getInstructorByName } from "@/data/instructors";
+import { User } from "lucide-react";
 
 const CoursesSection = () => {
   const [courses, setCourses] = useState<CourseFrontMatter[]>([]);
@@ -115,7 +117,7 @@ const CoursesSection = () => {
                   {course.tags && course.tags.map((tag, idx) => (
                     <span 
                       key={`${course.slug || course.id}-tag-${idx}`}
-                      className="text-xs px-2 py-1 bg-[#3C83F6E6] text-white rounded-md"
+                      className="text-xs px-2 py-1 bg-primary/90 text-primary-foreground rounded-md"
                     >
                       {tag.replace(/"/g, '')}
                     </span>
@@ -124,7 +126,7 @@ const CoursesSection = () => {
                 
                 {/* Level badge moved to top left */}
                 <div className="absolute top-2 left-2">
-                  <span className="text-xs px-2 py-1 bg-[#070A13E6] rounded-full">
+                  <span className="text-xs px-2 py-1 bg-muted/70 dark:bg-black/60 text-foreground rounded-full">
                     {course.level}
                   </span>
                 </div>
@@ -142,8 +144,34 @@ const CoursesSection = () => {
                   {course.description}
                 </p>
                 
-                <div className="flex justify-between text-xs text-muted-foreground">
-                  <span>{course.instructor}</span>
+                <div className="flex justify-between items-center text-xs text-muted-foreground">
+                  <div className="flex items-center">
+                    {(() => {
+                      const instructor = getInstructorByName(course.instructor);
+                      return instructor?.profilePicture ? (
+                        <img 
+                          src={instructor.profilePicture} 
+                          alt={course.instructor}
+                          className="w-6 h-6 rounded-full object-cover mr-2"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            // Show fallback icon
+                            const fallback = target.nextElementSibling as HTMLElement;
+                            if (fallback) fallback.style.display = 'flex';
+                          }}
+                        />
+                      ) : (
+                        <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary mr-2">
+                          <User className="h-3 w-3" />
+                        </div>
+                      );
+                    })()}
+                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary mr-2" style={{ display: 'none' }}>
+                      <User className="h-3 w-3" />
+                    </div>
+                    <span>{course.instructor}</span>
+                  </div>
                   <span>{course.duration}</span>
                 </div>
               </div>

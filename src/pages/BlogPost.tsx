@@ -198,24 +198,8 @@ const BlogPost = () => {
               <MarkdownRenderer content={content} />
             </div>
             
-            {/* Tags */}
-            {frontMatter.tags && frontMatter.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2 mb-8">
-                {frontMatter.tags.map((tag, idx) => (
-                  <Link
-                    key={`bottom-tag-${idx}`}
-                    to={`/blog?tag=${tag.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="flex items-center px-3 py-1 bg-muted hover:bg-muted/80 rounded-full text-sm transition-colors"
-                  >
-                    <Tag className="mr-1 h-3 w-3" />
-                    {tag}
-                  </Link>
-                ))}
-              </div>
-            )}
-            
             {/* Author bio */}
-            <div className="glass-card p-6 mb-12">
+            <div className="glass-card-static p-6 mb-12">
               <div className="flex items-start gap-4">
                 <Avatar className="h-16 w-16 rounded-full">
                   <div className="bg-primary/20 h-full w-full flex items-center justify-center text-primary">

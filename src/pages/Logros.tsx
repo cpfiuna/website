@@ -10,7 +10,7 @@ const Logros = () => {
   return (
     <Layout>
       <LogrosHero />
-      <LogrosStats />
+      {/*<LogrosStats />*/}
       <LogrosGrid />
       <LogrosCallToAction />
     </Layout>

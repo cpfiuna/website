@@ -95,7 +95,7 @@ const ExternalResources = () => {
           {resourceCategories.map((category, index) => (
             <div 
               key={index} 
-              className="glass-card-static p-6 transition-all duration-300 hover:shadow-neon-blue"
+              className="glass-card-static p-6 transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
