@@ -2,7 +2,7 @@
 id: 1
 title: "Web del Club de Programación FIUNA"
 description: "Una plataforma web moderna construida con React y TypeScript que representa la presencia digital del Club de Programación FIUNA."
-image: "images/projects/cpf-website-cover.png"
+image: "images/projects/website/cpf-website-cover.png"
 tags: ["React", "TypeScript", "Tailwind CSS", "Vite"]
 githubLink: "https://github.com/cpfiuna/website"
 demoLink: "https://cpfiuna.vercel.app"
@@ -15,11 +15,11 @@ githubStats: {}
 startDate: "02-01-2024"
 slug: "web-club-programacion"
 gallery:
-  - "/images/projects/cpf-website-01.png"
-  - "/images/projects/cpf-website-02.png"
-  - "/images/projects/cpf-website-03.png"
-  - "/images/projects/cpf-website-04.png"
-  - "/images/projects/cpf-website-05.png"
+  - "/images/projects/website/cpf-website-01.png"
+  - "/images/projects/website/cpf-website-02.png"
+  - "/images/projects/website/cpf-website-03.png"
+  - "/images/projects/website/cpf-website-04.png"
+  - "/images/projects/website/cpf-website-05.png"
 ---
 
 ## ¿Qué es este proyecto?

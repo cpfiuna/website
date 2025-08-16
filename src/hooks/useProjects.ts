@@ -46,7 +46,9 @@ export function useProjects() {
                 title: frontMatter.title || "Untitled Project",
                 description: frontMatter.description || "",
                 technologies: frontMatter.technologies || [],
-                image: frontMatter.image || "/placeholder.svg",
+                image: frontMatter.image 
+                  ? (frontMatter.image.startsWith('/') ? frontMatter.image : `/${frontMatter.image}`) 
+                  : "/placeholder.svg",
                 category: frontMatter.category || "web",
                 team: teamData,
                 // Additional properties used by the existing codebase

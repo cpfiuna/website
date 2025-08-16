@@ -91,11 +91,14 @@ const ProjectDetailSidebar: React.FC<ProjectDetailSidebarProps> = ({ project, re
                 className="block group"
               >
                 <div className="flex gap-3">
-                  <div className="w-16 h-16 rounded overflow-hidden flex-shrink-0">
+                  <div className="w-16 h-16 rounded overflow-hidden flex-shrink-0 bg-muted">
                     <img 
-                      src={related.image} 
+                      src={related.image || "/placeholder.svg"} 
                       alt={related.title}
                       className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = "/placeholder.svg";
+                      }}
                     />
                   </div>
                   <div>

@@ -11,6 +11,14 @@ export function parseDateString(dateString: string): { startDate: Date; endDate?
       const [, year, month, day] = isoDateMatch;
       return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
     }
+    
+    // If it's a DD-MM-YYYY format, parse it manually
+    const ddmmyyyyMatch = dateStr.match(/^(\d{2})-(\d{2})-(\d{4})$/);
+    if (ddmmyyyyMatch) {
+      const [, day, month, year] = ddmmyyyyMatch;
+      return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+    }
+    
     // For other formats, use regular Date constructor
     return new Date(dateStr);
   };

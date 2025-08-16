@@ -33,7 +33,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       <div className="relative">
         <Link to={`/proyectos/${project.slug}`}>
           <img
-            src={project.image}
+            src={project.image || "/placeholder.svg"}
             alt={project.title}
             className="w-full h-48 object-cover object-center rounded-t-xl"
             loading="lazy"
