@@ -16,10 +16,10 @@ El sitio web está en desarrollo activo. Las características principales están
 - Diseño responsivo para todos los dispositivos
 - Sistema de visualización de contenido markdown
 - Animaciones y efectos visuales
-
-### 🚧 En Progreso
 - Conexión de formularios a endpoints backend
 - Reemplazo de contenido de muestra con datos reales
+
+### 🚧 En Progreso
 - Implementación de sistema de autenticación
 - Integración con sistema CMS para administración de contenido
 - Optimización de rendimiento y accesibilidad
