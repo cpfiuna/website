@@ -48,12 +48,12 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out
       ${scrolled 
           ? "py-3 bg-background shadow-sm" 
-          : "py-5 bg-transparent"}`}
+          : "py-8 bg-transparent"}`}
     >
-      <div className="container px-4 mx-auto flex items-center justify-between">
+      <div className="container px-4 mx-auto flex items-center justify-between min-h-[3.5rem]">
         <div className="flex-shrink-0 z-10">
           <Logo />
         </div>

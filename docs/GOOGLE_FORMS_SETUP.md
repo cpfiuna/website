@@ -1,6 +1,82 @@
 # 📋 Google Forms Integration Setup Guide
 
-This guide will help you connect your admission form to Google Forms for automatic data collection.
+This guide will help you connect your admission form to Google Forms for automatic data collection and manage traffic limits effectively.
+
+## 📊 Traffic Limits & Reliability
+
+### Google Forms Quotas (as of 2025)
+
+Google Forms has the following limits that you need to be aware of:
+
+#### **Free Google Account:**
+- **100 responses per day** per form
+- **5 million cells** total in linked Google Sheets
+- **50 MB** maximum file upload size
+- **No API rate limiting** for form submissions (form-based)
+
+#### **Google Workspace Account (Recommended for Production):**
+- **Unlimited responses** (practically)
+- **10 million cells** in Google Sheets
+- **Better support** and reliability guarantees
+- **Same submission limits** but better overall quotas
+
+### Important Throttling Considerations
+
+1. **No Built-in Throttling Protection**
+   - Google Forms doesn't throttle individual submissions like APIs
+   - However, rapid-fire submissions from the same IP may trigger spam detection
+   - **Recommendation**: Implement client-side rate limiting (debouncing)
+
+2. **Spam Detection**
+   - Google's spam filter may flag suspicious patterns
+   - Multiple submissions from same IP in quick succession
+   - Identical or very similar responses
+   - **Solution**: Add honeypot fields and client-side validation
+
+3. **Google Sheets Processing**
+   - Large volumes may cause delays in Sheet updates
+   - Complex formulas in Sheets can slow processing
+   - **Best Practice**: Keep Sheet formulas simple or use Apps Script
+
+### Reliability Features
+
+✅ **Highly Reliable**
+- 99.9% uptime SLA (Google Workspace)
+- Distributed infrastructure
+- Automatic retry mechanisms
+- Data redundancy
+
+❌ **Potential Issues**
+- No-CORS mode means no error feedback
+- Can't detect if submission actually succeeded
+- Sheet quota limits can be hit with high volume
+- Temporary service disruptions (rare)
+
+### Handling High Traffic Scenarios
+
+If you expect **100+ submissions per day**, consider:
+
+1. **Use Google Workspace** - Removes daily limits
+2. **Implement retry logic** - In case of network failures
+3. **Add local storage backup** - Cache failed submissions
+4. **Monitor Sheet quotas** - Set up alerts
+5. **Use Apps Script** - For custom processing and routing
+
+### Recommended Architecture for Reliability
+
+```
+User Submission
+    ↓
+Client-side Validation
+    ↓
+Submit to Google Forms (primary)
+    ↓
+Store in LocalStorage (backup)
+    ↓
+Success Toast / Confirmation
+    ↓
+Optional: Notify admin via webhook
+```
 
 ## 🚀 Quick Setup (Recommended Method)
 
@@ -127,20 +203,250 @@ The spreadsheet will help you:
 4. Verify field mapping works correctly
 5. Enable production form when ready
 
-## 🚨 Important Notes
+## �️ Implementing Reliability Features
+
+### 1. Add Retry Logic
+
+Update your `AdmissionForm.tsx` with retry capability:
+
+```typescript
+const submitToGoogleForms = async (retries = 3) => {
+  const formDataToSubmit = new FormData();
+  
+  // Map form data to Google Forms entries
+  Object.entries(GOOGLE_FORMS_CONFIG.fieldMapping).forEach(([key, entryId]) => {
+    const value = formData[key as keyof typeof formData];
+    if (Array.isArray(value)) {
+      formDataToSubmit.append(entryId, value.join(", "));
+    } else if (value) {
+      formDataToSubmit.append(entryId, value.toString());
+    }
+  });
+
+  for (let attempt = 0; attempt < retries; attempt++) {
+    try {
+      const response = await fetch(GOOGLE_FORMS_CONFIG.actionUrl, {
+        method: "POST",
+        body: formDataToSubmit,
+        mode: "no-cors",
+      });
+      
+      // If we get here, submission likely succeeded
+      return response;
+    } catch (error) {
+      if (attempt === retries - 1) throw error;
+      // Wait before retrying (exponential backoff)
+      await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, attempt)));
+    }
+  }
+};
+```
+
+### 2. LocalStorage Backup
+
+Save submissions locally in case of network issues:
+
+```typescript
+const saveToLocalStorage = (data: typeof formData) => {
+  const submissions = JSON.parse(localStorage.getItem('pendingSubmissions') || '[]');
+  submissions.push({
+    data,
+    timestamp: new Date().toISOString(),
+    status: 'pending'
+  });
+  localStorage.setItem('pendingSubmissions', JSON.stringify(submissions));
+};
+
+const retryPendingSubmissions = async () => {
+  const submissions = JSON.parse(localStorage.getItem('pendingSubmissions') || '[]');
+  // Implement retry logic for pending submissions
+};
+```
+
+### 3. Client-Side Rate Limiting
+
+Prevent spam and accidental double-submissions:
+
+```typescript
+const [lastSubmitTime, setLastSubmitTime] = useState<number>(0);
+const SUBMIT_COOLDOWN = 60000; // 1 minute
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  
+  const now = Date.now();
+  if (now - lastSubmitTime < SUBMIT_COOLDOWN) {
+    toast({
+      title: "Por favor espera",
+      description: "Ya enviaste una solicitud recientemente.",
+      variant: "destructive",
+    });
+    return;
+  }
+  
+  setLastSubmitTime(now);
+  // Continue with submission...
+};
+```
+
+### 4. Spam Protection
+
+Add honeypot field (invisible to users, catches bots):
+
+```typescript
+const [honeypot, setHoneypot] = useState("");
+
+// In your form JSX:
+<input
+  type="text"
+  name="website"
+  value={honeypot}
+  onChange={(e) => setHoneypot(e.target.value)}
+  style={{ display: 'none' }}
+  tabIndex={-1}
+  autoComplete="off"
+/>
+
+// In handleSubmit:
+if (honeypot) {
+  // This is likely a bot
+  return;
+}
+```
+
+## 📊 Monitoring & Analytics
+
+### Setting Up Response Notifications
+
+1. **Email Notifications**
+   - In Google Forms: Settings → Responses → "Get email notifications for new responses"
+   - Immediate notification when someone submits
+
+2. **Apps Script Automation**
+   Create a script to send to Discord/Slack:
+
+```javascript
+function onFormSubmit(e) {
+  var formResponse = e.response;
+  var itemResponses = formResponse.getItemResponses();
+  
+  // Send to Discord webhook
+  var webhookUrl = 'YOUR_DISCORD_WEBHOOK_URL';
+  var payload = {
+    content: '¡Nueva solicitud de admisión recibida!',
+    embeds: [{
+      title: 'Nueva Solicitud',
+      fields: itemResponses.map(item => ({
+        name: item.getItem().getTitle(),
+        value: item.getResponse().toString().substring(0, 100)
+      }))
+    }]
+  };
+  
+  UrlFetchApp.fetch(webhookUrl, {
+    method: 'post',
+    contentType: 'application/json',
+    payload: JSON.stringify(payload)
+  });
+}
+```
+
+3. **Google Sheets Quotas Monitoring**
+
+```javascript
+function checkQuotaUsage() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheets = ss.getSheets();
+  var totalCells = 0;
+  
+  sheets.forEach(sheet => {
+    totalCells += sheet.getMaxRows() * sheet.getMaxColumns();
+  });
+  
+  if (totalCells > 4000000) { // 80% of 5M limit
+    // Send alert
+    MailApp.sendEmail({
+      to: 'admin@cpfiuna.org',
+      subject: 'Alerta: Cuota de Google Sheets',
+      body: `Uso actual: ${totalCells} celdas`
+    });
+  }
+}
+```
+
+## �🚨 Important Notes
 
 - **CORS Limitation**: Google Forms requires `mode: "no-cors"`, so you can't read response status
 - **Success Detection**: The form assumes success if no error is thrown
 - **Field Validation**: Ensure required fields match between React form and Google Form
 - **Data Types**: Arrays (checkboxes) are automatically joined with commas
+- **Rate Limits**: Free accounts limited to 100 responses/day
+- **Spam Filter**: Multiple quick submissions may trigger Google's spam detection
+
+## 💡 Production Recommendations
+
+### For High-Traffic Scenarios (100+ submissions/day):
+
+1. ✅ **Upgrade to Google Workspace** (~$6/user/month)
+   - Removes response limits
+   - Better SLA guarantees
+   - Professional email integration
+
+2. ✅ **Implement Dual-Backend Strategy**
+   ```
+   Primary: Google Forms (easy management)
+   Backup: Firebase/Supabase (when Forms unavailable)
+   ```
+
+3. ✅ **Add Server-Side Processing**
+   - Use Netlify Functions or Vercel Edge Functions
+   - Validate submissions before forwarding
+   - Implement proper rate limiting
+   - Log all attempts
+
+4. ✅ **Monitor Continuously**
+   - Set up Google Sheets quota alerts
+   - Track submission success rates
+   - Monitor for spam patterns
+
+### Example Netlify Function Wrapper:
+
+```typescript
+// netlify/functions/submit-admission.ts
+export const handler = async (event) => {
+  // Rate limiting
+  const ip = event.headers['x-forwarded-for'];
+  if (await isRateLimited(ip)) {
+    return { statusCode: 429, body: 'Too many requests' };
+  }
+  
+  // Spam detection
+  const body = JSON.parse(event.body);
+  if (body.honeypot) {
+    return { statusCode: 200, body: 'OK' }; // Fake success
+  }
+  
+  // Forward to Google Forms
+  try {
+    await submitToGoogleForms(body);
+    
+    // Also save to backup database
+    await saveToDatabase(body);
+    
+    return { statusCode: 200, body: 'Success' };
+  } catch (error) {
+    return { statusCode: 500, body: 'Error' };
+  }
+};
+```
 
 ## 📈 Next Steps
 
-1. Create your Google Form following this guide
-2. Test with a few sample submissions
-3. Update the entry IDs in your React form
-4. Enable Google Forms integration
-5. Monitor submissions in Google Sheets
+1. **Quick Start:** Follow [GOOGLE_FORMS_QUICK_START.md](./GOOGLE_FORMS_QUICK_START.md) for step-by-step setup
+2. **Traffic Concerns:** Read [GOOGLE_FORMS_TRAFFIC_LIMITS.md](./GOOGLE_FORMS_TRAFFIC_LIMITS.md) for detailed info on limits
+3. **Helper Script:** Use `/scripts/google-forms-extractor-v2.js` to extract entry IDs
+4. Test with a few sample submissions
+5. Enable Google Forms integration when ready
 
 ## 🎯 Benefits of This Setup
 
