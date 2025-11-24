@@ -4,34 +4,41 @@ import { useToast } from "@/components/ui/use-toast";
 
 // Google Forms configuration
 const GOOGLE_FORMS_CONFIG = {
-  enabled: false, // Set to true when you have your Google Form ready
-  actionUrl: "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse",
+  enabled: true, // Set to true when you have your Google Form ready
+  // Use the formResponse endpoint (not the viewform URL)
+  actionUrl:
+    "https://docs.google.com/forms/d/e/1FAIpQLSeZhatPR6KhG_nDgMwXQUYHarB97HssP32ITLAIesklW9MhxA/formResponse",
   fieldMapping: {
-    // Map your form fields to Google Forms entry IDs
-    // Example: nombres: "entry.123456789",
-    nombres: "entry.000000001",
-    apellidos: "entry.000000002", 
-    cedula: "entry.000000003",
-    email: "entry.000000004",
-    telefono: "entry.000000005",
-    universidad: "entry.000000006",
-    carrera: "entry.000000007",
-    experienciaProgramacion: "entry.000000008",
-    areasInteres: "entry.000000009",
-    herramientasLenguajes: "entry.000000010",
-    actividadesInteres: "entry.000000011",
-    colaboracionActiva: "entry.000000012",
-    tiempoDisponible: "entry.000000013",
-    nivelCompromiso: "entry.000000014",
-    proyectosPrevios: "entry.000000015",
-    liderazgoExperiencia: "entry.000000016",
-    objetivosPlazo: "entry.000000017",
-    fortalezasPrincipales: "entry.000000018",
-    desafiosInteres: "entry.000000019",
-    aprendizajePreferido: "entry.000000020",
-    contribucionEsperada: "entry.000000021",
-    comentarios: "entry.000000022",
-    comoSeEntero: "entry.000000023",
+    // Mapping based on your TEST prefilled URL
+    nombres: "entry.1304070415",
+    apellidos: "entry.1635670675",
+    cedula: "entry.1093009925",
+    email: "entry.762187120",
+    telefono: "entry.1256368352",
+    universidad: "entry.1592837502",
+    universidadOtra: "entry.1271897015",
+    carrera: "entry.557362533",
+    carreraOtra: "entry.204427330",
+    experienciaProgramacion: "entry.802203129",
+    areasInteres: "entry.1458324455",
+    // areasInteres.other_option_response -> handled dynamically
+    herramientasLenguajes: "entry.371720195",
+    actividadesInteres: "entry.1867042241",
+    colaboracionActiva: "entry.1759389033",
+    // first comments textarea (section 2)
+    comentariosSection1: "entry.1861153507",
+    tiempoDisponible: "entry.339603072",
+    nivelCompromiso: "entry.212051963",
+    proyectosPrevios: "entry.1564733542",
+    liderazgoExperiencia: "entry.537832093",
+    fortalezasPrincipales: "entry.824450996",
+    desafiosInteres: "entry.1289478777",
+    objetivosPlazo: "entry.1609289264",
+    aprendizajePreferido: "entry.1828706852",
+    contribucionEsperada: "entry.1118208089",
+    comoSeEntero: "entry.1741093256",
+    // second comments textarea (Información General)
+    comentariosSection2: "entry.650547013",
   }
 };
 
@@ -58,7 +65,8 @@ const AdmissionForm = () => {
     actividadesInteres: [] as string[],
     actividadesInteresOtra: "",
     colaboracionActiva: "",
-    comentarios: "",
+    comentarios1: "",
+    comentarios2: "",
     comoSeEntero: "",
     
     // New assessment questions
@@ -86,7 +94,7 @@ const AdmissionForm = () => {
     "Ingeniería Industrial",
     "Ingeniería Mecánica",
     "Ingeniería Mecatrónica",
-    "Otro"
+    "Otra"
   ];
 
   const experienciaOpciones = [
@@ -246,27 +254,135 @@ const AdmissionForm = () => {
 
   const submitToGoogleForms = async () => {
     const formDataToSubmit = new FormData();
-    
-    // Map form data to Google Forms entries
-    Object.entries(GOOGLE_FORMS_CONFIG.fieldMapping).forEach(([key, entryId]) => {
-      const value = formData[key as keyof typeof formData];
-      if (Array.isArray(value)) {
-        // For checkbox arrays, join with commas
-        formDataToSubmit.append(entryId, value.join(", "));
-      } else if (value) {
-        formDataToSubmit.append(entryId, value.toString());
+
+    // Helper: map internal option values to human-readable labels where needed
+    const getLabelForValue = (field: string, value: string) => {
+      if (!value) return value;
+      switch (field) {
+        case 'universidad':
+          return value === 'una' ? 'Universidad Nacional de Asunción' : value === 'otra' ? 'Otra' : value;
+        case 'carrera':
+          // carreras array defined above — try to find original label
+          if (value === 'otra') return 'Otra';
+          for (const c of carreras) {
+            if (c.toLowerCase().replace(/ /g, '-') === value) return c;
+          }
+          return value;
+        case 'experienciaProgramacion':
+          return experienciaOpciones.find(o => o.value === value)?.label ?? value;
+        case 'tiempoDisponible':
+          return tiempoDisponibleOpciones.find(o => o.value === value)?.label ?? value;
+        case 'nivelCompromiso':
+          return nivelCompromisoOpciones.find(o => o.value === value)?.label ?? value;
+        case 'aprendizajePreferido':
+          return aprendizajePreferidoOpciones.find(o => o.value === value)?.label ?? value;
+        case 'comoSeEntero':
+          // front-end stores slugified labels
+          return comoSeEnteroOpciones.find(l => l.toLowerCase().replace(/ /g, '-') === value) ?? value;
+        case 'colaboracionActiva':
+          return colaboracionOpciones.find(o => o.value === value)?.label ?? value;
+        default:
+          return value;
       }
-    });
+    }
+
+    // Map form data to Google Forms entry IDs
+    const fieldToEntryMapping: Record<string, string> = {
+      nombres: GOOGLE_FORMS_CONFIG.fieldMapping.nombres,
+      apellidos: GOOGLE_FORMS_CONFIG.fieldMapping.apellidos,
+      cedula: GOOGLE_FORMS_CONFIG.fieldMapping.cedula,
+      email: GOOGLE_FORMS_CONFIG.fieldMapping.email,
+      telefono: GOOGLE_FORMS_CONFIG.fieldMapping.telefono,
+      universidad: GOOGLE_FORMS_CONFIG.fieldMapping.universidad,
+      universidadOtra: GOOGLE_FORMS_CONFIG.fieldMapping.universidadOtra,
+      carrera: GOOGLE_FORMS_CONFIG.fieldMapping.carrera,
+      carreraOtra: GOOGLE_FORMS_CONFIG.fieldMapping.carreraOtra,
+      experienciaProgramacion: GOOGLE_FORMS_CONFIG.fieldMapping.experienciaProgramacion,
+      areasInteres: GOOGLE_FORMS_CONFIG.fieldMapping.areasInteres,
+      herramientasLenguajes: GOOGLE_FORMS_CONFIG.fieldMapping.herramientasLenguajes,
+      actividadesInteres: GOOGLE_FORMS_CONFIG.fieldMapping.actividadesInteres,
+      colaboracionActiva: GOOGLE_FORMS_CONFIG.fieldMapping.colaboracionActiva,
+      tiempoDisponible: GOOGLE_FORMS_CONFIG.fieldMapping.tiempoDisponible,
+      nivelCompromiso: GOOGLE_FORMS_CONFIG.fieldMapping.nivelCompromiso,
+      proyectosPrevios: GOOGLE_FORMS_CONFIG.fieldMapping.proyectosPrevios,
+      liderazgoExperiencia: GOOGLE_FORMS_CONFIG.fieldMapping.liderazgoExperiencia,
+      fortalezasPrincipales: GOOGLE_FORMS_CONFIG.fieldMapping.fortalezasPrincipales,
+      desafiosInteres: GOOGLE_FORMS_CONFIG.fieldMapping.desafiosInteres,
+      objetivosPlazo: GOOGLE_FORMS_CONFIG.fieldMapping.objetivosPlazo,
+      aprendizajePreferido: GOOGLE_FORMS_CONFIG.fieldMapping.aprendizajePreferido,
+      contribucionEsperada: GOOGLE_FORMS_CONFIG.fieldMapping.contribucionEsperada,
+      comoSeEntero: GOOGLE_FORMS_CONFIG.fieldMapping.comoSeEntero,
+    };
+
+    // Iterate through actual form data fields
+    for (const [key, entryId] of Object.entries(fieldToEntryMapping)) {
+      const value = (formData as any)[key];
+
+      if (Array.isArray(value)) {
+        // Checkbox groups: append each selected option as a separate entry param
+        for (const v of value) {
+          // If user selected "Otro", append __other_option__ and the response separately
+          if (v === 'Otro') {
+            formDataToSubmit.append(entryId, '__other_option__');
+          } else {
+            formDataToSubmit.append(entryId, v);
+          }
+        }
+
+        // For checkbox groups with an associated text field (e.g., areasInteresOtra)
+        if ((key as string).endsWith('areasInteres') && formData.areasInteresOtra) {
+          formDataToSubmit.append(`${entryId}.other_option_response`, formData.areasInteresOtra);
+        }
+        if ((key as string).endsWith('herramientasLenguajes') && formData.herramientasLenguajesOtro) {
+          formDataToSubmit.append(`${entryId}.other_option_response`, formData.herramientasLenguajesOtro);
+        }
+        if ((key as string).endsWith('actividadesInteres') && formData.actividadesInteresOtra) {
+          formDataToSubmit.append(`${entryId}.other_option_response`, formData.actividadesInteresOtra);
+        }
+        if ((key as string).endsWith('fortalezasPrincipales') && formData.fortalezasPrincipalesOtra) {
+          formDataToSubmit.append(`${entryId}.other_option_response`, formData.fortalezasPrincipalesOtra);
+        }
+        if ((key as string).endsWith('desafiosInteres') && formData.desafiosInteresOtro) {
+          formDataToSubmit.append(`${entryId}.other_option_response`, formData.desafiosInteresOtro);
+        }
+
+      } else if (value) {
+        // Single value fields — translate internal value to label when necessary
+        const label = getLabelForValue(key, String(value));
+        formDataToSubmit.append(entryId, label);
+
+        // Handle special 'Otra' text fields (these won't re-append since they're checked in the condition)
+        // These are already in the mapping, so skip extra appends
+      }
+    }
+
+    // Map comentarios fields separately (they're not in the fieldMapping loop)
+    if (formData.comentarios1) {
+      const eid1 = GOOGLE_FORMS_CONFIG.fieldMapping['comentariosSection1'] as string;
+      formDataToSubmit.append(eid1, formData.comentarios1);
+    }
+    if (formData.comentarios2) {
+      const eid2 = GOOGLE_FORMS_CONFIG.fieldMapping['comentariosSection2'] as string;
+      formDataToSubmit.append(eid2, formData.comentarios2);
+    }
+
+    // Debug: Log what we're sending
+    console.log('=== Form Submission Debug ===');
+    console.log('Submitting to:', GOOGLE_FORMS_CONFIG.actionUrl);
+    for (let pair of formDataToSubmit.entries()) {
+      console.log(pair[0], '=', pair[1]);
+    }
+    console.log('=== End Debug ===');
 
     // Submit to Google Forms
+    // We must use no-cors from the browser; this returns an opaque response. For more control,
+    // consider creating a server endpoint that forwards submissions (recommended).
     const response = await fetch(GOOGLE_FORMS_CONFIG.actionUrl, {
-      method: "POST",
+      method: 'POST',
       body: formDataToSubmit,
-      mode: "no-cors", // Required for Google Forms
+      mode: 'no-cors',
     });
 
-    // Note: Google Forms returns an opaque response when using no-cors
-    // We assume success if no error is thrown
     return response;
   };
 
@@ -289,7 +405,8 @@ const AdmissionForm = () => {
       actividadesInteres: [],
       actividadesInteresOtra: "",
       colaboracionActiva: "",
-      comentarios: "",
+      comentarios1: "",
+      comentarios2: "",
       comoSeEntero: "",
       tiempoDisponible: "",
       nivelCompromiso: "",
@@ -466,7 +583,7 @@ const AdmissionForm = () => {
             </select>
           </div>
           
-          {formData.carrera === "otro" && (
+          {formData.carrera === "otra" && (
             <div className="mt-4 space-y-2">
               <label htmlFor="carreraOtra" className="text-sm font-medium">Especifica tu carrera</label>
               <input
@@ -619,11 +736,11 @@ const AdmissionForm = () => {
           
           {/* Comentarios */}
           <div className="mb-6 space-y-2">
-            <label htmlFor="comentarios" className="text-sm font-medium">¿Querés agregar algún comentario, sugerencia o idea para el club?</label>
+            <label htmlFor="comentarios1" className="text-sm font-medium">¿Querés agregar algún comentario, sugerencia o idea para el club?</label>
             <textarea
-              id="comentarios"
-              value={formData.comentarios}
-              onChange={(e) => setFormData(prev => ({ ...prev, comentarios: e.target.value }))}
+              id="comentarios1"
+              value={formData.comentarios1}
+              onChange={(e) => setFormData(prev => ({ ...prev, comentarios1: e.target.value }))}
               rows={4}
               className="w-full px-4 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
               placeholder="Comparte tus ideas, sugerencias o cualquier comentario que consideres relevante..."
@@ -853,11 +970,11 @@ const AdmissionForm = () => {
 
           {/* Comentarios adicionales */}
           <div className="mb-6 space-y-2">
-            <label htmlFor="comentarios" className="text-sm font-medium">¿Querés agregar algún comentario, sugerencia o pregunta adicional?</label>
+            <label htmlFor="comentarios2" className="text-sm font-medium">¿Querés agregar algún comentario, sugerencia o pregunta adicional?</label>
             <textarea
-              id="comentarios"
-              value={formData.comentarios}
-              onChange={(e) => setFormData(prev => ({ ...prev, comentarios: e.target.value }))}
+              id="comentarios2"
+              value={formData.comentarios2}
+              onChange={(e) => setFormData(prev => ({ ...prev, comentarios2: e.target.value }))}
               rows={4}
               className="w-full px-4 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
               placeholder="Cualquier información adicional que consideres relevante para tu candidatura..."

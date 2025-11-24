@@ -13,6 +13,8 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "types": ["vite/client", "react"],
 
     /* Linting */
     "strict": false,
@@ -22,6 +24,7 @@
     "noFallthroughCasesInSwitch": false,
 
     "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
     "paths": {
       "@/*": ["./src/*"]
     }
