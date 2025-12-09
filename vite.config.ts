@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -9,12 +8,19 @@ export default defineConfig(({ mode }) => ({
     host: "localhost",
     // host: "::", // Uncomment this line if you want to use IPv6
     port: 8080,
+    proxy: {
+      // Proxy all /api requests to the local API server used for X timeline
+      // This lets the frontend keep calling `/api/x-timeline` unchanged.
+      '/api': {
+        target: 'http://localhost:5174',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
-  ].filter(Boolean),
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

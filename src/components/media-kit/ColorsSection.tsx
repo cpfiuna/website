@@ -1,10 +1,10 @@
 import React from "react";
 import { BookOpen } from "lucide-react";
-import { downloadColorPalette } from "@/utils/downloadHelpers";
 
 const ColorsSection = () => {
   const handleDownloadColors = () => {
-    downloadColorPalette();
+    const url = 'https://drive.google.com/drive/folders/1_eKFF2tV-T34PwM6tomJHAWfVSmgXm59?usp=sharing';
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (

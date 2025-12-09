@@ -4,7 +4,7 @@ import { downloadCompleteMediaKit } from "@/utils/downloadHelpers";
 
 const DownloadPackage = () => {
   const handleDownload = () => {
-    window.open('https://drive.google.com/drive/folders/YOUR_FOLDER_ID', '_blank');
+    window.open('https://drive.google.com/drive/folders/1_eKFF2tV-T34PwM6tomJHAWfVSmgXm59?usp=sharing', '_blank');
   };
 
   return (

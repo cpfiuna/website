@@ -7,7 +7,7 @@ endDate: "03-11-2025"
 time: "De agosto a noviembre de 2025"
 location: "Virtual (Global)"
 description: "Una competencia internacional de ciencias de la computación con múltiples rondas que reta a estudiantes de todo el mundo a explorar, aprender y resolver problemas innovadores en diversas áreas de la informática."
-image: "/eventos/icsc.jpg"
+image: "https://assets.cpfiuna.io/website/public/images/eventos/icsc.jpg"
 type: "competition"
 registrationLink: "https://icscompetition.org/"
 isUpcoming: true

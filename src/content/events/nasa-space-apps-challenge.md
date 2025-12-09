@@ -7,7 +7,7 @@ endDate: "05-10-2025"
 time: "00:00 del 4 hasta las 23:59 del 5"
 location: "Virtual (Global)"
 description: "Una hackathon global de 48 horas organizada por NASA y sus agencias asociadas, donde equipos de todo el mundo trabajan utilizando datos abiertos para crear soluciones innovadoras a desafíos reales."
-image: "/eventos/nasa-space-apps.jpg"
+image: "https://assets.cpfiuna.io/website/public/images/eventos/nasa-space-apps.jpg"
 type: "hackathon"
 registrationLink: "https://www.spaceappschallenge.org/"
 isUpcoming: true

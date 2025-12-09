@@ -3,28 +3,104 @@
  */
 
 /**
- * Downloads an image/file from a URL
- * @param url - The URL of the file to download
- * @param filename - The desired filename for the download
+ * Base URL for Cloudflare-hosted assets. If you host images elsewhere,
+ * update this constant accordingly. Calls may pass a full URL or a
+ * relative path (e.g. 'cpf-logo.png' or '/cpf-logo.png').
  */
-export const downloadFile = async (url: string, filename: string) => {
+const CLOUDFLARE_BASE = 'https://assets.cpfiuna.io/website/public';
+
+/**
+ * Resolve an input that might be a full URL or a relative path into a full URL.
+ * - If input starts with 'http' or '//' it's returned as-is.
+ * - Otherwise it's joined to `CLOUDFLARE_BASE`.
+ */
+const resolveAssetUrl = (input: string) => {
+  if (!input) return input;
+  const trimmed = input.trim();
+  // If it's an absolute URL, return as-is
+  if (/^https?:\/\//i.test(trimmed) || /^\/\//.test(trimmed)) {
+    return trimmed;
+  }
+
+  // If it starts with a single leading slash, treat as origin-relative (served from /public)
+  if (/^\//.test(trimmed)) {
+    return trimmed; // e.g. '/cpf-logo.png' will request from the same origin
+  }
+
+  // Otherwise treat as an external asset path hosted on Cloudflare
+  const path = trimmed.replace(/^\/+/, '');
+  return `${CLOUDFLARE_BASE}/${path}`;
+};
+
+/**
+ * Fallback: open URL in a new tab/window so the user can save the file manually.
+ * This is used when programmatic fetch/download is blocked by CORS.
+ */
+const openInNewTab = (url: string) => {
   try {
-    const response = await fetch(url);
+    const final = resolveAssetUrl(url);
+    const a = document.createElement('a');
+    a.href = final;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    // Some browsers ignore the download attribute for cross-origin resources,
+    // so opening in a new tab is the most compatible fallback.
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  } catch (e) {
+    // As a last resort, try window.open
+    try { window.open(resolveAssetUrl(url), '_blank', 'noopener'); } catch (_) { /* ignore */ }
+  }
+};
+
+/**
+ * Downloads an image/file from a URL or relative path.
+ * @param urlOrPath - Absolute URL or relative path (joined to CLOUDFLARE_BASE)
+ * @param filename - Optional desired filename; if omitted the name is inferred from the URL
+ */
+export const downloadFile = async (urlOrPath: string, filename?: string) => {
+  try {
+    const finalUrl = resolveAssetUrl(urlOrPath);
+
+    const response = await fetch(finalUrl);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
     const blob = await response.blob();
     const blobUrl = window.URL.createObjectURL(blob);
-    
+
     const link = document.createElement('a');
     link.href = blobUrl;
-    link.download = filename;
+
+    // If filename not provided, attempt to derive from URL path
+    if (filename) {
+      link.download = filename;
+    } else {
+      try {
+        const urlObj = new URL(finalUrl, window.location.href);
+        const parts = urlObj.pathname.split('/').filter(Boolean);
+        link.download = parts.length ? parts[parts.length - 1] : 'download';
+      } catch (e) {
+        link.download = 'download';
+      }
+    }
+
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
+
     // Clean up the blob URL
     window.URL.revokeObjectURL(blobUrl);
   } catch (error) {
     console.error('Error downloading file:', error);
-    alert('Error al descargar el archivo. Por favor, intenta nuevamente.');
+    // Likely CORS or network issue in the browser; fallback to opening the
+    // asset in a new tab so the user can save it manually.
+    try {
+      openInNewTab(urlOrPath);
+      alert('No se pudo descargar automáticamente (CORS). Se abrió el recurso en una nueva pestaña para que puedas guardarlo manualmente.');
+    } catch (e) {
+      alert('Error al descargar el archivo. Por favor, intenta nuevamente.');
+    }
   }
 };
 
@@ -75,10 +151,18 @@ export const convertAndDownloadImage = async (
     };
     
     img.onerror = () => {
-      reject(new Error('Could not load image'));
+        // If the browser blocks loading the image due to CORS, fallback by
+        // opening the image URL in a new tab so the user can save it.
+        try {
+          openInNewTab(imageSrc);
+          // Resolve so callers don't get an unhandled rejection; user can manually save.
+          resolve();
+        } catch (e) {
+          reject(new Error('Could not load image'));
+        }
     };
     
-    img.src = imageSrc;
+    img.src = resolveAssetUrl(imageSrc);
   });
 };
 
@@ -88,17 +172,15 @@ export const convertAndDownloadImage = async (
  */
 export const downloadLogoAsSVG = async (filename: string) => {
   try {
-    // Check if SVG exists in public folder
-    const svgUrl = '/cpf-logo.svg';
+    // Resolve via Cloudflare base if a relative path is used
+    const svgUrl = resolveAssetUrl('/cpf-logo.svg');
     const response = await fetch(svgUrl);
-    
+
     if (response.ok) {
-      // SVG exists, download it directly
       await downloadFile(svgUrl, filename);
     } else {
-      // SVG doesn't exist, use PNG as fallback
       alert('Archivo SVG no disponible. Descargando PNG en su lugar.');
-      await downloadFile('/cpf-logo.png', filename.replace('.svg', '.png'));
+      await downloadFile(resolveAssetUrl('/cpf-logo.png'), filename.replace('.svg', '.png'));
     }
   } catch (error) {
     console.error('Error downloading SVG:', error);
@@ -122,24 +204,23 @@ export const downloadLogoAsPDF = async (filename: string) => {
  */
 export const downloadLogoAsEPS = async (filename: string) => {
   try {
-    // Check if EPS exists in public folder
-    const epsUrl = '/cpf-logo.eps';
+    // Check EPS via resolved URL
+    const epsUrl = resolveAssetUrl('/cpf-logo.eps');
     const response = await fetch(epsUrl, { method: 'HEAD' });
-    
+
     if (response.ok) {
-      // EPS exists, download it directly
       await downloadFile(epsUrl, filename);
     } else {
       // EPS doesn't exist, try SVG, then fallback to PNG
-      const svgUrl = '/cpf-logo.svg';
+      const svgUrl = resolveAssetUrl('/cpf-logo.svg');
       const svgResponse = await fetch(svgUrl, { method: 'HEAD' });
-      
+
       if (svgResponse.ok) {
         alert('Archivo EPS no disponible. Descargando SVG en su lugar (formato vectorial).');
         await downloadFile(svgUrl, filename.replace('.eps', '.svg'));
       } else {
         alert('Archivo EPS no disponible. Descargando PNG en su lugar.');
-        await downloadFile('/cpf-logo.png', filename.replace('.eps', '.png'));
+        await downloadFile(resolveAssetUrl('/cpf-logo.png'), filename.replace('.eps', '.png'));
       }
     }
   } catch (error) {
@@ -154,8 +235,8 @@ export const downloadLogoAsEPS = async (filename: string) => {
  * This is a placeholder - you'll need to create the actual ZIP in the public folder
  */
 export const downloadCompleteMediaKit = () => {
-  const zipUrl = '/media-kit-complete.zip';
-  
+  const zipUrl = resolveAssetUrl('/media-kit-complete.zip');
+
   // Check if zip exists, otherwise show message
   fetch(zipUrl, { method: 'HEAD' })
     .then(response => {

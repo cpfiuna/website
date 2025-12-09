@@ -79,7 +79,7 @@ const Footer = () => {
       pageName = "Estatuto";
     } else if (path === "/reglamento" || path === "/regulation") {
       pageName = "Reglamento";
-    } else if (path.startsWith("/documentacion") || path.startsWith("/documentation")) {
+    } else if (path.startsWith("/docs") || path.startsWith("/documentation") || path.startsWith("/documentacion")) {
       pageName = "Documentation";
     }
     
@@ -93,7 +93,7 @@ const Footer = () => {
           <div className="lg:col-span-4">
             <Logo className="mx-auto lg:mx-0" />
             <p className="mt-4 text-sm text-muted-foreground text-center lg:text-left">
-              El Club de Programación es una comunidad de estudiantes
+              Somos una comunidad de estudiantes y profesionales
               apasionados por la programación y la tecnología.
             </p>
             <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
@@ -143,11 +143,11 @@ const Footer = () => {
                 ))}
                 <li>
                   <Link
-                    to="/documentacion"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Documentación
-                  </Link>
+                      to="/docs"
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      Documentación
+                    </Link>
                 </li>
               </ul>
             </div>

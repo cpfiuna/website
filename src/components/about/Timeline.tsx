@@ -13,7 +13,7 @@ const timelineEvents = [
 		description:
 			"Inspirados por modelos de universidades extranjeras, Marcos Villalba, Paolo Bello y José Benítez proponen crear Clubes temáticos en la FIUNA. El 9 de abril se funda oficialmente el Club de Programación y el 11 de abril se realiza la primera reunión, marcando el inicio de nuestra misión de promover la cultura de la programación.",
 		icon: Users,
-		image: "/images/timeline/cpf-2017.jpg",
+		image: "https://assets.cpfiuna.io/website/public/images/timeline/cpf-2017.jpg",
 	},
 	{
 		year: "2018",
@@ -21,7 +21,7 @@ const timelineEvents = [
 		description:
 			"El Club inicia sus primeras actividades y talleres, estableciéndose como espacio abierto para estudiantes. Se organizan cursos de Godot, Java y POO, participa en IEEEXtreme e Intercoding UCA, colabora con DTICS en la creación del sistema de evaluación docente y colabora en la organización de la segunda edición de FIUNA TECH DAY.",
 		icon: Code,
-		image: "/images/timeline/cpf-2018.jpg",
+		image: "https://assets.cpfiuna.io/website/public/images/timeline/cpf-2018.jpg",
 	},
 	{
 		year: "2019",
@@ -29,7 +29,7 @@ const timelineEvents = [
 		description:
 			"El Club crece significativamente, superando los 50 miembros activos y formando alianzas con empresas tecnológicas locales. Se consolida el reconocimiento dentro de la comunidad universitaria, ofreciendo talleres introductorios y actividades colaborativas que generan vínculos entre estudiantes de diversas carreras.",
 		icon: GraduationCap,
-		image: "/images/timeline/cpf-2019.jpg",
+		image: "https://assets.cpfiuna.io/website/public/images/timeline/cpf-2019.jpg",
 	},
 	{
 		year: "2020",
@@ -37,7 +37,7 @@ const timelineEvents = [
 		description:
 			"Con el impacto de la pandemia, el Club migra sus actividades al entorno virtual y se reorganiza por áreas temáticas. Se organizan charlas y encuentros en línea, manteniendo el espíritu de colaboración. Aunque COVID-19 detiene varias iniciativas y varios miembros migran al ámbito laboral, se retoman los refuerzos de Computación al reanudarse las clases.",
 		icon: BookOpen,
-		image: "/images/timeline/cpf-2020.png",
+		image: "https://assets.cpfiuna.io/website/public/images/timeline/cpf-2020.png",
 	},
 	{
 		year: "2021",
@@ -45,7 +45,7 @@ const timelineEvents = [
 		description:
 			"El Club continúa desarrollando espacios de formación y participación, adaptándose al nuevo contexto postpandemia. Se sientan las bases para una etapa de renovación estructural y organizativa que permitirá el crecimiento futuro.",
 		icon: Star,
-		image: "/images/timeline/cpf-2021.jpg",
+		image: "https://assets.cpfiuna.io/website/public/images/timeline/cpf-2021.jpg",
 	},
 	{
 		year: "2022",
@@ -53,7 +53,7 @@ const timelineEvents = [
 		description:
 			"El Club se transforma con nuevo logo, presencia digital y equipo de marketing, trabajando en recuperar la actividad tras la pandemia. Se continúa con cursos y tutorías, se reactivan espacios presenciales como las salas R y se participa en eventos clave como TIGO Campus Party e IEEExtreme, sentando las bases para una renovación estructural y organizativa.",
 		icon: Award,
-		image: "/images/timeline/cpf-2022.jpg",
+		image: "https://assets.cpfiuna.io/website/public/images/timeline/cpf-2022.jpg",
 	},
 	{
 		year: "2023",
@@ -61,7 +61,7 @@ const timelineEvents = [
 		description:
 			"El CPF se consolida como referente en la facultad y continúa participando en eventos tecnológicos relevantes, manteniendo una agenda activa de formación. Se imparten cursos de Git y GitHub y se fortalecen los lazos con IEEE. A pesar de atravesar una fase de transición interna, el impacto de los esfuerzos previos sigue beneficiando a la comunidad.",
 		icon: Users,
-		image: "/images/timeline/cpf-2023.jpg",
+		image: "https://assets.cpfiuna.io/website/public/images/timeline/cpf-2023.jpg",
 	},
 	{
 		year: "2024",
@@ -69,7 +69,7 @@ const timelineEvents = [
 		description:
 			"El Club entra en una pausa estratégica para enfocarse en el refuerzo de su identidad digital, modernización de las redes sociales y la creación de una nueva página web. Durante este período se incrementa la participación en eventos tecnológicos y se impulsa el desarrollo de proyectos innovadores, sentando las bases para una nueva era de crecimiento.",
 		icon: Lightbulb,
-		image: "/images/timeline/cpf-2025.png",
+		image: "https://assets.cpfiuna.io/website/public/images/timeline/cpf-2024.jpg",
 	},
 	{
 		year: "2025",
@@ -77,7 +77,7 @@ const timelineEvents = [
 		description:
 			"Se proyecta expandir la influencia del Club más allá de los límites universitarios, estableciendo conexiones con empresas, startups y organizaciones tecnológicas para crear un ecosistema digital robusto que impulse la innovación y beneficie a toda la comunidad paraguaya, contribuyendo al desarrollo tecnológico del país.",
 		icon: Star,
-		image: "/images/timeline/cpf-2025.jpg",
+		image: "https://assets.cpfiuna.io/website/public/images/timeline/cpf-2025.jpg",
 	},
 ];
 

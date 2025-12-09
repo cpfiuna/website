@@ -33,28 +33,28 @@ const AboutClub = () => {
           <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
             <div className="aspect-square overflow-hidden rounded-lg transform translate-y-4">
               <img 
-                src="/images/home/home-3.jpg"
+                src="https://assets.cpfiuna.io/website/public/images/home/home-3.jpg"
                 alt="Miembros del club en el Tigo Campus Party 2022" 
                 className="object-cover w-full h-full"
               />
             </div>
             <div className="aspect-square overflow-hidden rounded-lg transform -translate-y-4">
               <img 
-                src="images/home/home-7.jpg"
+                src="https://assets.cpfiuna.io/website/public/images/home/home-7.jpg"
                 alt="Revisando el código de un proyecto en equipo" 
                 className="object-cover w-full h-full"
               />
             </div>
             <div className="aspect-square overflow-hidden rounded-lg transform translate-y-6">
               <img 
-                src="/images/home/home-0.jpg"
+                src="https://assets.cpfiuna.io/website/public/images/home/home-0.jpg"
                 alt="VR en el Tigo Campus Party" 
                 className="object-cover w-full h-full"
               />
             </div>
             <div className="aspect-square overflow-hidden rounded-lg transform -translate-y-6">
               <img 
-                src="images/home/home-6.jpg"
+                src="https://assets.cpfiuna.io/website/public/images/home/home-6.jpg"
                 alt="Taller de programación en el Tigo Campus Party" 
                 className="object-cover w-full h-full"
               />

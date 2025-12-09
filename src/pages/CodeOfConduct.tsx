@@ -215,9 +215,7 @@ const CodeOfConduct = () => {
             <div className="glass-card-static p-6">
               <h2 className="text-xl font-semibold mb-4">Atribución</h2>
               <p className="text-muted-foreground">
-              Este Código de Conducta está adaptado del&nbsp;
-              <a href="https://www.contributor-covenant.org/" className="text-primary hover:underline">Contributor Covenant</a>,&nbsp;
-              versión 2.0, disponible en&nbsp;
+              Este Código de Conducta está adaptado del Contributor Covenant, versión 2.0, disponible en&nbsp;
               <a href="https://www.contributor-covenant.org/version/2/0/code_of_conduct.html" className="text-primary hover:underline">este enlace</a>.
               </p>
             </div>
