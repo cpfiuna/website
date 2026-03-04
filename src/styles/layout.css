@@ -1,0 +1,88 @@
+
+/* Layout and Responsive Utilities */
+
+/* Banner height token — updated at runtime by BannerContext */
+:root {
+  --banner-height: 0px;
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+/* Main content offset: navbar height + banner height */
+main.layout-main {
+  padding-top: calc(var(--banner-height, 0px) + 4rem); /* 4rem = pt-16 */
+}
+
+@media (min-width: 768px) {
+  main.layout-main {
+    padding-top: calc(var(--banner-height, 0px) + 5rem); /* 5rem = pt-20 */
+  }
+}
+
+body {
+  @apply bg-background text-foreground antialiased transition-colors duration-300;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+  /* Use the --vh variable created in the Layout */
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Additional responsive utilities for mobile */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Improve tap targets for mobile */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Banner elements must NOT inherit the 44px tap-target rule — it would inflate the banner height */
+  .banner-strip button,
+  .banner-strip a {
+    min-height: 0;
+    min-width: 0;
+  }
+  
+  /* Adjust font sizes for mobile */
+  h1 {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  /* Fix image overflow issues on mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Media query for small devices */
+@media (max-width: 480px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+  
+  .mobile-only {
+    display: block !important;
+  }
+}
+
+/* Ensure that timeline images are visible */
+.timeline-image, .placeholder-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
