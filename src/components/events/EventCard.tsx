@@ -33,7 +33,7 @@ const EventCard = ({ event, getEventTypeLabel }: EventCardProps) => {
   };
 
   return (
-    <div className={`glass-card group hover:shadow-neon-blue transition-all ${isPastEvent ? 'opacity-80 dark:opacity-70' : ''}`}>
+    <div className={`glass-card group hover:shadow-neon-blue transition-all flex flex-col h-full ${isPastEvent ? 'opacity-80 dark:opacity-70' : ''}`}>
       <Link to={`/eventos/${event.slug}`} className="block">
         <div className="relative">
           <img
@@ -62,7 +62,7 @@ const EventCard = ({ event, getEventTypeLabel }: EventCardProps) => {
           </div>
         </div>
       </Link>
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-grow">
         <Link to={`/eventos/${event.slug}`}>
           <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-200">
             {event.title}
@@ -99,8 +99,8 @@ const EventCard = ({ event, getEventTypeLabel }: EventCardProps) => {
           </div>
         </div>
 
-        {/* Button container - aligned to the right */}
-        <div className="flex justify-end mt-4">
+        {/* Button container - pinned to bottom-right regardless of text length */}
+        <div className="flex justify-end mt-auto pt-4">
           {event.isUpcoming ? (
             <Link
               to={`/eventos/${event.slug}`}

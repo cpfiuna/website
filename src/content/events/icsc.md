@@ -1,10 +1,10 @@
 ---
 id: 102
 title: "International Computer Science Competition"
-date: "24-08-2025"
-startDate: "24-08-2025"
-endDate: "03-11-2025"
-time: "De agosto a noviembre de 2025"
+date: "05-07-2026"
+startDate: "05-07-2026"
+endDate: "21-09-2026"
+time: "De julio a septiembre de 2026"
 location: "Virtual (Global)"
 description: "Una competencia internacional de ciencias de la computación con múltiples rondas que reta a estudiantes de todo el mundo a explorar, aprender y resolver problemas innovadores en diversas áreas de la informática."
 image: "https://assets.cpfiuna.io/website/public/images/eventos/icsc.jpg"
@@ -14,11 +14,11 @@ isUpcoming: true
 slug: "icsc"
 ---
 
-# International Computer Science Competition 2025
+# International Computer Science Competition 2026
 
 ## La competencia global de ciencias de la computación
 
-El **International Computer Science Competition (ICSC)** es una competencia internacional que reúne a estudiantes de secundaria y universitarios de todo el mundo para resolver desafíos en diversas áreas de la informática. La edición 2025 se desarrolla de **agosto a noviembre**, con múltiples rondas diseñadas para evaluar el pensamiento crítico, la lógica, la creatividad y la capacidad de aplicar conceptos informáticos a problemas reales.
+El **International Computer Science Competition (ICSC)** es una competencia internacional que reúne a estudiantes de secundaria y universitarios de todo el mundo para resolver desafíos en diversas áreas de la informática. La edición 2026 se desarrolla de **julio a septiembre**, con tres rondas diseñadas para evaluar el pensamiento crítico, la lógica, la creatividad y la capacidad de aplicar conceptos informáticos a problemas reales.
 
 ### ¿Qué es la ICSC?
 
@@ -40,20 +40,21 @@ La ICSC consta de tres rondas:
 
 1. **Qualification Round**  
    - 5 problemas (conceptuales y de programación).  
-   - Fecha límite: **24 de agosto de 2025**.  
-   - Resultados: **8 de septiembre de 2025**.  
+   - Fecha límite de envío: **domingo 5 de julio de 2026**.  
+   - Anuncio de resultados: **lunes 20 de julio de 2026**.  
    - Sin costo de inscripción.  
 
 2. **Pre-Final Round**  
    - 6 problemas: 2 básicos, 2 avanzados y 2 de investigación.  
-   - Registro hasta el **30 de septiembre de 2025** (costo: 11 € con opción a ayuda financiera).  
-   - Problemas disponibles el **2 de octubre** y entrega hasta el **5 de octubre de 2025**.  
-   - Resultados: **13 de octubre de 2025**.  
+   - Fecha límite de registro: **martes 11 de agosto de 2026**.  
+   - Publicación del paper de investigación: **miércoles 12 de agosto de 2026**.  
+   - Fecha límite del examen: **domingo 16 de agosto de 2026**.  
+   - Anuncio de resultados: **lunes 31 de agosto de 2026**.  
 
 3. **Final Round**  
-   - Examen online de 20 preguntas de opción múltiple.  
-   - Día del examen: **28 de octubre de 2025**.  
-   - Resultados finales: **3 de noviembre de 2025**.
+   - Examen online.  
+   - Día del examen: **martes 15 de septiembre de 2026**.  
+   - Anuncio de resultados finales: **lunes 21 de septiembre de 2026**.
 
 ### Premios y reconocimientos
 
@@ -69,4 +70,4 @@ Más que una competencia, la ICSC es un viaje de aprendizaje. Los participantes 
 
 ## En resumen
 
-La **International Computer Science Competition 2025** es una oportunidad única para poner a prueba tus habilidades, aprender más sobre la ciencia que impulsa el mundo digital y conectar con otros entusiastas de la informática a nivel global.  
+La **International Computer Science Competition 2026** es una oportunidad única para poner a prueba tus habilidades, aprender más sobre la ciencia que impulsa el mundo digital y conectar con otros entusiastas de la informática a nivel global.
